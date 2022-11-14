@@ -6,6 +6,8 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native';
+import { Text } from '@metacraft/ui';
+import UnderRealmButton from 'components/Marketplace/Button';
 import {
 	homeNav,
 	localNavigations,
@@ -47,7 +49,13 @@ export const InternalNavigation: FC = () => {
 						);
 					})}
 				</View>
-				<View style={styles.commandContainer} />
+				<View style={styles.commandContainer}>
+					<View style={styles.buttonContainer}>
+						<UnderRealmButton style={styles.button}>
+							<Text style={styles.buttonText}>Play Demo</Text>
+						</UnderRealmButton>
+					</View>
+				</View>
 			</View>
 		</ImageBackground>
 	);
@@ -77,5 +85,16 @@ const styles = StyleSheet.create({
 	commandContainer: {
 		flexDirection: 'row',
 		paddingRight: 20,
+	},
+	buttonContainer: {
+		justifyContent: 'center',
+		height: navigationHeight.local,
+	},
+	button: {
+		width: 180,
+	},
+	buttonText: {
+		textAlign: 'center',
+		color: '#fff',
 	},
 });

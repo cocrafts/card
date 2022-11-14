@@ -1,5 +1,4 @@
 import { Auth } from '@aws-amplify/auth';
-import { Crypto } from '@cocrafts/kernel';
 import { PublicKey } from '@solana/web3.js';
 import bs58 from 'bs58';
 import { graphQlClient } from 'utils/graphql';
@@ -8,6 +7,9 @@ import { amplifySignIn, extractJwt } from 'utils/lib';
 import { Profile } from 'utils/types';
 
 import { accountState } from './internal';
+
+const loginMessage = (nonce: string) =>
+	`Sign this message prove that you have access to this wallet and we'll log you in. This won't cost you anything! [Seal: ${nonce}]`;
 
 export const syncProfile = async (): Promise<Profile | null> => {
 	const jwt = await extractJwt();
@@ -48,7 +50,7 @@ export const walletSignIn = async ({
 	try {
 		const cognitoUser = await amplifySignIn(publicKey?.toString() as string);
 		const { nonce } = cognitoUser.challengeParam;
-		const message = Crypto.loginMessage(nonce);
+		const message = loginMessage(nonce);
 		const encodedMessage = new TextEncoder().encode(message);
 		const signature = await signMessage?.(encodedMessage);
 		const encodedSignature = bs58.encode(signature || []);

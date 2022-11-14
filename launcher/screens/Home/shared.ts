@@ -5,6 +5,7 @@ export const headingSize = [35] as ScaledSizes;
 
 export const sharedStyle = StyleSheet.create({
 	heading: {
+		fontFamily: 'Volkhov',
 		fontWeight: '600',
 		color: '#fff',
 		marginBottom: 15,

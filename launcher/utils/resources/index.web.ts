@@ -83,5 +83,65 @@ export default {
 		elementalInteractionVisual: {
 			uri: '/home/elemental-interaction-visual.png',
 		},
+		cardTypesBackground: { uri: '/home/card-type-background.png' },
+		cardTypesSpellVisual: { uri: '/home/card-type-spell-visual.png' },
+		classes: {
+			background: { uri: '/home/classes/background.png' },
+			logoBackground: { uri: '/home/classes/logo-background.png' },
+			borderBackground: { uri: '/home/classes/border-background.png' },
+			classContentBackground: {
+				uri: '/home/classes/class-content-background.png',
+			},
+			summoner: {
+				backgroundActive: {
+					uri: '/home/classes/summoner/class-background-active.png',
+				},
+				logoBackgroundActive: {
+					uri: '/home/classes/summoner/logo-background-active.png',
+				},
+				logo: { uri: '/home/classes/summoner/logo.png' },
+				logoActive: { uri: '/home/classes/summoner/logo-active.png' },
+			},
+			assassin: {
+				backgroundActive: {
+					uri: '/home/classes/assassin/class-background-active.png',
+				},
+				logoBackgroundActive: {
+					uri: '/home/classes/assassin/logo-background-active.png',
+				},
+				logo: { uri: '/home/classes/assassin/logo.png' },
+				logoActive: { uri: '/home/classes/assassin/logo-active.png' },
+			},
+			wizard: {
+				backgroundActive: {
+					uri: '/home/classes/wizard/class-background-active.png',
+				},
+				logoBackgroundActive: {
+					uri: '/home/classes/wizard/logo-background-active.png',
+				},
+				logo: { uri: '/home/classes/wizard/logo.png' },
+				logoActive: { uri: '/home/classes/wizard/logo-active.png' },
+			},
+			tanker: {
+				backgroundActive: {
+					uri: '/home/classes/tanker/class-background-active.png',
+				},
+				logoBackgroundActive: {
+					uri: '/home/classes/tanker/logo-background-active.png',
+				},
+				logo: { uri: '/home/classes/tanker/logo.png' },
+				logoActive: { uri: '/home/classes/tanker/logo-active.png' },
+			},
+			knight: {
+				backgroundActive: {
+					uri: '/home/classes/knight/class-background-active.png',
+				},
+				logoBackgroundActive: {
+					uri: '/home/classes/knight/logo-background-active.png',
+				},
+				logo: { uri: '/home/classes/knight/logo.png' },
+				logoActive: { uri: '/home/classes/knight/logo-active.png' },
+			},
+		},
 	},
 };

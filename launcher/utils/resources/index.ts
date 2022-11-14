@@ -77,5 +77,43 @@ export default {
 		elementalInteractionFirstBackground: require('../../../assets/home/elemental-interaction-first-background.png'),
 		elementalInteractionSecondBackground: require('../../../assets/home/elemental-interaction-second-background.png'),
 		elementalInteractionVisual: require('../../../assets/home/elemental-interaction-visual.png'),
+		cardTypesBackground: require('../../../assets/home/card-type-background.png'),
+		cardTypesSpellVisual: require('../../../assets/home/card-type-spell-visual.png'),
+		classes: {
+			background: require('../../../assets/home/classes/background.png'),
+			logoBackground: require('../../../assets/home/classes/logo-background.png'),
+			borderBackground: require('../../../assets/home/classes/border-background.png'),
+			classContentBackground: require('../../../assets/home/classes/class-content-background.png'),
+			summoner: {
+				backgroundActive: require('../../../assets/home/classes/summoner/class-background-active.png'),
+				logoBackgroundActive: require('../../../assets/home/classes/summoner/logo-background-active.png'),
+				logo: require('../../../assets/home/classes/summoner/logo.png'),
+				logoActive: require('../../../assets/home/classes/summoner/logo-active.png'),
+			},
+			assassin: {
+				backgroundActive: require('../../../assets/home/classes/assassin/class-background-active.png'),
+				logoBackgroundActive: require('../../../assets/home/classes/assassin/logo-background-active.png'),
+				logo: require('../../../assets/home/classes/assassin/logo.png'),
+				logoActive: require('../../../assets/home/classes/assassin/logo-active.png'),
+			},
+			wizard: {
+				backgroundActive: require('../../../assets/home/classes/wizard/class-background-active.png'),
+				logoBackgroundActive: require('../../../assets/home/classes/wizard/logo-background-active.png'),
+				logo: require('../../../assets/home/classes/wizard/logo.png'),
+				logoActive: require('../../../assets/home/classes/wizard/logo-active.png'),
+			},
+			tanker: {
+				backgroundActive: require('../../../assets/home/classes/tanker/class-background-active.png'),
+				logoBackgroundActive: require('../../../assets/home/classes/tanker/logo-background-active.png'),
+				logo: require('../../../assets/home/classes/tanker/logo.png'),
+				logoActive: require('../../../assets/home/classes/tanker/logo-active.png'),
+			},
+			knight: {
+				backgroundActive: require('../../../assets/home/classes/knight/class-background-active.png'),
+				logoBackgroundActive: require('../../../assets/home/classes/knight/logo-background-active.png'),
+				logo: require('../../../assets/home/classes/knight/logo.png'),
+				logoActive: require('../../../assets/home/classes/knight/logo-active.png'),
+			},
+		},
 	},
 };

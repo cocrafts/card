@@ -13,7 +13,6 @@
 	"license": "ISC",
 	"dependencies": {
 		"@apollo/client": "^3.6.9",
-		"@cocrafts/kernel": "^0.0.18",
 		"@metacraft/engines-under-realm": "^0.0.14",
 		"@metacraft/icons": "^0.0.21",
 		"@metacraft/ui": "^0.0.57",

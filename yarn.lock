@@ -4355,11 +4355,6 @@
     near-api-js "^0.44.2"
     near-seed-phrase "^0.2.0"
 
-"@cocrafts/kernel@^0.0.18":
-  version "0.0.18"
-  resolved "https://npm.pkg.github.com/download/@cocrafts/kernel/0.0.18/dabc46d04c4e2dc1222321d85559e7a848c32a39#dabc46d04c4e2dc1222321d85559e7a848c32a39"
-  integrity sha512-XnIpSVCoTuP9RSVQzEltK7QTuIOPQcRkkphmjKUBUMjuiFJr0+vws2CxM4wkKuHykiFDe07hRfXsFZ6G64laCQ==
-
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
   resolved "https://registry.yarnpkg.com/@egjs/hammerjs/-/hammerjs-2.0.17.tgz#5dc02af75a6a06e4c2db0202cae38c9263895124"
