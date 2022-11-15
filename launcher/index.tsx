@@ -1,7 +1,7 @@
 import { FC, useCallback, useMemo } from 'react';
 import { ApolloProvider } from '@apollo/client/react';
 import { Provider as MetacraftProvider } from '@metacraft/ui';
-import { WalletError } from '@solana/wallet-adapter-base';
+import { WalletAdapterNetwork, WalletError } from '@solana/wallet-adapter-base';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
 import {
 	ConnectionProvider,
@@ -18,7 +18,13 @@ import { launcherTheme } from 'utils/theme';
 
 export const App: FC = () => {
 	const { network } = useSnapshot(appState);
-	const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+	const endpoint = useMemo(
+		() =>
+			Object.values(WalletAdapterNetwork).includes(network)
+				? clusterApiUrl(network)
+				: network,
+		[network],
+	);
 	const { profile, loading, forceConnect } = useSnapshot(accountState);
 	const autoConnect = forceConnect || (!loading && !profile.id);
 
