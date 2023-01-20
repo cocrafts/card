@@ -5,7 +5,7 @@ import Engine, {
 	PlayerState,
 } from '@metacraft/murg-engine';
 import { AudioSource, Node } from 'cc';
-import lodash from 'lodash';
+import { isEqual } from 'lodash';
 
 import { JwtPayload, PlayerIds, ServerState } from '../util/types';
 

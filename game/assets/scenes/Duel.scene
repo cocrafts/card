@@ -50,6 +50,33 @@
       "y": 0,
       "z": 0
     },
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_mobility": 0,
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
     "autoReleaseAssets": false,
     "_globals": {
       "__id__": 104
@@ -188,7 +215,7 @@
     "_priority": 1073741824,
     "_fov": 42.817,
     "_fovAxis": 0,
-    "_orthoHeight": 538.6301369863014,
+    "_orthoHeight": 469.3333333333333,
     "_near": 0,
     "_far": 2000,
     "_color": {
@@ -1343,7 +1370,7 @@
     },
     "fileId": "c46/YsCPVOJYA4mWEpNYRx",
     "instance": {
-      "__id__": 54
+      "__id__": 50
     },
     "targetOverrides": null
   },
@@ -1495,7 +1522,7 @@
     },
     "fileId": "c46/YsCPVOJYA4mWEpNYRx",
     "instance": {
-      "__id__": 67
+      "__id__": 63
     },
     "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
@@ -1657,7 +1684,7 @@
     },
     "fileId": "c46/YsCPVOJYA4mWEpNYRx",
     "instance": {
-      "__id__": 80
+      "__id__": 76
     },
     "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
@@ -1981,10 +2008,10 @@
       "__id__": 108
     },
     "octree": {
-      "__id__": 109
+      "__id__": 105
     },
     "lightProbeInfo": {
-      "__id__": 110
+      "__id__": 106
     },
     "bakedWithStationaryMainLight": false
   },
@@ -2123,4 +2150,3 @@
     "_showConvex": false,
     "_data": null
   }
-]
