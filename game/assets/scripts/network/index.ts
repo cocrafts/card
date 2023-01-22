@@ -28,7 +28,7 @@ connectionInstance.onopen = () => {
 	system.isSocketReady = true;
 };
 
-export const waitForSocket = (maxRetry = 150): Promise<boolean> => {
+export const waitForSocket = (maxRetry = 100): Promise<boolean> => {
 	let retryCount = 0;
 
 	return new Promise((resolve, reject) => {
@@ -37,12 +37,12 @@ export const waitForSocket = (maxRetry = 150): Promise<boolean> => {
 				resolve(true);
 				clearInterval(waitInterval);
 			} else if (retryCount > maxRetry) {
-				reject('too many retries, socket may not be ready');
+				reject('too many retries');
 				clearInterval(waitInterval);
 			}
 
 			retryCount += 1;
-		}, 200);
+		}, 500);
 	});
 };
 
