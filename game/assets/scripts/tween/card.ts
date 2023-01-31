@@ -1,6 +1,6 @@
 import { Node, Quat, Tween, tween, UIOpacity, Vec3 } from 'cc';
 
-import { playEffectSound } from '../util/resources';
+import { playSoundOnce } from '../util/resources';
 
 export interface PlayerCardOption {
 	node: Node;

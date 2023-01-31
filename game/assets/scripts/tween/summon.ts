@@ -1,6 +1,6 @@
 import { Node, Quat, tween, Vec3 } from 'cc';
 
-import { playEffectSound } from '../util/resources';
+import { playSoundOnce } from '../util/resources';
 
 import { shakeGround } from './common';
 
