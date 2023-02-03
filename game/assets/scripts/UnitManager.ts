@@ -13,7 +13,6 @@ import { updateUnit } from './util/attribute';
 import { getFoilUri, getVisualUri, setCursor } from './util/helper';
 import { playSoundOnce } from './util/resources';
 import { system } from './util/system';
-import { updateUnit } from './util/unit';
 import { CardManager } from './CardManager';
 import { raiseUnitPreview } from './tween';
 

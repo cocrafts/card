@@ -63,10 +63,6 @@ export const updateUnit = async (cardId: string): Promise<void> => {
 		chargeLabel.string = String(current.charge);
 	}
 
-	if (state.charge) {
-		chargeLabel.string = String(state.charge);
-	}
-
 	defensePredictNode.active = false;
 	defensePredictNode.active = false;
 	healthPredictNode.active = false;
@@ -84,11 +80,7 @@ export const updateUnit = async (cardId: string): Promise<void> => {
 	const defenseDiff = future.defense - current.defense;
 	const attackDiff = future.attack - current.attack;
 
-	const healthDiff = combinedPredict.health - health;
-	const defenseDiff = combinedPredict.defense - defense;
-	const attackDiff = combinedPredict.attack - attack;
-
-	if (combinedPredict.health <= 0) {
+	if (future.health <= 0) {
 		deathPredictNode.active = true;
 	}
 

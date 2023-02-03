@@ -52,19 +52,24 @@ export class BoardManager extends Component {
 		const enemyHandGuide = this.node.getChildByPath('Guide/enemyHand');
 		const enemyGroundGuide = this.node.getChildByPath('Guide/enemyGround');
 		const summonZoneGuide = this.node.getChildByPath('Guide/summonZone');
+		const version = this.node.getChildByPath('Hud/version');
+		const playerHealth = this.node.getChildByPath('Hud/playerHealth');
+		const playerHealthPredict = this.node.getChildByPath(
+			'Hud/playerHealthPredict',
+		);
+		const enemyHealth = this.node.getChildByPath('Hud/enemyHealth');
+		const enemyHealthPredict = this.node.getChildByPath(
+			'Hud/enemyHealthPredict',
+		);
 
 		this.playerDeckCount = this.node
-			.getChildByPath('Hud/playerDeckCount')
+			.getChildByPath('Surface/playerDeckCount')
 			.getComponent(Label);
 		this.enemyDeckCount = this.node
-			.getChildByPath('Hud/enemyDeckCount')
+			.getChildByPath('Surface/enemyDeckCount')
 			.getComponent(Label);
-		this.playerHealth = this.node
-			.getChildByPath('Hud/playerHealth')
-			.getComponent(Label);
-		this.enemyHealth = this.node
-			.getChildByPath('Hud/enemyHealth')
-			.getComponent(Label);
+
+		version.getComponent(Label).string = `version ${engineVersion}`;
 
 		system.globalNodes.board = this.node;
 		system.globalNodes.fog = fog;
