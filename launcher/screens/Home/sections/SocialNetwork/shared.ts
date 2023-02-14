@@ -1,9 +1,29 @@
+import { FC } from 'react';
+import { ViewStyle } from 'react-native';
+import DiscordIcon from 'components/icons/Discord';
+import FacebookIcon from 'components/icons/Facebook';
+import GithubIcon from 'components/icons/GithubSolid';
+import InstagramIcon from 'components/icons/Instagram';
+import SubstackIcon from 'components/icons/Substack';
+import TwitterIcon from 'components/icons/Twitter';
 import { navigate } from 'stacks/Browser/shared';
 
 export interface ButtonText {
 	title: string;
 	isAvailable: boolean;
 	onPress?: () => void;
+}
+
+interface Props {
+	size?: number;
+	color?: string;
+	style?: ViewStyle;
+}
+
+export interface SocialLink {
+	href: string;
+	Component: FC<Props>;
+	props: Props;
 }
 
 export const buttonList: ButtonText[] = [
