@@ -1,6 +1,6 @@
 import { Node, tween, Vec3 } from 'cc';
 
-import { playSoundOnce } from '../util/resources';
+import { playEffectSound } from '../util/resources';
 import { system } from '../util/system';
 
 export const animateGroundRemoval = (node: Node): Promise<void> => {
