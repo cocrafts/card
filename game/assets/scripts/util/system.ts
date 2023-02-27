@@ -5,7 +5,7 @@ import Engine, {
 	PlayerState,
 } from '@metacraft/murg-engine';
 import { AudioSource, Node } from 'cc';
-import isEqual from 'lodash.isequal';
+import lodash from 'lodash';
 
 import { JwtPayload, PlayerIds, ServerState } from '../util/types';
 
@@ -57,7 +57,7 @@ export const makeDuelProxy = (duel: DuelProxy): DuelProxy => {
 
 	duel.stateMap = new Proxy(duel.stateMap, {
 		set: (target, key, value) => {
-			if (isEqual(target[key as string], value)) return true;
+			if (lodash.isEqual(target[key as string], value)) return true;
 			const registeredGroup = listenerMap[`state#${key as string}`];
 
 			if (registeredGroup) {
@@ -74,7 +74,7 @@ export const makeDuelProxy = (duel: DuelProxy): DuelProxy => {
 
 	return new Proxy(duel, {
 		set: (target, key, value) => {
-			if (isEqual(target[key as string], value)) return true;
+			if (lodash.isEqual(target[key as string], value)) return true;
 			const registeredGroup = listenerMap[key as string];
 
 			if (registeredGroup) {
@@ -92,10 +92,12 @@ export const makeDuelProxy = (duel: DuelProxy): DuelProxy => {
 
 export interface System {
 	jwt?: string;
+	isSocketReady: boolean;
 	winner?: string;
 	playerIds: PlayerIds;
 	serverState?: ServerState;
 	duel?: DuelProxy;
+	predict?: DuelState;
 	context?: JwtPayload;
 	config?: DuelConfig;
 	history?: DuelCommandBundle[];
@@ -124,6 +126,10 @@ export interface System {
 		enemyHandGuide?: Node;
 		enemyGroundGuide?: Node;
 		summonZoneGuide?: Node;
+		playerHealth?: Node;
+		playerHealthPredict?: Node;
+		enemyHealth?: Node;
+		enemyHealthPredict?: Node;
 	};
 	audioSource?: AudioSource;
 	cardRefs: Record<string, Node>;
@@ -144,31 +150,35 @@ const defaultPlayer: PlayerState = {
 	perTurnSpell: defaultSetting.perTurnSpell,
 };
 
+const defaultDuel = {
+	cardMap: {},
+	stateMap: {},
+	turn: 0,
+	phase: DuelPhases.Draw,
+	phaseOf: '',
+	uniqueCardCount: 0,
+	setting: defaultSetting,
+	firstMover: '',
+	firstPlayer: defaultPlayer,
+	secondPlayer: defaultPlayer,
+	firstDeck: [],
+	secondDeck: [],
+	firstHand: [],
+	secondHand: [],
+	firstGround: [],
+	secondGround: [],
+	firstGrave: [],
+	secondGrave: [],
+};
+
 export const system: System = {
 	playerIds: {
 		me: '',
 		enemy: '',
 	},
-	duel: makeDuelProxy({
-		cardMap: {},
-		stateMap: {},
-		turn: 0,
-		phase: DuelPhases.Draw,
-		phaseOf: '',
-		uniqueCardCount: 0,
-		setting: defaultSetting,
-		firstMover: '',
-		firstPlayer: defaultPlayer,
-		secondPlayer: defaultPlayer,
-		firstDeck: [],
-		secondDeck: [],
-		firstHand: [],
-		secondHand: [],
-		firstGround: [],
-		secondGround: [],
-		firstGrave: [],
-		secondGrave: [],
-	}),
+	duel: makeDuelProxy(defaultDuel),
+	predict: defaultDuel,
+	isSocketReady: false,
 	serverState: {},
 	isCommandAble: false,
 	cardRefs: {},

@@ -1,8 +1,8 @@
 import Engine, { PlayerState } from '@metacraft/murg-engine';
-import { _decorator, Animation, Component, Label, Node } from 'cc';
+import { _decorator, Animation, Component, Label } from 'cc';
 
 import { getPositionExpos } from './util/layout';
-import { switchSound } from './util/sound';
+import { switchBackgroundSound } from './util/resources';
 import { system } from './util/system';
 import { sendConnect } from './network';
 import { animateGlowOff, animateGlowOn, simpleMove } from './tween';
@@ -16,6 +16,7 @@ const {
 	selectPlayer,
 	selectHand,
 	getCard,
+	version: engineVersion,
 } = Engine;
 
 interface Props {
@@ -27,63 +28,48 @@ interface Props {
 @ccclass('BoardManager')
 export class BoardManager extends Component {
 	unSubscribers: (() => void)[] = [];
-	animation: Animation;
 	playerDeckCount: Label;
-	playerHealth: Label;
 	enemyDeckCount: Label;
-	enemyHealth: Label;
 
 	props: Props = {};
 
 	start(): void {
 		const fog = this.node.getChildByPath('Air/fog');
-		const cardTemplate = this.node.getChildByPath('Card Template') as Node;
-		const unitTemplate = this.node.getChildByPath('Unit Template') as Node;
-		const unitPreview = this.node.getChildByPath(
-			'Surface/Unit Preview',
-		) as Node;
-		const playerDeck = this.node.getChildByPath(
-			'Surface/Player Deck/foil',
-		) as Node;
-		const enemyDeck = this.node.getChildByPath(
-			'Surface/Enemy Deck/foil',
-		) as Node;
-		const centerExpo = this.node.getChildByPath('Guide/centerExpo') as Node;
-		const leftExpo = this.node.getChildByPath('Guide/leftExpo') as Node;
-		const rightExpo = this.node.getChildByPath('Guide/rightExpo') as Node;
-		const playerHand = this.node.getChildByPath('playerHand') as Node;
-		const enemyHand = this.node.getChildByPath('Surface/enemyHand') as Node;
-		const playerGround = this.node.getChildByPath(
-			'Surface/playerGround',
-		) as Node;
-		const enemyGround = this.node.getChildByPath('Surface/enemyGround') as Node;
-		const playerHandGuide = this.node.getChildByPath(
-			'Guide/playerHand',
-		) as Node;
-		const playerGroundGuide = this.node.getChildByPath(
-			'Guide/playerGround',
-		) as Node;
-		const enemyHandGuide = this.node.getChildByPath('Guide/enemyHand') as Node;
-		const enemyGroundGuide = this.node.getChildByPath(
-			'Guide/enemyGround',
-		) as Node;
-		const summonZoneGuide = this.node.getChildByPath(
-			'Guide/summonZone',
-		) as Node;
+		const cardTemplate = this.node.getChildByPath('Card Template');
+		const unitTemplate = this.node.getChildByPath('Unit Template');
+		const unitPreview = this.node.getChildByPath('Surface/Unit Preview');
+		const playerDeck = this.node.getChildByPath('Surface/Player Deck/foil');
+		const enemyDeck = this.node.getChildByPath('Surface/Enemy Deck/foil');
+		const centerExpo = this.node.getChildByPath('Guide/centerExpo');
+		const leftExpo = this.node.getChildByPath('Guide/leftExpo');
+		const rightExpo = this.node.getChildByPath('Guide/rightExpo');
+		const playerHand = this.node.getChildByPath('playerHand');
+		const enemyHand = this.node.getChildByPath('Surface/enemyHand');
+		const playerGround = this.node.getChildByPath('Surface/playerGround');
+		const enemyGround = this.node.getChildByPath('Surface/enemyGround');
+		const playerHandGuide = this.node.getChildByPath('Guide/playerHand');
+		const playerGroundGuide = this.node.getChildByPath('Guide/playerGround');
+		const enemyHandGuide = this.node.getChildByPath('Guide/enemyHand');
+		const enemyGroundGuide = this.node.getChildByPath('Guide/enemyGround');
+		const summonZoneGuide = this.node.getChildByPath('Guide/summonZone');
+		const version = this.node.getChildByPath('Hud/version');
+		const playerHealth = this.node.getChildByPath('Hud/playerHealth');
+		const playerHealthPredict = this.node.getChildByPath(
+			'Hud/playerHealthPredict',
+		);
+		const enemyHealth = this.node.getChildByPath('Hud/enemyHealth');
+		const enemyHealthPredict = this.node.getChildByPath(
+			'Hud/enemyHealthPredict',
+		);
 
-		this.animation = this.node.getComponent('cc.Animation') as Animation;
 		this.playerDeckCount = this.node
-			.getChildByPath('Hud/playerDeckCount')
-			.getComponent('cc.Label') as Label;
+			.getChildByPath('Surface/playerDeckCount')
+			.getComponent(Label);
 		this.enemyDeckCount = this.node
-			.getChildByPath('Hud/enemyDeckCount')
-			.getComponent('cc.Label') as Label;
-		this.playerHealth = this.node
-			.getChildByPath('Hud/playerHealth')
-			.getComponent('cc.Label') as Label;
-		this.enemyHealth = this.node
-			.getChildByPath('Hud/enemyHealth')
-			.getComponent('cc.Label') as Label;
+			.getChildByPath('Surface/enemyDeckCount')
+			.getComponent(Label);
+
+		version.getComponent(Label).string = `version ${engineVersion}`;
 
 		system.globalNodes.board = this.node;
 		system.globalNodes.fog = fog;
@@ -104,11 +90,14 @@ export class BoardManager extends Component {
 		system.globalNodes.enemyHandGuide = enemyHandGuide;
 		system.globalNodes.enemyGroundGuide = enemyGroundGuide;
 		system.globalNodes.summonZoneGuide = summonZoneGuide;
+		system.globalNodes.playerHealth = playerHealth;
+		system.globalNodes.playerHealthPredict = playerHealthPredict;
+		system.globalNodes.enemyHealth = enemyHealth;
+		system.globalNodes.enemyHealthPredict = enemyHealthPredict;
 
 		system.globalNodes.board.on('stateReady', this.onStateReady.bind(this));
 		if (system.context) this.onStateReady();
 
-		// this.animation.play('ground-reveal');
 		sendConnect();
 	}
 
@@ -121,14 +110,6 @@ export class BoardManager extends Component {
 			system.duel.subscribe(
 				selectStateKey(system.duel, system.playerIds.me, DuelPlace.Player),
 				this.onPlayerUpdate.bind(this),
-				true,
-			),
-		);
-
-		this.unSubscribers.push(
-			system.duel.subscribe(
-				selectStateKey(system.duel, system.playerIds.enemy, DuelPlace.Player),
-				this.onEnemyUpdate.bind(this),
 				true,
 			),
 		);
@@ -169,23 +150,17 @@ export class BoardManager extends Component {
 	}
 
 	onPlayerUpdate(player: PlayerState, old: PlayerState): void {
-		this.playerHealth.string = String(player.health);
-
 		if (player.perTurnHero !== old?.perTurnHero) {
 			setTimeout(() => this.updateInteractions(), 0);
 		}
 
 		if (old?.health > peekHealthGap && player.health < peekHealthGap) {
-			switchSound('bgm-dungeon-peak', 0.2);
+			switchBackgroundSound('bgm-dungeon-peak', 0.2);
 		}
 	}
 
 	onPlayerDeckUpdate(deck: string[]): void {
 		this.playerDeckCount.string = String(deck.length);
-	}
-
-	onEnemyUpdate(enemy: PlayerState): void {
-		this.enemyHealth.string = String(enemy.health);
 	}
 
 	onEnemyDeckUpdate(deck: string[]): void {
@@ -246,4 +221,4 @@ export class BoardManager extends Component {
 	}
 }
 
-const peekHealthGap = 200;
+const peekHealthGap = 150;

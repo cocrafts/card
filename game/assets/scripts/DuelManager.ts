@@ -10,10 +10,10 @@ import {
 
 import { cardIdFromNode, getMyGround } from './util/helper';
 import { getGroundExpos, getHandExpos } from './util/layout';
-import { playSound, playSoundOnce } from './util/sound';
+import { playBackgroundSound, playEffectSound } from './util/resources';
 import { system } from './util/system';
 import { CardManager } from './CardManager';
-import { sendCardSummon } from './network';
+import { sendCardHover, sendCardSummon } from './network';
 import { raiseHandCard, raiseHandPreview, simpleMove } from './tween';
 import { UnitManager } from './UnitManager';
 
@@ -37,13 +37,11 @@ export class DuelManager extends Component {
 		this.node.on(NodeEvents.MOUSE_UP, this.onMouseUp.bind(this));
 		this.node.on(NodeEvents.MOUSE_MOVE, this.onMouseMove.bind(this));
 
-		if (document?.getElementById) {
-			document
-				.getElementById('GameCanvas')
-				.addEventListener('mouseout', this.onMouseOut.bind(this));
-		}
+		document
+			?.getElementById('GameCanvas')
+			.addEventListener('mouseout', this.onMouseOut.bind(this));
 
-		playSound('bgm-dungeon-crawl', 0.3);
+		playBackgroundSound('bgm-dungeon-crawl', 0.3);
 	}
 
 	onUnitPreview(): void {
@@ -184,15 +182,17 @@ export class DuelManager extends Component {
 		glowNode.active = isActive;
 		cardNode.getComponent(CardManager).setCardId(cardId.substring(0, 9));
 		system.globalNodes.cardPreview.setPosition(node.position.x, -180);
-		playSoundOnce('hand-slide', 0.2);
+		playEffectSound('hand-slide', 0.2);
 		raiseHandCard(node, 100);
 		raiseHandPreview(system.globalNodes.cardPreview);
+		sendCardHover(cardId, true);
 		node.getComponent(UIOpacity).opacity = 20;
 	}
 
 	onCardLeave(node: Node): void {
 		system.globalNodes.cardPreview.setPosition(190, 740);
 		raiseHandCard(node, 0);
+		sendCardHover(cardIdFromNode(node), false);
 		node.getComponent(UIOpacity).opacity = 255;
 	}
 }
