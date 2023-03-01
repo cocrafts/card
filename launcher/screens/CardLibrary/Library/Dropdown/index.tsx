@@ -1,27 +1,27 @@
 import React from 'react';
 import {
 	Image,
+	ImageBackground,
 	ImageStyle,
+	Modal,
+	StyleProp,
 	StyleSheet,
 	TouchableOpacity,
 	View,
+	ViewStyle,
 } from 'react-native';
-import Animated, {
-	useAnimatedStyle,
-	useSharedValue,
-	withTiming,
-} from 'react-native-reanimated';
-import { Hoverable, Text } from '@metacraft/ui';
+import { Text } from '@metacraft/ui';
 import { idleLayout } from 'utils/helper';
 import resources from 'utils/resources';
 
 import DropdownItem from './DropdownItem';
 
 interface Props {
-	data: Array<{ label: string; value: string }>;
+	data: (string | number)[];
 	onSelect: (index: number) => void;
 	selectedIndex: number;
 	placeholder: string;
+	containerStyle?: StyleProp<ViewStyle>;
 }
 
 const Dropdown: React.FC<Props> = ({
@@ -29,40 +29,16 @@ const Dropdown: React.FC<Props> = ({
 	onSelect,
 	selectedIndex,
 	placeholder,
+	containerStyle,
 }) => {
 	const [layout, setLayout] = React.useState(idleLayout);
-	const [dropdownButtonHeight, setDropdownButtonHeight] =
-		React.useState<number>(0);
+	const [dropdownPosition, setDropdownPosition] = React.useState<{
+		top: number;
+		left: number;
+	}>({ top: 0, left: 0 });
 	const [visible, setVisible] = React.useState<boolean>(false);
 	const [dropdownHeight, setDropdownHeight] = React.useState<number>(0);
-	const ref = React.useRef<TouchableOpacity>(null);
-	const animatedOpacity = useSharedValue(0);
-
-	const middle = {
-		position: 'absolute',
-		top: 0,
-		left: 5,
-		right: 5,
-		height: layout.height,
-	} as ImageStyle;
-
-	const left = {
-		position: 'absolute',
-		top: 0,
-		height: layout.height,
-		aspectRatio: 1,
-		left: 0,
-	} as ImageStyle;
-
-	const right = {
-		position: 'absolute',
-		top: 0,
-		height: layout.height,
-		aspectRatio: 144 / 308,
-		right: 0,
-		justifyContent: 'center',
-		alignItems: 'center',
-	} as ImageStyle;
+	const ref = React.useRef<View>(null);
 
 	const leftSide = {
 		width: 3,
@@ -81,25 +57,14 @@ const Dropdown: React.FC<Props> = ({
 		right: -3,
 	} as ImageStyle;
 
-	const animatedHoverStyle = useAnimatedStyle(() => {
-		return {
-			opacity: withTiming(animatedOpacity.value),
-		};
-	});
-
-	const onHoverIn = () => (animatedOpacity.value = 1);
-
-	const onHoverOut = () => (animatedOpacity.value = 0);
-
 	const showDropdown = () => {
-		ref?.current?.measure((_fx, _fy, _w, h, _px, py) => {
-			console.log({
-				h,
-				py,
+		ref?.current?.measure((_fx, _fy, w, h, px, py) => {
+			setDropdownPosition({
+				top: py + h + 8,
+				left: px + 2,
 			});
-			setDropdownButtonHeight(h);
+			setVisible(true);
 		});
-		setVisible(true);
 	};
 
 	const toggleDropdown = (): void => {
@@ -108,98 +73,71 @@ const Dropdown: React.FC<Props> = ({
 
 	const renderDropDown = () => {
 		return (
-			<View
-				style={{
-					...styles.dropdownContainer,
-					top: dropdownButtonHeight + 8,
-					width: layout.width - 2,
-					left: 3,
-				}}
-				onLayout={(e) => setDropdownHeight(e.nativeEvent.layout.height)}
-			>
-				<Image
-					source={resources.cardLibrary.dropdownSide}
-					style={leftSide}
-					resizeMode="stretch"
-				/>
-				<Image
-					source={resources.cardLibrary.dropdownSide}
-					style={rightSide}
-					resizeMode="stretch"
-				/>
-				{data.map((value, index) => {
-					const onPressItem = () => {
-						onSelect(index);
-						setVisible(false);
-					};
-
-					return (
-						<DropdownItem
-							key={value.value}
-							onPress={onPressItem}
-							label={value.label}
+			<Modal visible={visible} transparent>
+				<TouchableOpacity
+					style={{ width: '100%', height: '100%' }}
+					onPress={() => setVisible(false)}
+				>
+					<View
+						style={{
+							...styles.dropdownContainer,
+							...dropdownPosition,
+							width: layout.width - 2,
+						}}
+						onLayout={(e) => setDropdownHeight(e.nativeEvent.layout.height)}
+					>
+						<Image
+							source={resources.cardLibrary.dropdownSide}
+							style={leftSide}
+							resizeMode="stretch"
 						/>
-					);
-				})}
-			</View>
+						<Image
+							source={resources.cardLibrary.dropdownSide}
+							style={rightSide}
+							resizeMode="stretch"
+						/>
+						{data.map((value, index) => {
+							const onPressItem = () => {
+								onSelect(index);
+								setVisible(false);
+							};
+
+							return (
+								<DropdownItem
+									key={index}
+									onPress={onPressItem}
+									label={value.toString()}
+								/>
+							);
+						})}
+					</View>
+				</TouchableOpacity>
+			</Modal>
 		);
 	};
 
 	return (
-		<View>
-			<TouchableOpacity
-				ref={ref}
-				onPress={toggleDropdown}
-				style={styles.container}
-				onLayout={(e) => setLayout(e.nativeEvent.layout)}
-			>
-				<Hoverable
-					style={{ ...middle, left: 0, right: 0, justifyContent: 'center' }}
-					onHoverIn={onHoverIn}
-					onHoverOut={onHoverOut}
+		<View
+			style={containerStyle}
+			onLayout={(e) => setLayout(e.nativeEvent.layout)}
+			ref={ref}
+		>
+			<TouchableOpacity onPress={toggleDropdown}>
+				<ImageBackground
+					source={
+						selectedIndex > 0
+							? resources.cardLibrary.dropdownButtonActive
+							: resources.cardLibrary.dropdownButtonNormal
+					}
+					style={styles.container}
 				>
-					<Animated.View>
-						<Image
-							source={resources.marketplace.underRealmButton.normal.middle}
-							resizeMode={'repeat'}
-							style={middle}
-						/>
-						<Image
-							source={resources.marketplace.underRealmButton.normal.left}
-							style={left}
-						/>
-						<Image
-							source={resources.cardLibrary.dropdownButtonNormalRightEdge}
-							style={right}
-						/>
-						<Animated.Image
-							source={resources.marketplace.underRealmButton.hover.middle}
-							resizeMode={'repeat'}
-							style={[middle, animatedHoverStyle]}
-						/>
-						<Animated.Image
-							source={resources.marketplace.underRealmButton.hover.left}
-							style={[left, animatedHoverStyle]}
-						/>
-						<Animated.Image
-							source={resources.cardLibrary.dropdownButtonHoverRightEdge}
-							style={[right, animatedHoverStyle]}
-						/>
-						<View style={right}>
-							<Image
-								source={resources.cardLibrary.arrow}
-								style={styles.arrow}
-							/>
-						</View>
-						<View>
-							<Text style={styles.labelButton}>
-								{selectedIndex > -1 ? data[selectedIndex].label : placeholder}
-							</Text>
-						</View>
-					</Animated.View>
-				</Hoverable>
+					<Image source={resources.cardLibrary.arrow} style={styles.arrow} />
+					<Text style={styles.labelButton} responsiveSizes={[12]}>
+						{selectedIndex > -1 ? data[selectedIndex] : placeholder}
+					</Text>
+				</ImageBackground>
 			</TouchableOpacity>
-			{visible && renderDropDown()}
+			{renderDropDown()}
 		</View>
 	);
 };
@@ -210,18 +148,20 @@ const styles = StyleSheet.create({
 	container: {
 		paddingVertical: 12,
 		paddingHorizontal: 10,
-		width: 220,
-		height: 50,
 		justifyContent: 'center',
+		width: 163,
+		height: 46,
 	},
 	labelButton: {
 		textAlign: 'center',
 		color: '#fff',
+		fontWeight: '600',
 	},
 	arrow: {
-		position: 'absolute',
 		width: 10,
 		height: 6,
+		position: 'absolute',
+		right: 20,
 	},
 	dropdownContainer: {
 		position: 'absolute',
