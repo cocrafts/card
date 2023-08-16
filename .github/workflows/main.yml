@@ -23,6 +23,11 @@ jobs:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
 
+      - name: Use yarn 3
+        run: |
+          corepack enable
+          yarn set version stable
+
       - name: Grant @cocrafts package access
         run: |
           echo "@cocrafts:registry=https://npm.pkg.github.com/" >> .npmrc
