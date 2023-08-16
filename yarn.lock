@@ -2944,7 +2944,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-object-rest-spread@npm:^7.0.0":
+"@babel/plugin-proposal-object-rest-spread@npm:^7.0.0, @babel/plugin-proposal-object-rest-spread@npm:^7.20.7":
   version: 7.20.7
   resolution: "@babel/plugin-proposal-object-rest-spread@npm:7.20.7"
   dependencies:
@@ -15414,6 +15414,7 @@ __metadata:
     "@apollo/client": ^3.6.9
     "@babel/core": 7.20.12
     "@babel/plugin-proposal-export-default-from": ^7.18.10
+    "@babel/plugin-proposal-object-rest-spread": ^7.20.7
     "@babel/plugin-syntax-export-default-from": ^7.18.6
     "@babel/plugin-syntax-flow": ^7.18.6
     "@babel/plugin-transform-flow-strip-types": ^7.19.0
