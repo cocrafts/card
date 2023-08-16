@@ -1,6 +1,12 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Linking, StyleSheet, View } from 'react-native';
 import { Hyperlink, modalActions, ModalConfigs, Text } from '@metacraft/ui';
+import { useWallet } from '@solana/wallet-adapter-react';
+import {
+	checkInstalledLayout,
+	installLayout,
+	openLayoutPopup,
+} from '@walless/adapter-solana-base';
 import { useSnapshot } from 'utils/hook';
 import { signOut } from 'utils/lib/auth';
 import { AccountState, accountState } from 'utils/state/account';
@@ -9,6 +15,8 @@ import { noSelect } from 'utils/styles';
 interface Props {
 	config: ModalConfigs;
 }
+
+const underrealmLayoutId = '000003';
 
 const styles = StyleSheet.create({
 	container: {
@@ -35,9 +43,21 @@ const styles = StyleSheet.create({
 });
 
 export const SignedMenu: FC<Props> = ({ config }) => {
+	const [isWallessConnected, setIsWallessConnected] = useState(false);
+	const [isLayoutInstalled, setIsLayoutInstalled] = useState(false);
+	const { wallet, connected } = useWallet();
 	const { profile } = useSnapshot<AccountState>(accountState);
-	const onMyProfilePress = () => {
-		Linking.openURL(`https://stormgate.io/profile/${profile.address}`);
+	const onMyProfilePress = async () => {
+		if (isWallessConnected) {
+			if (isLayoutInstalled) {
+				openLayoutPopup(underrealmLayoutId);
+			} else {
+				const isSuccessfullyInstalled = await installLayout(underrealmLayoutId);
+				setIsLayoutInstalled(isSuccessfullyInstalled);
+			}
+		} else {
+			Linking.openURL(`https://stormgate.io/profile/${profile.address}`);
+		}
 		modalActions.hide(config.id as string);
 	};
 
@@ -45,6 +65,26 @@ export const SignedMenu: FC<Props> = ({ config }) => {
 		await signOut();
 		modalActions.hide(config.id as string);
 	};
+
+	useEffect(() => {
+		if (connected) {
+			console.log('run check layout');
+			setIsWallessConnected(
+				wallet?.adapter.name.toLocaleLowerCase() === 'walless',
+			);
+		}
+	}, [wallet, connected]);
+
+	useEffect(() => {
+		const layoutCheck = async () => {
+			const isInstalled = await checkInstalledLayout(underrealmLayoutId);
+			setIsLayoutInstalled(isInstalled);
+		};
+
+		if (isWallessConnected) {
+			layoutCheck();
+		}
+	}, [isWallessConnected]);
 
 	return (
 		<View style={styles.container}>
