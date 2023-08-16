@@ -6,7 +6,7 @@ import {
 	checkInstalledLayout,
 	installLayout,
 	openLayoutPopup,
-} from '@walless/walless-adapter-solana-base';
+} from '@walless/adapter-solana-base';
 import { useSnapshot } from 'utils/hook';
 import { signOut } from 'utils/lib/auth';
 import { AccountState, accountState } from 'utils/state/account';
