@@ -1,11 +1,13 @@
-import React, { FC } from 'react';
-import { LayoutRectangle, View } from 'react-native';
+import type { FC } from 'react';
+import type { LayoutRectangle } from 'react-native';
+import { View } from 'react-native';
 import Animated, {
 	useAnimatedScrollHandler,
 	useAnimatedStyle,
 	useSharedValue,
 } from 'react-native-reanimated';
-import { AppState, appState } from '@metacraft/ui';
+import type { AppState } from '@metacraft/ui';
+import { appState } from '@metacraft/ui';
 import CompactLayout from 'components/layouts/Compact';
 import { idleLayout } from 'utils/helper';
 import { useSnapshot } from 'utils/hook';
@@ -39,17 +41,15 @@ const BrowserMarketplace: FC = () => {
 		[headingLayout, scrollOffset.value],
 	);
 
-	const backgroundStyle = useAnimatedStyle(() => ({
-		opacity: 0.5,
-		width: scaledWidth,
-		height: windowDimensions.height,
-		position: 'absolute',
-		transform: [
-			{
-				translateY: scrollOffset.value,
-			},
-		],
-	}));
+	const backgroundStyle = useAnimatedStyle(() => {
+		return {
+			opacity: 0.5,
+			width: scaledWidth,
+			height: windowDimensions.height,
+			position: 'absolute',
+			transform: [{ translateY: scrollOffset.value }],
+		};
+	}, [scaledWidth, windowDimensions.height, scrollOffset]);
 
 	return (
 		<CompactLayout>

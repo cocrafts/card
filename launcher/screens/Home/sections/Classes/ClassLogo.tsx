@@ -1,13 +1,14 @@
-import React, { FC, Fragment } from 'react';
+import type { FC } from 'react';
+import { Fragment } from 'react';
 import { Image, ImageBackground, StyleSheet } from 'react-native';
+import type { SharedValue } from 'react-native-reanimated';
 import Animated, {
-	SharedValue,
 	useAnimatedStyle,
 	withTiming,
 } from 'react-native-reanimated';
 import resources from 'utils/resources';
 
-import { ClassItem } from './shared';
+import type { ClassItem } from './shared';
 
 const AnimatedImageBackground =
 	Animated.createAnimatedComponent(ImageBackground);
@@ -21,12 +22,12 @@ const ClassLogo: FC<Props> = ({ classActive, classInfo }) => {
 	const logoAnimatedStyle = useAnimatedStyle(() => {
 		const isActive = classActive.value === classInfo.id;
 		return { opacity: withTiming(isActive ? 0 : 1) };
-	});
+	}, [classActive, classInfo]);
 
 	const logoActiveAnimatedStyle = useAnimatedStyle(() => {
 		const isActive = classActive.value === classInfo.id;
 		return { opacity: withTiming(isActive ? 1 : 0) };
-	});
+	}, [classActive, classInfo]);
 
 	return (
 		<Fragment>

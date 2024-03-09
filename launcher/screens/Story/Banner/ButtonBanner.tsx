@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import Animated from 'react-native-reanimated';
@@ -20,13 +20,17 @@ const ButtonBanner: React.FC<ButtonBannerProps> = ({
 	activeIcon,
 	icon,
 }) => {
-	const outlineStyle = useAnimatedStyle(() => ({
-		borderColor: withTiming(isActive ? '#786442' : 'transparent'),
-	}));
+	const outlineStyle = useAnimatedStyle(() => {
+		return {
+			borderColor: withTiming(isActive ? '#786442' : 'transparent'),
+		};
+	}, [isActive]);
 
-	const indicatorStyle = useAnimatedStyle(() => ({
-		backgroundColor: withTiming(isActive ? '#edede8' : '#423c36'),
-	}));
+	const indicatorStyle = useAnimatedStyle(() => {
+		return {
+			backgroundColor: withTiming(isActive ? '#edede8' : '#423c36'),
+		};
+	}, [isActive]);
 
 	return (
 		<View>

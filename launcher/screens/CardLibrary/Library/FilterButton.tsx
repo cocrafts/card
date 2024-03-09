@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import {
 	Image,
 	ImageBackground,
@@ -31,7 +31,7 @@ const FilterButton: React.FC<Props> = ({
 		return {
 			opacity: withTiming(isActive ? 1 : 0.5),
 		};
-	});
+	}, [isActive]);
 
 	const bgSource = isActive
 		? resources.cardLibrary.activeFilterButton

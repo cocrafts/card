@@ -1,7 +1,9 @@
-import React, { FC, Fragment } from 'react';
-import { Image, ImageSourcePropType, StyleSheet } from 'react-native';
+import type { FC } from 'react';
+import React, { Fragment } from 'react';
+import type { ImageSourcePropType } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
+import type { SharedValue } from 'react-native-reanimated';
 import Animated, {
-	SharedValue,
 	useAnimatedStyle,
 	withTiming,
 } from 'react-native-reanimated';
@@ -22,7 +24,7 @@ export const ClassBackground: FC<Props> = ({
 	const backgroundAnimated = useAnimatedStyle(() => {
 		const isActive = classActive.value === id;
 		return { opacity: withTiming(isActive ? 1 : 0) };
-	});
+	}, [classActive, id]);
 
 	return (
 		<Fragment>

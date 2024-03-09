@@ -1,12 +1,7 @@
-import React, { FC, ReactNode, useState } from 'react';
-import {
-	Image,
-	LayoutRectangle,
-	StyleSheet,
-	TextStyle,
-	TouchableOpacity,
-	View,
-} from 'react-native';
+import type { FC, ReactNode } from 'react';
+import { useState } from 'react';
+import type { LayoutRectangle, TextStyle } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import Animated, {
 	useAnimatedStyle,
 	useSharedValue,
@@ -45,13 +40,13 @@ export const Accordion: FC<Props> = ({
 		return {
 			transform: [{ rotate: withTiming(-chevronAngle.value + 'deg') }],
 		};
-	});
+	}, [chevronAngle]);
 
 	const animatedHeightStyle = useAnimatedStyle(() => {
 		return {
 			height: withTiming(contentHeight.value),
 		};
-	});
+	}, [contentHeight]);
 
 	return (
 		<Animated.View style={[styles.container, animatedHeightStyle]}>

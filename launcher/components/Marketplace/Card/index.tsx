@@ -1,14 +1,10 @@
-import React, { FC, MouseEvent } from 'react';
-import {
-	Image,
-	StyleSheet,
-	TouchableOpacity,
-	View,
-	ViewStyle,
-} from 'react-native';
+import type { FC, MouseEvent } from 'react';
+import React from 'react';
+import type { ViewStyle } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import type { SharedValue } from 'react-native-reanimated';
 import Animated, {
 	interpolate,
-	SharedValue,
 	useAnimatedStyle,
 	useSharedValue,
 	withSpring,
@@ -66,6 +62,7 @@ const Card: FC<CardProps> = ({
 			if (animationHoveredDisable) {
 				return {} as ViewStyle;
 			}
+
 			const scale = withSpring(isHovered.value ? 1.08 : 1);
 			const rotateY = interpolate(
 				xOffset.value,
@@ -86,13 +83,15 @@ const Card: FC<CardProps> = ({
 					{ rotateX: `${rotateX}deg` },
 				],
 			};
-		}, []);
+		}, [isHovered, yOffset, width, height]);
 	};
 
 	const useFlipBackStyle = (isUp: SharedValue<boolean>) => {
 		return useAnimatedStyle(() => {
-			if (animationFlipDisable)
+			if (animationFlipDisable) {
 				return { opacity: isUp.value ? 1 : 0 } as ViewStyle;
+			}
+
 			const rotateY = isUp.value
 				? interpolate(xFlipOffset.value, [0, width], [0, 180])
 				: interpolate(xFlipOffset.value, [width, 0], [180, 0]);
@@ -108,13 +107,15 @@ const Card: FC<CardProps> = ({
 				transform: [{ rotateY: `${rotateY}deg` }],
 				opacity,
 			};
-		}, []);
+		}, [isUp, xFlipOffset, width]);
 	};
 
 	const useFlipFrontStyle = (isUp: SharedValue<boolean>) => {
 		return useAnimatedStyle(() => {
-			if (animationFlipDisable)
+			if (animationFlipDisable) {
 				return { opacity: isUp.value ? 0 : 1 } as ViewStyle;
+			}
+
 			const rotateY = isUp.value
 				? interpolate(xFlipOffset.value, [width, 0], [360, 180])
 				: interpolate(xFlipOffset.value, [0, width], [180, 360]);
@@ -130,7 +131,7 @@ const Card: FC<CardProps> = ({
 				transform: [{ rotateY: `${rotateY}deg` }],
 				opacity,
 			};
-		}, []);
+		}, [isUp, xFlipOffset, width]);
 	};
 
 	return (

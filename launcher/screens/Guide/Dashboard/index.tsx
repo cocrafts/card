@@ -1,11 +1,14 @@
-import React, { useRef } from 'react';
-import { Image, NativeScrollEvent, StyleSheet, View } from 'react-native';
+import type React from 'react';
+import { useRef } from 'react';
+import type { NativeScrollEvent } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import Animated, {
 	useAnimatedStyle,
 	useDerivedValue,
 	useSharedValue,
 } from 'react-native-reanimated';
-import { DimensionState, dimensionState } from '@metacraft/ui';
+import type { DimensionState } from '@metacraft/ui';
+import { dimensionState } from '@metacraft/ui';
 import ScrollLayout from 'components/layouts/Scroll';
 import { navigationHeight } from 'components/Navigation/shared';
 import Elemental from 'screens/Guide/Dashboard/Elemental';
@@ -41,19 +44,17 @@ const GuideDashboard: React.FC = () => {
 		scrollOffset.value = e.contentOffset.y;
 	};
 
-	const animatedImage = useAnimatedStyle(() => ({
-		width,
-		height: (width * 576) / 864,
-		alignItems: 'center',
-		position: 'absolute',
-		backgroundColor: 'black',
-		top: mainBgTop.value,
-		transform: [
-			{
-				translateY: translate.value,
-			},
-		],
-	}));
+	const animatedImage = useAnimatedStyle(() => {
+		return {
+			width,
+			height: (width * 576) / 864,
+			alignItems: 'center',
+			position: 'absolute',
+			backgroundColor: 'black',
+			top: mainBgTop.value,
+			transform: [{ translateY: translate.value }],
+		};
+	}, [width, mainBgTop, translate]);
 
 	const onPress = (index: number) => {
 		if (index === 0)

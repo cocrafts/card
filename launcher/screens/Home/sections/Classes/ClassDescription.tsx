@@ -1,13 +1,14 @@
-import React, { FC } from 'react';
-import { StyleSheet, ViewStyle } from 'react-native';
+import type { FC } from 'react';
+import type { ViewStyle } from 'react-native';
+import { StyleSheet } from 'react-native';
+import type { SharedValue } from 'react-native-reanimated';
 import Animated, {
-	SharedValue,
 	useAnimatedStyle,
 	withTiming,
 } from 'react-native-reanimated';
 import { Text } from '@metacraft/ui';
 
-import { ClassItem } from './shared';
+import type { ClassItem } from './shared';
 
 interface Props {
 	style: ViewStyle;
@@ -19,7 +20,7 @@ const ClassDescription: FC<Props> = ({ style, classActive, classInfo }) => {
 	const contentAnimatedStyle = useAnimatedStyle(() => {
 		const isActive = classActive.value === classInfo.id;
 		return { opacity: withTiming(isActive ? 1 : 0) };
-	});
+	}, [classActive, classInfo]);
 
 	return (
 		<Animated.View style={[style, contentAnimatedStyle]}>

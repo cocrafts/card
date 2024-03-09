@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Animated, {
 	useAnimatedStyle,
@@ -9,7 +10,8 @@ import { Hoverable, Text } from '@metacraft/ui';
 import { useNavigation } from '@react-navigation/native';
 import resources from 'utils/resources';
 
-import { NavigationConfig, navigationHeight } from '../shared';
+import type { NavigationConfig } from '../shared';
+import { navigationHeight } from '../shared';
 
 interface Props {
 	item: NavigationConfig;
@@ -31,7 +33,7 @@ export const NavigationItem: FC<Props> = ({ item, onNavigate }) => {
 			opacity: withTiming(isActive || isHovered.value ? 1 : 0),
 			transform: [{ scale: withTiming(isActive || isHovered.value ? 1 : 0.5) }],
 		};
-	});
+	}, [isActive, isHovered]);
 
 	return (
 		<Hoverable

@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
+import type { SharedValue } from 'react-native-reanimated';
 import Animated, {
-	SharedValue,
 	useAnimatedStyle,
 	withTiming,
 } from 'react-native-reanimated';
@@ -15,7 +15,7 @@ const SlideIndicator: FC<Props> = ({ classId, classActive }) => {
 	const indicatorAnimated = useAnimatedStyle(() => {
 		const isActive = classActive.value === classId;
 		return { opacity: withTiming(isActive ? 1 : 0) };
-	});
+	}, [classActive, classId]);
 
 	return (
 		<View style={styles.container}>
