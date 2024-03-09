@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import {
 	Image,
 	ImageBackground,
@@ -6,12 +6,8 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native';
-import {
-	Card as ICard,
-	ClassType,
-	ElementalType,
-	TemplateFragment,
-} from '@metacraft/murg-engine';
+import type { Card as ICard, TemplateFragment } from '@metacraft/murg-engine';
+import { ClassType, ElementalType } from '@metacraft/murg-engine';
 import { Text } from '@metacraft/ui';
 import { navigate } from 'stacks/Browser/shared';
 import resources from 'utils/resources';
@@ -48,8 +44,8 @@ const Card: React.FC<Props> = ({ data, width = CARD_WIDTH }) => {
 
 	const sourceFoil = elemental
 		? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		  // @ts-ignore
-		  resources.card.foil[getElementalByValue(elemental).toLowerCase()]
+			// @ts-ignore
+			resources.card.foil[getElementalByValue(elemental).toLowerCase()]
 		: resources.card.foil.dark;
 
 	const sourceClass =

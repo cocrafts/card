@@ -1,4 +1,5 @@
-import React, { FC, useState } from 'react';
+import type { FC } from 'react';
+import { useState } from 'react';
 import { ActivityIndicator, StyleSheet, TextInput, View } from 'react-native';
 import { useMutation } from '@apollo/client';
 import { Hyperlink, modalActions, Text } from '@metacraft/ui';

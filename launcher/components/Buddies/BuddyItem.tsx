@@ -1,9 +1,10 @@
-import { FC, RefObject, useRef } from 'react';
+import type { FC, RefObject } from 'react';
+import { useRef } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Avatar from 'components/Avatar';
 import Text from 'components/Text';
 import { shortenAddress } from 'utils/helper';
-import { Profile } from 'utils/types/graphql';
+import type { Profile } from 'utils/types/graphql';
 
 export interface BuddyProps {
 	index: number;

@@ -1,25 +1,16 @@
-import React, { FC, Fragment, useCallback, useEffect, useRef } from 'react';
+import type { FC } from 'react';
+import { Fragment, useCallback, useEffect, useRef } from 'react';
 import { Linking, StyleSheet, View } from 'react-native';
-import {
-	Button,
-	Hyperlink,
-	modalActions,
-	ModalConfigs,
-	themeState,
-} from '@metacraft/ui';
-import {
-	WalletAdapterProps,
-	WalletReadyState,
-} from '@solana/wallet-adapter-base';
+import type { ModalConfigs } from '@metacraft/ui';
+import { Button, Hyperlink, modalActions, themeState } from '@metacraft/ui';
+import type { WalletAdapterProps } from '@solana/wallet-adapter-base';
+import { WalletReadyState } from '@solana/wallet-adapter-base';
 import { useWallet } from '@solana/wallet-adapter-react';
 import Text from 'components/Text';
 import { useSnapshot } from 'utils/hook';
 import { googleSignIn } from 'utils/lib';
-import {
-	accountActions,
-	AccountState,
-	accountState,
-} from 'utils/state/account';
+import type { AccountState } from 'utils/state/account';
+import { accountActions, accountState } from 'utils/state/account';
 
 import { modalStyles } from './shared';
 

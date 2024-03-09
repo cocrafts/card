@@ -1,11 +1,14 @@
-import React, { FC, useState } from 'react';
-import { FlatList, ScaledSize, StyleSheet, View } from 'react-native';
+import type { FC } from 'react';
+import { useState } from 'react';
+import type { ScaledSize } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { Text } from '@metacraft/ui';
 import UnderRealmBoard from 'components/Board';
 import BottomTitleSeparator from 'components/icons/underRealm/BottomTitleSeparator';
 import TopTitleSeparator from 'components/icons/underRealm/TopTitleSeparator';
 
-import Item, { RenderItem } from './Item';
+import type { RenderItem } from './Item';
+import Item from './Item';
 import Option from './Option';
 
 interface Props {

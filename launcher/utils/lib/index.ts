@@ -14,7 +14,7 @@ const {
 	pinpointAppId,
 } = config;
 
-export const configure = () => {
+export const configure = (): void => {
 	Auth.configure({
 		region,
 		identityPoolId,

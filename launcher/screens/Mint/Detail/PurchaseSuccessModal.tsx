@@ -1,16 +1,15 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import type { ImageStyle, ScaledSize } from 'react-native';
 import {
 	Image,
-	ImageStyle,
 	Linking,
-	ScaledSize,
 	ScrollView,
 	StyleSheet,
 	TouchableOpacity,
 	View,
 } from 'react-native';
 import { Hyperlink, modalActions, Text } from '@metacraft/ui';
-import { NftWithToken } from '@metaplex-foundation/js';
+import type { NftWithToken } from '@metaplex-foundation/js';
 import Card from 'components/Marketplace/Card';
 import resources from 'utils/resources';
 

@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { G, Path, Svg } from 'react-native-svg';
 
-import { IconProps } from '../types';
+import type { IconProps } from '../shared';
 
 import { dragonPath } from './StormGate';
 

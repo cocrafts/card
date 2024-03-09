@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { CandyMachine } from '@metaplex-foundation/mpl-candy-machine';
-import { packList, PackStats } from 'screens/Mint/shared';
+import type { PackStats } from 'screens/Mint/shared';
+import { packList } from 'screens/Mint/shared';
 import { navigate } from 'stacks/Browser/shared';
 import { iStyles } from 'utils/styles';
 

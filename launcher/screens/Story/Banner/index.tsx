@@ -1,6 +1,8 @@
-import React from 'react';
+import type { FC } from 'react';
+import { useState } from 'react';
 import { Image, ScrollView, StyleSheet, View } from 'react-native';
-import { DimensionState, dimensionState, Text } from '@metacraft/ui';
+import type { DimensionState } from '@metacraft/ui';
+import { dimensionState, Text } from '@metacraft/ui';
 import { banner } from 'screens/Story/content';
 import { useSnapshot } from 'utils/hook';
 
@@ -8,9 +10,9 @@ import { sharedStyle } from '../shared';
 
 import ButtonBanner from './ButtonBanner';
 
-const Banner: React.FC = () => {
+const Banner: FC = () => {
 	const { responsiveLevel } = useSnapshot<DimensionState>(dimensionState);
-	const [selectedBanner, setSelectedBanner] = React.useState<number>(0);
+	const [selectedBanner, setSelectedBanner] = useState<number>(0);
 	const bannerWidth = [503, 503, 350, 250][responsiveLevel];
 	const bannerPadding = [60, 60, 40, 40][responsiveLevel];
 

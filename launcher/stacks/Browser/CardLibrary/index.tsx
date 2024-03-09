@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import DetailCardScreen from 'screens/CardLibrary/DetailCard';
 import LibraryScreen from 'screens/CardLibrary/Library';

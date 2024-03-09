@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { StyleSheet } from 'react-native';
 import { Button } from '@metacraft/ui';
 import CompactLayout from 'components/layouts/Compact';

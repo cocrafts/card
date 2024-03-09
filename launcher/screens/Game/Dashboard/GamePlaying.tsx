@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Button, modalActions, ModalConfigs } from '@metacraft/ui';
+import type { ModalConfigs } from '@metacraft/ui';
+import { Button, modalActions } from '@metacraft/ui';
 import Avatar from 'components/Avatar';
 import { liveActions } from 'utils/state/live';
-import { CardDuelHistory } from 'utils/types/graphql';
+import type { CardDuelHistory } from 'utils/types/graphql';
 
 interface Props {
 	config: ModalConfigs;
@@ -23,12 +24,12 @@ export const GamePlaying: FC<Props> = ({ config }) => {
 			<Avatar
 				style={styles.avatar}
 				size={42}
-				imageUri={duel.opponent?.avatarUrl as string}
+				imageUri={duel.enemy?.avatarUrl as string}
 			/>
 			<View style={styles.innerContainer}>
 				<Text style={styles.message}>
-					You are on a match with {duel.opponent?.name}, would you like to
-					continue it?
+					You are on a match with {duel.enemy?.name}, would you like to continue
+					it?
 				</Text>
 				<View style={styles.commandContainer}>
 					<Button outline title="Cancel" style={styles.buttonContainer} />

@@ -1,4 +1,4 @@
-import { RootParamList } from 'stacks/Browser/shared';
+import type { RootParamList } from 'stacks/Browser/shared';
 
 export interface NavigationConfig {
 	title: string;

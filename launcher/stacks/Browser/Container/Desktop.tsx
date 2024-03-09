@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from 'screens/Home';
 import StoryScreen from 'screens/Story';
@@ -8,7 +8,8 @@ import GameStack from 'stacks/Browser/Game';
 import GuideScreen from 'stacks/Browser/Guide';
 import MarketplaceStack from 'stacks/Browser/Marketplace';
 import MintStack from 'stacks/Browser/Mint';
-import { RootParamList, stackScreenOptions } from 'stacks/Browser/shared';
+import type { RootParamList } from 'stacks/Browser/shared';
+import { stackScreenOptions } from 'stacks/Browser/shared';
 
 const Stack = createStackNavigator<RootParamList>();
 

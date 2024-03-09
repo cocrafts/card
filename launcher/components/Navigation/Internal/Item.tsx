@@ -1,5 +1,4 @@
 import type { FC } from 'react';
-import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Animated, {
 	useAnimatedStyle,

@@ -1,5 +1,6 @@
-import React, { FC } from 'react';
-import { Image, LayoutChangeEvent, StyleSheet, View } from 'react-native';
+import type { FC } from 'react';
+import type { LayoutChangeEvent } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import { Text } from '@metacraft/ui';
 
 import { UnderRealmIcon } from '../../../../components/icons/underRealm/MarkLogo';

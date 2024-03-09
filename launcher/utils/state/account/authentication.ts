@@ -1,10 +1,10 @@
 import { Auth } from '@aws-amplify/auth';
-import { PublicKey } from '@solana/web3.js';
+import type { PublicKey } from '@solana/web3.js';
 import bs58 from 'bs58';
 import { graphQlClient } from 'utils/graphql';
 import * as queries from 'utils/graphql/query';
 import { amplifySignIn, extractJwt } from 'utils/lib';
-import { Profile } from 'utils/types';
+import type { Profile } from 'utils/types';
 
 import { accountState } from './internal';
 

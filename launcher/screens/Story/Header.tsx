@@ -1,6 +1,7 @@
-import React from 'react';
+import type React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { DimensionState, dimensionState, Text } from '@metacraft/ui';
+import type { DimensionState } from '@metacraft/ui';
+import { dimensionState, Text } from '@metacraft/ui';
 import { sharedStyle } from 'screens/Story/shared';
 import { useSnapshot } from 'utils/hook';
 import resources from 'utils/resources';

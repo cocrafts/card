@@ -1,8 +1,10 @@
-import React, { FC, useRef, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import type { FC } from 'react';
+import { useRef, useState } from 'react';
+import type { View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import type { AppState } from '@metacraft/ui';
 import {
 	AnimateDirections,
-	AppState,
 	appState,
 	BindDirections,
 	modalActions,

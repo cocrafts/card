@@ -1,7 +1,8 @@
-import { FC, useCallback, useMemo } from 'react';
+import type { FC } from 'react';
+import { useCallback, useMemo } from 'react';
 import { ApolloProvider } from '@apollo/client/react';
 import { Provider as MetacraftProvider } from '@metacraft/ui';
-import { WalletError } from '@solana/wallet-adapter-base';
+import type { WalletError } from '@solana/wallet-adapter-base';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
 import {
 	ConnectionProvider,

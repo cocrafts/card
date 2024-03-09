@@ -1,4 +1,5 @@
-import React, { FC, Fragment } from 'react';
+import type { FC } from 'react';
+import { Fragment } from 'react';
 import {
 	ActivityIndicator,
 	Image,
@@ -8,7 +9,7 @@ import {
 	View,
 } from 'react-native';
 import { Text } from '@metacraft/ui';
-import { Amount } from '@metaplex-foundation/js';
+import type { Amount } from '@metaplex-foundation/js';
 import { parseAmount } from 'utils/helper';
 import resources from 'utils/resources';
 

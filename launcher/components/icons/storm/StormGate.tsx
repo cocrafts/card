@@ -1,7 +1,8 @@
-import React, { FC, Fragment } from 'react';
+import type { FC } from 'react';
+import { Fragment } from 'react';
 import { Defs, LinearGradient, Path, Stop, Svg } from 'react-native-svg';
 
-import { IconProps } from '../types';
+import type { IconProps } from '../shared';
 
 export const StormGateIcon: FC<IconProps> = ({
 	style,

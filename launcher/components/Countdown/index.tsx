@@ -1,5 +1,7 @@
-import React, { FC, useEffect, useState } from 'react';
-import { StyleSheet, View, ViewStyle } from 'react-native';
+import type { FC } from 'react';
+import { useEffect, useState } from 'react';
+import type { ViewStyle } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import Block from './Block';
 

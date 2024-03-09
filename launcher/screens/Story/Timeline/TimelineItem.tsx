@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import { Image, ImageBackground, StyleSheet, View } from 'react-native';
 import { Text } from '@metacraft/ui';
 import resources from 'utils/resources';
@@ -12,7 +12,7 @@ interface TimelineItemProps {
 	isNarrow?: boolean;
 }
 
-const TimelineItem: React.FC<TimelineItemProps> = ({
+const TimelineItem: FC<TimelineItemProps> = ({
 	icon,
 	iconActive,
 	isPassive,

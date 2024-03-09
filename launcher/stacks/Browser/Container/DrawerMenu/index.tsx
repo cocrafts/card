@@ -1,4 +1,5 @@
-import React, { FC, Fragment, useEffect } from 'react';
+import type { FC } from 'react';
+import { Fragment, useEffect } from 'react';
 import {
 	Image,
 	ImageBackground,
@@ -8,9 +9,8 @@ import {
 	View,
 } from 'react-native';
 import { Text } from '@metacraft/ui';
-import { DrawerContentComponentProps } from '@react-navigation/drawer';
+import type { DrawerContentComponentProps } from '@react-navigation/drawer';
 import UnderRealmLogo from 'components/Home/visuals/UnderRealmLogo';
-import UserSolidIcon from 'components/icons/UserSolid';
 import UnderRealmButton from 'components/Marketplace/Button';
 import { sharedStyle } from 'screens/Home/shared';
 import { drawerHelper } from 'stacks/Browser/shared';

@@ -1,7 +1,9 @@
-import { FC } from 'react';
-import { ActivityIndicator, StyleSheet, View, ViewStyle } from 'react-native';
+import type { FC } from 'react';
+import type { ViewStyle } from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { useSnapshot } from 'utils/hook';
-import { AccountState, accountState } from 'utils/state/account';
+import type { AccountState } from 'utils/state/account';
+import { accountState } from 'utils/state/account';
 
 import Signed from './Signed';
 import SignIn from './SignIn';

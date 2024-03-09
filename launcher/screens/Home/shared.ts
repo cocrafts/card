@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { ScaledSizes } from '@metacraft/ui';
+import type { ScaledSizes } from '@metacraft/ui';
 
 export const headingSize = [35] as ScaledSizes;
 

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { ScaledSizes } from '@metacraft/ui';
+import type { ScaledSizes } from '@metacraft/ui';
 
 interface MarketplaceSizes {
 	responsiveHeadings: ScaledSizes;

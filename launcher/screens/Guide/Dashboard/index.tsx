@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { FC } from 'react';
 import { useRef } from 'react';
 import type { NativeScrollEvent } from 'react-native';
 import { Image, StyleSheet, View } from 'react-native';
@@ -22,7 +22,7 @@ import Cards from './Cards';
 import Footer from './Footer';
 import Header from './Header';
 
-const GuideDashboard: React.FC = () => {
+const GuideDashboard: FC = () => {
 	const { windowSize, responsiveLevel } =
 		useSnapshot<DimensionState>(dimensionState);
 	const width = Math.min(windowSize.width, iStyles.wideContainer.maxWidth);

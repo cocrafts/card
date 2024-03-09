@@ -1,21 +1,20 @@
-import React, { FC, Fragment } from 'react';
+import type { FC } from 'react';
+import { Fragment } from 'react';
+import type { ImageStyle, ViewStyle } from 'react-native';
 import {
 	Image,
 	ImageBackground,
-	ImageStyle,
 	StyleSheet,
 	TouchableOpacity,
 	View,
-	ViewStyle,
 } from 'react-native';
 import { Text } from '@metacraft/ui';
 import BurgerIcon from 'components/icons/Burger';
-import UserSolidIcon from 'components/icons/UserSolid';
 import UnderRealmButton from 'components/Marketplace/Button';
+import type { NavigationConfig } from 'components/Navigation/shared';
 import {
 	homeNav,
 	localNavigations,
-	NavigationConfig,
 	navigationHeight,
 } from 'components/Navigation/shared';
 import { drawerHelper, navigate } from 'stacks/Browser/shared';
@@ -42,14 +41,14 @@ export const InternalNavigation: FC<Props> = ({
 		? ({
 				paddingLeft: 15,
 				justifyContent: 'space-between',
-		  } as ViewStyle)
+			} as ViewStyle)
 		: {};
 
 	const mobileLogo = isMobile
 		? ({
 				marginRight: 0,
 				marginLeft: 0,
-		  } as ImageStyle)
+			} as ImageStyle)
 		: {};
 
 	const rightContent = isMobile ? (

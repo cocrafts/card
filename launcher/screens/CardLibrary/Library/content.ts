@@ -1,5 +1,5 @@
 import { ClassType, ElementalType } from '@metacraft/murg-engine';
-import { CardTypeProps } from 'screens/CardLibrary/Library/shared';
+import type { CardTypeProps } from 'screens/CardLibrary/Library/shared';
 import resources from 'utils/resources';
 
 export const CardTypeContent: CardTypeProps[] = [

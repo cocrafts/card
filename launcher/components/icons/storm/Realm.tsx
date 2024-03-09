@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { Path, Svg } from 'react-native-svg';
 
-import { IconProps } from '../types';
+import type { IconProps } from '../shared';
 
 export const RealmIcon: FC<IconProps> = ({
 	style,

@@ -1,6 +1,6 @@
-import { proxy, subscribe } from 'valtio';
 import { accountState } from 'utils/state/account';
-import { CardDuelHistory, GameInvitation } from 'utils/types/graphql';
+import type { CardDuelHistory, GameInvitation } from 'utils/types/graphql';
+import { proxy, subscribe } from 'valtio';
 
 export interface LiveState {
 	findingMatch: boolean;

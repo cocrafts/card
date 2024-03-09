@@ -1,11 +1,12 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { Linking, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { stormIcons } from 'components/icons';
 import { navigationHeight } from 'components/Navigation/shared';
 import { iStyles } from 'utils/styles';
 
 import AuthenticationBundle from '../AuthenticationBundle';
-import { NavigationConfig, stormGateNav, stormNavigations } from '../shared';
+import type { NavigationConfig } from '../shared';
+import { stormGateNav, stormNavigations } from '../shared';
 
 import NavigationItem from './Item';
 

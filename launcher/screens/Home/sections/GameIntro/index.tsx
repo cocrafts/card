@@ -1,12 +1,7 @@
-import React, { FC, useState } from 'react';
-import {
-	Image,
-	LayoutRectangle,
-	ScaledSize,
-	StyleSheet,
-	View,
-	ViewStyle,
-} from 'react-native';
+import type { FC } from 'react';
+import { useState } from 'react';
+import type { LayoutRectangle, ScaledSize, ViewStyle } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import { Text } from '@metacraft/ui';
 import { idleLayout } from 'utils/helper';
 import resources from 'utils/resources';

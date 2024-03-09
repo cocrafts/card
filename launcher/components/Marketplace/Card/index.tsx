@@ -1,5 +1,4 @@
 import type { FC, MouseEvent } from 'react';
-import React from 'react';
 import type { ViewStyle } from 'react-native';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import type { SharedValue } from 'react-native-reanimated';

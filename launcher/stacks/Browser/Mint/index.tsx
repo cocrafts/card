@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import MintScreen from 'screens/Mint';
 import DetailScreen from 'screens/Mint/Detail';
 
-import { MintParamList, stackScreenOptions } from '../shared';
+import type { MintParamList } from '../shared';
+import { stackScreenOptions } from '../shared';
 
 const Stack = createStackNavigator<MintParamList>();
 

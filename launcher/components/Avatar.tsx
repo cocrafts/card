@@ -1,11 +1,6 @@
-import { FC } from 'react';
-import {
-	Image,
-	StyleSheet,
-	Text,
-	TouchableOpacity,
-	ViewStyle,
-} from 'react-native';
+import type { FC } from 'react';
+import type { ViewStyle } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 interface Props {
 	style?: ViewStyle;

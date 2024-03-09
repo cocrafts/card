@@ -1,15 +1,13 @@
-import { FC, useRef, useState } from 'react';
-import {
-	LayoutChangeEvent,
-	LayoutRectangle,
-	StyleSheet,
-	View,
-} from 'react-native';
+import type { FC } from 'react';
+import { useRef, useState } from 'react';
+import type { LayoutChangeEvent, LayoutRectangle } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 
 const initialLayout: LayoutRectangle = {
 	x: 0,
 	y: 0,
+
 	width: 0,
 	height: 0,
 };

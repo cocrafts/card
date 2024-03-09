@@ -1,5 +1,6 @@
-import { FC } from 'react';
-import { StyleSheet, Text, TextProps, TextStyle } from 'react-native';
+import type { FC } from 'react';
+import type { TextProps, TextStyle } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
 	essential: {

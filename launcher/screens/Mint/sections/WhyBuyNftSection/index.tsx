@@ -1,5 +1,6 @@
-import React, { FC } from 'react';
-import { Image, Linking, ScaledSize, View } from 'react-native';
+import type { FC } from 'react';
+import type { ScaledSize } from 'react-native';
+import { Image, Linking, View } from 'react-native';
 import { Markdown, Text } from '@metacraft/ui';
 import UnderRealmButton from 'launcher/components/Marketplace/Button';
 import resources from 'launcher/utils/resources';

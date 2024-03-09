@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import {
 	Image,
 	ImageBackground,
@@ -6,12 +6,8 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native';
-import {
-	ClassType,
-	ElementalType,
-	getCardList,
-	TemplateFragment,
-} from '@metacraft/murg-engine';
+import type { TemplateFragment } from '@metacraft/murg-engine';
+import { ClassType, ElementalType, getCardList } from '@metacraft/murg-engine';
 import { CardType } from '@metacraft/murg-engine/dist/utils/type';
 import { Text } from '@metacraft/ui';
 import { useRoute } from '@react-navigation/native';
@@ -24,7 +20,7 @@ import { iStyles } from 'utils/styles';
 
 const RARITY_LEVEL = [3, 6, 9, 12, 15];
 
-const DetailCard: React.FC = () => {
+const DetailCard: FC = () => {
 	const route = useRoute();
 	const { id } = route.params as { id: string };
 

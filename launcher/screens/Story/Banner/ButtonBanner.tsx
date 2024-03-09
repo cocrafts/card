@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { FC } from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import Animated from 'react-native-reanimated';
@@ -13,7 +13,7 @@ interface ButtonBannerProps {
 	activeIcon: number;
 	icon: number;
 }
-const ButtonBanner: React.FC<ButtonBannerProps> = ({
+const ButtonBanner: FC<ButtonBannerProps> = ({
 	isActive,
 	onPress,
 	label,

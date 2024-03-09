@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { ViewStyle } from 'react-native';
+import type { FC } from 'react';
+import type { ViewStyle } from 'react-native';
 import DiscordIcon from 'components/icons/Discord';
 import FacebookIcon from 'components/icons/Facebook';
 import GithubIcon from 'components/icons/GithubSolid';

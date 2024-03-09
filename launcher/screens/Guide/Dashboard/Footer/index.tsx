@@ -1,13 +1,15 @@
-import React from 'react';
-import { Image, ImageStyle, StyleSheet, View } from 'react-native';
-import { DimensionState, dimensionState, Text } from '@metacraft/ui';
+import type { FC } from 'react';
+import type { ImageStyle } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
+import type { DimensionState } from '@metacraft/ui';
+import { dimensionState, Text } from '@metacraft/ui';
 import UnderRealmButton from 'components/Marketplace/Button';
 import { navigate } from 'stacks/Browser/shared';
 import { useSnapshot } from 'utils/hook';
 import resources from 'utils/resources';
 import { iStyles } from 'utils/styles';
 
-const Footer: React.FC<Record<string, unknown>> = () => {
+const Footer: FC<Record<string, unknown>> = () => {
 	const { windowSize, responsiveLevel } =
 		useSnapshot<DimensionState>(dimensionState);
 	const width = Math.min(windowSize.width, iStyles.contentContainer.maxWidth);

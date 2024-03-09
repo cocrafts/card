@@ -1,5 +1,5 @@
+import type { CardDuel } from 'utils/types/graphql';
 import { proxy } from 'valtio/vanilla';
-import { CardDuel } from 'utils/types/graphql';
 
 export interface BridgeState {
 	duelId?: string;

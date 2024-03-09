@@ -1,5 +1,7 @@
-import React, { FC, useState } from 'react';
-import { Image, LayoutRectangle, StyleSheet, View } from 'react-native';
+import type { FC } from 'react';
+import { useState } from 'react';
+import type { LayoutRectangle } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import { Markdown, Text } from '@metacraft/ui';
 import Accordion from 'components/Marketplace/Accordion';
 import { idleLayout } from 'utils/helper';

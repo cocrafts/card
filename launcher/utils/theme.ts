@@ -1,8 +1,9 @@
-import { ThemeState } from '@metacraft/ui';
+import type { ThemeState } from '@metacraft/ui';
 
 export const launcherTheme: ThemeState = {
 	id: 'launcher',
 	dark: true,
+	defaultFontSize: 14,
 	defaultFontFamily: 'Poppins',
 	colors: {
 		primary: '#351f1f',

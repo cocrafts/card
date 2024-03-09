@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Text } from '@metacraft/ui';
 
@@ -7,7 +7,7 @@ interface Props {
 	onRemove: () => void;
 }
 
-const FilterTag: React.FC<Props> = ({ label, onRemove }) => {
+const FilterTag: FC<Props> = ({ label, onRemove }) => {
 	return (
 		<View style={styles.container}>
 			<Text responsiveSizes={[16]}>{label}</Text>

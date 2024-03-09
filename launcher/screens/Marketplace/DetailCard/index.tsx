@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { Image, TextInput, TouchableOpacity, View } from 'react-native';
 import { Text } from '@metacraft/ui';
 import { useNavigation } from '@react-navigation/native';

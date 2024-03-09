@@ -1,10 +1,11 @@
-import React, { FC, Fragment } from 'react';
+import type { FC } from 'react';
+import { Fragment } from 'react';
+import type { ViewStyle } from 'react-native';
 import {
 	ActivityIndicator,
 	ImageBackground,
 	StyleSheet,
 	View,
-	ViewStyle,
 } from 'react-native';
 import { Hyperlink, modalActions, Text } from '@metacraft/ui';
 import { useWallet } from '@solana/wallet-adapter-react';
@@ -13,8 +14,8 @@ import Accordion from 'components/Marketplace/Accordion';
 import Card from 'components/Marketplace/Card';
 import SignInOptions from 'components/modals/SignInOptions';
 import resources from 'launcher/utils/resources';
-import { PackStats, Rarity } from 'screens/Mint/shared';
-import { SugarEffect } from 'utils/hook';
+import type { PackStats, Rarity } from 'screens/Mint/shared';
+import type { SugarEffect } from 'utils/hook';
 import { iStyles } from 'utils/styles';
 
 import PurchaseButton from './PurchaseButton';

@@ -1,8 +1,9 @@
 import { useCallback, useEffect } from 'react';
-import { Hub, HubCallback } from '@aws-amplify/core';
+import type { HubCallback } from '@aws-amplify/core';
+import { Hub } from '@aws-amplify/core';
 import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootParamList } from 'stacks/Browser/shared';
+import type { StackNavigationProp } from '@react-navigation/stack';
+import type { RootParamList } from 'stacks/Browser/shared';
 import { accountActions } from 'utils/state/account';
 
 interface InitConfig {

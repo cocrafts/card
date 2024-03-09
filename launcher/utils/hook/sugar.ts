@@ -1,17 +1,11 @@
-import {
-	MutableRefObject,
-	useCallback,
-	useEffect,
-	useRef,
-	useState,
-} from 'react';
-import {
+import type { MutableRefObject } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import type {
 	Amount,
 	CandyMachineV2,
-	Metaplex,
 	MintCandyMachineV2Output,
-	walletAdapterIdentity,
 } from '@metaplex-foundation/js';
+import { Metaplex, walletAdapterIdentity } from '@metaplex-foundation/js';
 import { getAssociatedTokenAddress as getAta } from '@solana/spl-token';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { PublicKey } from '@solana/web3.js';

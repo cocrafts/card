@@ -1,14 +1,10 @@
-import React from 'react';
-import {
-	ScrollView,
-	StyleProp,
-	StyleSheet,
-	View,
-	ViewStyle,
-} from 'react-native';
+import type { FC, ReactNode } from 'react';
+import { useState } from 'react';
+import type { StyleProp, ViewStyle } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { battlefield } from 'screens/Guide/content';
 import ConceptButton from 'screens/Guide/Dashboard/ConceptButton';
-import { ContentType } from 'screens/Guide/shared';
+import type { ContentType } from 'screens/Guide/shared';
 
 interface Props {
 	content: ContentType;
@@ -16,16 +12,16 @@ interface Props {
 	renderDescription?: (
 		des: string,
 		additional?: { title: string; text: string }[],
-	) => React.ReactNode;
-	renderImage?: (source: number) => React.ReactNode;
+	) => ReactNode;
+	renderImage?: (source: number) => ReactNode;
 }
-const Concept: React.FC<Props> = ({
+const Concept: FC<Props> = ({
 	content,
 	containerStyle,
 	renderDescription,
 	renderImage,
 }) => {
-	const [selectedConcept, setSelectedConcept] = React.useState<number>(0);
+	const [selectedConcept, setSelectedConcept] = useState<number>(0);
 	const imageSource = content.concepts[selectedConcept]?.image;
 
 	return (

@@ -1,12 +1,13 @@
-import React from 'react';
+import type { FC } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { DimensionState, dimensionState, Markdown, Text } from '@metacraft/ui';
+import type { DimensionState } from '@metacraft/ui';
+import { dimensionState, Markdown, Text } from '@metacraft/ui';
 import { battlefield } from 'screens/Guide/content';
 import Concept from 'screens/Guide/Dashboard/Concept';
 import { headingSize, sharedStyle } from 'screens/Guide/shared';
 import { useSnapshot } from 'utils/hook';
 
-const BattlefieldOverview: React.FC = () => {
+const BattlefieldOverview: FC = () => {
 	const { responsiveLevel } = useSnapshot<DimensionState>(dimensionState);
 	const imageWidth = responsiveLevel > 1 ? 803 * (1 / responsiveLevel) : 803;
 	const imageSize = {

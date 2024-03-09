@@ -1,4 +1,5 @@
-import { FC, useRef } from 'react';
+import type { FC } from 'react';
+import { useRef } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { AnimateDirections, modalActions } from '@metacraft/ui';
 import SignInOptions from 'components/modals/SignInOptions';

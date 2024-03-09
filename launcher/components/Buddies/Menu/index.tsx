@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { modalActions, ModalConfigs } from '@metacraft/ui';
+import type { ModalConfigs } from '@metacraft/ui';
+import { modalActions } from '@metacraft/ui';
 import { liveActions } from 'utils/state/live';
-import { Profile } from 'utils/types/graphql';
+import type { Profile } from 'utils/types/graphql';
 
 import MenuItem from './Item';
 
