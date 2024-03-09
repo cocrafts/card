@@ -1,12 +1,13 @@
 {
-	"extends": "@metacraft/tsconfig/application.json",
+  "extends": "@walless/tsconfig/application.json",
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
 			"components/*": ["./launcher/components/*"],
 			"stacks/*": ["./launcher/stacks/*"],
 			"screens/*": ["./launcher/screens/*"],
-			"utils/*": ["./launcher/utils/*"]
+			"utils/*": ["./launcher/utils/*"],
+			"icons/*": ["./launcher/icons/*"]
 		}
 	},
 	"include": ["index.web.js", "launcher"]
