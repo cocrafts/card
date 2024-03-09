@@ -6,11 +6,11 @@ const {
 	injectEnvironments,
 } = require('./tool/webpack');
 
-// const extraPolyfills = (configs) => {
-// 	configs.resolve.fallback['vm'] = require.resolve('vm-browserify');
+const extraPolyfills = (configs) => {
+	configs.resolve.fallback['vm'] = require.resolve('vm-browserify');
 
-// 	return configs;
-// };
+	return configs;
+};
 
 module.exports = {
 	publicPath: () => process.env.PUBLIC_URL || '/',
@@ -19,10 +19,9 @@ module.exports = {
 	buildId: () => 'app',
 	webpackMiddlewares: [
 		web3Polyfills,
-		// extraPolyfills,
+		extraPolyfills,
 		injectEnvironments,
 		copyAssets,
-		// splitBundle,
 	],
 	htmlPluginOptions: {
 		chunks: ['app'],
