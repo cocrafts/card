@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { ImageBackground, StyleSheet, View, ViewStyle } from 'react-native';
-import { stormIcons } from '@metacraft/icons';
+import { stormIcons } from 'components/icons';
 import { ScaledSizes, Text } from '@metacraft/ui';
 import resources from 'utils/resources';
 import { iStyles } from 'utils/styles';

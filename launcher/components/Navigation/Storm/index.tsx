@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Linking, StyleSheet, TouchableOpacity, View } from 'react-native';
-import { stormIcons } from '@metacraft/icons';
+import { stormIcons } from 'components/icons';
 import { navigationHeight } from 'components/Navigation/shared';
 import { iStyles } from 'utils/styles';
 
