@@ -57,7 +57,7 @@ const storyNav: NavigationConfig = {
 };
 
 export const mintNav: NavigationConfig = {
-	title: 'Mint',
+	title: 'NFT Mint (coming in Jun)',
 	route: 'Mint',
 	params: { screen: 'Dashboard' },
 };

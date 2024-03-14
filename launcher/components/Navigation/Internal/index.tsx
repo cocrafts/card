@@ -107,15 +107,17 @@ export const InternalNavigation: FC<Props> = ({
 					</TouchableOpacity>
 					{!isMobile && (
 						<View style={styles.navigationContainer}>
-							{localNavigations.map((item) => {
-								return (
+							{localNavigations.map((item) =>
+								item.title == 'NFT Mint (coming in Jun)' ? (
+									<NavigationItem key={item.title} item={item} />
+								) : (
 									<NavigationItem
 										key={item.title}
 										item={item}
 										onNavigate={onNavigate}
 									/>
-								);
-							})}
+								),
+							)}
 						</View>
 					)}
 				</Fragment>
