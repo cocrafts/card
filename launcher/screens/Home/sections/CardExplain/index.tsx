@@ -48,8 +48,14 @@ export const CardExplainSection: FC<Props> = ({
 				</View>
 				<Image source={resources.home.cardExplain} style={imageStyle} />
 				<View style={styles.buttonContainer}>
-					<UnderRealmButton style={styles.button} onPress={onMintPress}>
-						<Text style={sharedStyle.buttonText}>Mint NF (coming soon)T</Text>
+					<UnderRealmButton
+						disabled
+						isSubButton
+						style={styles.button}
+						onPress={onMintPress}
+					>
+						<Text style={sharedStyle.buttonText}>Mint NFT</Text>
+						<Text style={styles.buttonSubText}>Coming soon</Text>
 					</UnderRealmButton>
 					{/* <UnderRealmButton
 						isSubButton
@@ -88,6 +94,16 @@ const styles = StyleSheet.create({
 	},
 	button: {
 		width: 220,
-		margin: 15,
+		marginTop: 15,
+		marginHorizontal: 10,
+		height: 45,
+		paddingVertical: 0,
+		justifyContent: 'center',
+	},
+	buttonSubText: {
+		textAlign: 'center',
+		fontSize: 10,
+		color: '#fff',
+		fontWeight: '300',
 	},
 });

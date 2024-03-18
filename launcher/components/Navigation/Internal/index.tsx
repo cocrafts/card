@@ -34,7 +34,11 @@ export const InternalNavigation: FC<Props> = ({
 }) => {
 	const backgroundResizeMode = isMobile ? 'cover' : 'repeat';
 	const onNavigate = (item: NavigationConfig) => {
-		navigate(item.route as never, item.params);
+		const { route, params } = item;
+
+		if (!route) return;
+
+		navigate(route as never, params);
 	};
 
 	const mobileContentContainerStyle = isMobile
@@ -107,17 +111,13 @@ export const InternalNavigation: FC<Props> = ({
 					</TouchableOpacity>
 					{!isMobile && (
 						<View style={styles.navigationContainer}>
-							{localNavigations.map((item) =>
-								item.title == 'NFT Mint (coming in Jun)' ? (
-									<NavigationItem key={item.title} item={item} />
-								) : (
-									<NavigationItem
-										key={item.title}
-										item={item}
-										onNavigate={onNavigate}
-									/>
-								),
-							)}
+							{localNavigations.map((item) => (
+								<NavigationItem
+									key={item.title}
+									item={item}
+									onNavigate={onNavigate}
+								/>
+							))}
 						</View>
 					)}
 				</Fragment>
