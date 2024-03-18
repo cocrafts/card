@@ -14,7 +14,9 @@ const { Dragon } = stormIcons;
 
 export const StormNavigation: FC = () => {
 	const onNavigate = async (item: NavigationConfig) => {
-		await Linking.openURL(item.url as string);
+		if (!item.url) return;
+
+		await Linking.openURL(item.url);
 	};
 
 	return (

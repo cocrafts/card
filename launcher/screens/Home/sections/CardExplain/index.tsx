@@ -27,8 +27,7 @@ export const CardExplainSection: FC<Props> = ({
 		height: imageWidth * 0.7268,
 	};
 	const heightRatio = [1.2, 1.4, 1.5, 2][responsiveLevel];
-	const onMintPress = () =>
-		Linking.openURL('https://underrealm.stormgate.io/mint');
+	const onMintPress = () => Linking.openURL('');
 
 	return (
 		<View style={styles.container}>
@@ -49,8 +48,14 @@ export const CardExplainSection: FC<Props> = ({
 				</View>
 				<Image source={resources.home.cardExplain} style={imageStyle} />
 				<View style={styles.buttonContainer}>
-					<UnderRealmButton style={styles.button} onPress={onMintPress}>
+					<UnderRealmButton
+						disabled
+						isSubButton
+						style={styles.button}
+						onPress={onMintPress}
+					>
 						<Text style={sharedStyle.buttonText}>Mint NFT</Text>
+						<Text style={styles.buttonSubText}>Coming soon</Text>
 					</UnderRealmButton>
 					{/* <UnderRealmButton
 						isSubButton
@@ -89,6 +94,16 @@ const styles = StyleSheet.create({
 	},
 	button: {
 		width: 220,
-		margin: 15,
+		marginTop: 15,
+		marginHorizontal: 10,
+		height: 45,
+		paddingVertical: 0,
+		justifyContent: 'center',
+	},
+	buttonSubText: {
+		textAlign: 'center',
+		fontSize: 10,
+		color: '#fff',
+		fontWeight: '300',
 	},
 });

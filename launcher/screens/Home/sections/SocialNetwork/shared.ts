@@ -57,27 +57,27 @@ export const socialLinkList: SocialLink[] = [
 			size: 40,
 		},
 	},
-	{
-		href: 'https://www.facebook.com/playunderrealm/',
-		Component: FacebookIcon,
-		props: {
-			size: 21,
-		},
-	},
-	{
-		href: 'https://www.instagram.com/playunderrealm/',
-		Component: InstagramIcon,
-		props: {
-			size: 32,
-		},
-	},
-	{
-		href: 'https://underrealm.substack.com/',
-		Component: SubstackIcon,
-		props: {
-			size: 28,
-		},
-	},
+	// {
+	// 	href: 'https://www.facebook.com/playunderrealm/',
+	// 	Component: FacebookIcon,
+	// 	props: {
+	// 		size: 21,
+	// 	},
+	// },
+	// {
+	// 	href: 'https://www.instagram.com/playunderrealm/',
+	// 	Component: InstagramIcon,
+	// 	props: {
+	// 		size: 32,
+	// 	},
+	// },
+	// {
+	// 	href: 'https://underrealm.substack.com/',
+	// 	Component: SubstackIcon,
+	// 	props: {
+	// 		size: 28,
+	// 	},
+	// },
 	{
 		href: 'https://github.com/cocrafts',
 		Component: GithubIcon,
