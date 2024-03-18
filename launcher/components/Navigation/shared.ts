@@ -19,26 +19,26 @@ export const stormNavigations: NavigationConfig[] = [
 		url: 'https://underrealm.stormgate.io',
 		active: true,
 	},
+	// {
+	// 	title: 'Bench',
+	// 	url: 'https://bench.stormgate.io',
+	// },
 	{
-		title: 'Bench',
-		url: 'https://bench.stormgate.io',
-	},
-	{
-		title: 'Tokenomic',
-		url: 'https://docs.stormgate.io/whitepaper/tokenomic',
+		title: 'Tokenomic (coming soon)',
+		// url: 'https://docs.stormgate.io/whitepaper/tokenomic',
 	},
 	{
 		title: 'Lore',
 		url: 'https://stormgate.substack.com/p/welcome-to-atem-world-adventurers',
 	},
-	{
-		title: 'News',
-		url: 'https://stormgate.substack.com/',
-	},
-	{
-		title: 'Docs',
-		url: 'https://docs.stormgate.io/',
-	},
+	// {
+	// 	title: 'News',
+	// 	url: 'https://stormgate.substack.com/',
+	// },
+	// {
+	// 	title: 'Docs',
+	// 	url: 'https://docs.stormgate.io/',
+	// },
 ];
 
 export const homeNav: NavigationConfig = {
