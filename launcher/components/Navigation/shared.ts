@@ -56,18 +56,18 @@ const storyNav: NavigationConfig = {
 	route: 'Story',
 };
 
-export const mintNav: NavigationConfig = {
-	title: 'NFT Mint (coming in Jun)',
-	// Temporarily disable Mint route
-	// route: 'Mint',
-	// params: { screen: 'Dashboard' },
-};
+// Temporarily disable Mint route
+// export const mintNav: NavigationConfig = {
+// 	title: 'NFT Mint (coming in Jun)',
+// 	route: 'Mint',
+// 	params: { screen: 'Dashboard' },
+// };
 
 export const localNavigations: NavigationConfig[] = [
 	homeNav,
 	howToPlayNav,
 	storyNav,
-	mintNav,
+	// mintNav,
 ];
 
 export const navigationHeight = {

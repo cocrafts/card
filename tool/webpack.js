@@ -25,9 +25,9 @@ const copyAssets = (configs) => {
 const injectEnvironments = (configs, internal) => {
 	const { webpack } = internal.modules;
 	const { DefinePlugin } = webpack;
-	const env = internal.configs.env();
+	const env = internal.configs.env;
 	const gitBranch = process.env.gitBranch || 'dev';
-	const isProduction = internal.configs.isProduction(env);
+	const isProduction = internal.configs.isProduction;
 
 	configs.plugins[0] = new DefinePlugin({
 		process: { env: {} },
@@ -74,7 +74,7 @@ const swcOptions = () => ({
 					format: {
 						comments: false,
 					},
-			  }
+				}
 			: {},
 	},
 	env: {
