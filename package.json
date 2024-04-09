@@ -18,7 +18,7 @@
     "@apollo/client": "^3.6.9",
     "@metacraft/engines-under-realm": "^0.0.14",
     "@metacraft/murg-engine": "^0.0.72",
-    "@metacraft/ui": "^0.0.60",
+    "@metacraft/ui": "^0.0.61",
     "@metaplex-foundation/js": "0.19.4",
     "@react-native-async-storage/async-storage": "^1.22.3",
     "@react-navigation/drawer": "^6.5.0",
@@ -56,7 +56,7 @@
     "@babel/core": "7.24.0",
     "@babel/plugin-proposal-export-default-from": "^7.18.10",
     "@babel/preset-env": "^7.20.0",
-    "@metacraft/cli-web3-polyfills": "^0.0.7",
+    "@metacraft/cli-web3-polyfills": "^0.0.8",
     "@types/fbjs": "^3.0.2",
     "@types/numeral": "^2.0.2",
     "@types/react": "^18.0.28",
@@ -85,5 +85,6 @@
   },
   "resolutions": {
     "@types/react": "18.0.5"
-  }
+  },
+  "packageManager": "yarn@4.1.1"
 }
