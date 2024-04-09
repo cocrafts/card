@@ -3,10 +3,12 @@ import { useCallback, useMemo } from 'react';
 import { ApolloProvider } from '@apollo/client/react';
 import { Provider as MetacraftProvider } from '@metacraft/ui';
 import type { WalletError } from '@solana/wallet-adapter-base';
+import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
 import {
 	ConnectionProvider,
 	WalletProvider,
 } from '@solana/wallet-adapter-react';
+import { SolflareWalletAdapter } from '@solana/wallet-adapter-solflare';
 import BrowserStack from 'stacks/Browser/Container';
 import { graphQlClient } from 'utils/graphql';
 import { clusterUrl } from 'utils/helper';
@@ -21,6 +23,10 @@ export const App: FC = () => {
 	const endpoint = useMemo(() => clusterUrl(network), [network]);
 	const { profile, loading, forceConnect } = useSnapshot(accountState);
 	const autoConnect = forceConnect || (!loading && !profile.id);
+	const wallets = useMemo(
+		() => [new PhantomWalletAdapter(), new SolflareWalletAdapter()],
+		[network],
+	);
 
 	const useError = () => {
 		return useCallback((error: WalletError) => {
@@ -40,7 +46,7 @@ export const App: FC = () => {
 			<ConnectionProvider endpoint={endpoint}>
 				<WalletProvider
 					autoConnect={autoConnect}
-					wallets={[]}
+					wallets={wallets}
 					onError={useError}
 				>
 					<MetacraftProvider theme={launcherTheme}>
