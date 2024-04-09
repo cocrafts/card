@@ -6527,9 +6527,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@metacraft/cli-web3-polyfills@npm:^0.0.7":
-  version: 0.0.7
-  resolution: "@metacraft/cli-web3-polyfills@npm:0.0.7"
+"@metacraft/cli-web3-polyfills@npm:^0.0.8":
+  version: 0.0.8
+  resolution: "@metacraft/cli-web3-polyfills@npm:0.0.8"
   dependencies:
     assert: "npm:^2.0.0"
     buffer: "npm:^6.0.3"
@@ -6541,7 +6541,8 @@ __metadata:
     stream-browserify: "npm:^3.0.0"
     stream-http: "npm:^3.2.0"
     url: "npm:^0.11.0"
-  checksum: 10c0/c564d3bbcdcfacfa5a044ba8c69224820943ab99db5e5abbc8954ad220aacb2a2da26f99eb632115dda742dcce7509f872b962dd5c0138d59f983d0eaa441c87
+    vm-browserify: "npm:^1.1.2"
+  checksum: 10c0/2767c75d004799c3388e13f9dba73579d28746dffdeeb1ad15ccbc79092d77238c98d75af9dba92604154c8e30628e095e84a7c2eef37f6081eb43249680f908
   languageName: node
   linkType: hard
 
@@ -8341,6 +8342,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@solana/wallet-adapter-phantom@npm:^0.9.24":
+  version: 0.9.24
+  resolution: "@solana/wallet-adapter-phantom@npm:0.9.24"
+  dependencies:
+    "@solana/wallet-adapter-base": "npm:^0.9.23"
+  peerDependencies:
+    "@solana/web3.js": ^1.77.3
+  checksum: 10c0/5462ca78b95dfa8d2426676bf7471a31ae2a4d000b5a6c98f47a1be33382a4b0d74f95a3396c325730ec7fe6f2fa4a703cd80acdb42c9ef4b1ed324edf22522c
+  languageName: node
+  linkType: hard
+
 "@solana/wallet-adapter-react@npm:^0.15.35":
   version: 0.15.35
   resolution: "@solana/wallet-adapter-react@npm:0.15.35"
@@ -8352,6 +8364,21 @@ __metadata:
     "@solana/web3.js": ^1.77.3
     react: "*"
   checksum: 10c0/09312bb4c3350e159e5afd2c968615146be9352ffe7f6e1640f5cb65c9c4e9623b9b5a684d1b467a7dfd6f5aac6a7967a9983435439f26f7bebcda4aa3332d5a
+  languageName: node
+  linkType: hard
+
+"@solana/wallet-adapter-solflare@npm:^0.6.28":
+  version: 0.6.28
+  resolution: "@solana/wallet-adapter-solflare@npm:0.6.28"
+  dependencies:
+    "@solana/wallet-adapter-base": "npm:^0.9.23"
+    "@solana/wallet-standard-chains": "npm:^1.1.0"
+    "@solflare-wallet/metamask-sdk": "npm:^1.0.2"
+    "@solflare-wallet/sdk": "npm:^1.3.0"
+    "@wallet-standard/wallet": "npm:^1.0.1"
+  peerDependencies:
+    "@solana/web3.js": ^1.77.3
+  checksum: 10c0/afd2da0b032ac667c93b8549b7fd8d38527d49dba9e395b3c7d23c6d1feceae3f55d1a7a42afecb8ce1a478f992db22e1e5112592c660eaec08207dd868dffdc
   languageName: node
   linkType: hard
 
@@ -8492,6 +8519,34 @@ __metadata:
     rpc-websockets: "npm:^7.5.1"
     superstruct: "npm:^0.14.2"
   checksum: 10c0/22ffd6568f753fb8785e8ad146a22fd61f54cb1a7f3e937ad1fa5c3457b0f3f8e32893a705c996a366ecbc7e5a353f0b3444aca7d083e5cbd080f860c425b487
+  languageName: node
+  linkType: hard
+
+"@solflare-wallet/metamask-sdk@npm:^1.0.2":
+  version: 1.0.3
+  resolution: "@solflare-wallet/metamask-sdk@npm:1.0.3"
+  dependencies:
+    "@solana/wallet-standard-features": "npm:^1.1.0"
+    "@wallet-standard/base": "npm:^1.0.1"
+    bs58: "npm:^5.0.0"
+    eventemitter3: "npm:^5.0.1"
+    uuid: "npm:^9.0.0"
+  peerDependencies:
+    "@solana/web3.js": "*"
+  checksum: 10c0/6e86e6e283b42e11cb278ae0792d6887c1ad34cf3157bc038ccbdf72ad288763658155cba5d0dc7afca94eb2d395165195b626483a6b1efec22d1877cbccca9e
+  languageName: node
+  linkType: hard
+
+"@solflare-wallet/sdk@npm:^1.3.0":
+  version: 1.4.2
+  resolution: "@solflare-wallet/sdk@npm:1.4.2"
+  dependencies:
+    bs58: "npm:^5.0.0"
+    eventemitter3: "npm:^5.0.1"
+    uuid: "npm:^9.0.0"
+  peerDependencies:
+    "@solana/web3.js": "*"
+  checksum: 10c0/5779f03662d826ea85b606467e956f452759111a7ad34da0f7162f9c5882ac1828d575cc1be9ce61ba40c41ae62886e859718672adec15f8104ffdd8a00ebac5
   languageName: node
   linkType: hard
 
@@ -12890,6 +12945,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eventemitter3@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "eventemitter3@npm:5.0.1"
+  checksum: 10c0/4ba5c00c506e6c786b4d6262cfbce90ddc14c10d4667e5c83ae993c9de88aa856033994dd2b35b83e8dc1170e224e66a319fa80adc4c32adcd2379bbc75da814
+  languageName: node
+  linkType: hard
+
 "events@npm:1.1.1":
   version: 1.1.1
   resolution: "events@npm:1.1.1"
@@ -16381,7 +16443,7 @@ __metadata:
     "@babel/core": "npm:7.24.0"
     "@babel/plugin-proposal-export-default-from": "npm:^7.18.10"
     "@babel/preset-env": "npm:^7.20.0"
-    "@metacraft/cli-web3-polyfills": "npm:^0.0.7"
+    "@metacraft/cli-web3-polyfills": "npm:^0.0.8"
     "@metacraft/engines-under-realm": "npm:^0.0.14"
     "@metacraft/murg-engine": "npm:^0.0.72"
     "@metacraft/ui": "npm:^0.0.61"
@@ -16393,7 +16455,9 @@ __metadata:
     "@solana/buffer-layout": "npm:^4.0.0"
     "@solana/spl-token": "npm:0.3.7"
     "@solana/wallet-adapter-base": "npm:^0.9.23"
+    "@solana/wallet-adapter-phantom": "npm:^0.9.24"
     "@solana/wallet-adapter-react": "npm:^0.15.35"
+    "@solana/wallet-adapter-solflare": "npm:^0.6.28"
     "@solana/web3.js": "npm:1.78.4"
     "@tauri-apps/api": "npm:^1.0.2"
     "@types/fbjs": "npm:^3.0.2"
