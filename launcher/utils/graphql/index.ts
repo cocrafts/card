@@ -17,7 +17,7 @@ const defaultOptions: DefaultOptions = {
 	},
 };
 
-const uri = !__DEV__
+const uri = __DEV__
 	? 'http://localhost:3005/graphql'
 	: 'https://api.stormgate.io/graphql';
 
