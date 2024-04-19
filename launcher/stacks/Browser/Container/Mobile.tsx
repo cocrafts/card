@@ -22,7 +22,6 @@ export const Mobile: FC = () => {
 
 	return (
 		<Drawer.Navigator
-			useLegacyImplementation
 			screenOptions={drawerScreenOptions}
 			drawerContent={renderDrawer}
 		>
