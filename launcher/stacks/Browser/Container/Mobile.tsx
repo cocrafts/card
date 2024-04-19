@@ -1,6 +1,6 @@
 import type { FC } from 'react';
-import type { DrawerContentComponentProps } from '@react-navigation/drawer';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import type { DrawerContentComponentProps } from 'components/DrawerNavigation';
+import { createDrawerNavigator } from 'components/DrawerNavigation';
 import HomeScreen from 'screens/Home';
 import StoryScreen from 'screens/Story';
 import CardLibraryStack from 'stacks/Browser/CardLibrary';
