@@ -21,7 +21,6 @@
     "@metacraft/ui": "^0.0.61",
     "@metaplex-foundation/js": "0.19.4",
     "@react-native-async-storage/async-storage": "^1.22.3",
-    "@react-navigation/drawer": "^6.5.0",
     "@react-navigation/native": "^6.0.12",
     "@react-navigation/stack": "^6.2.3",
     "@solana/buffer-layout": "^4.0.0",
