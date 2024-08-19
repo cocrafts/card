@@ -7,10 +7,13 @@ import {
 } from 'react-native-reanimated';
 
 export type HoveredStyleFunc = (
-	isHoverd: SharedValue<boolean>,
+	isHovered: SharedValue<boolean>,
 ) => AnimatedStyleProp<ViewStyle>;
 
 export const useDefaultHoveredStyle: HoveredStyleFunc = (isHovered) =>
-	useAnimatedStyle(() => ({
-		opacity: withTiming(isHovered.value ? 0 : 1, { duration: 250 }),
-	}));
+	useAnimatedStyle(
+		() => ({
+			opacity: withTiming(isHovered.value ? 0 : 1, { duration: 250 }),
+		}),
+		[isHovered],
+	);

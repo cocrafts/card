@@ -48,14 +48,17 @@ export const ScrollLayout: FC<Props> = ({
 		paddingTop: dualHeight,
 	};
 
-	const navigationStyle = useAnimatedStyle(() => ({
-		zIndex: 1,
-		position: 'absolute',
-		top: 0,
-		left: 0,
-		right: 0,
-		transform: [{ translateY: -translate.value }],
-	}));
+	const navigationStyle = useAnimatedStyle(
+		() => ({
+			zIndex: 1,
+			position: 'absolute',
+			top: 0,
+			left: 0,
+			right: 0,
+			transform: [{ translateY: -translate.value }],
+		}),
+		[translate],
+	);
 
 	return (
 		<View style={[styles.container, style]}>

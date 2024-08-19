@@ -15,7 +15,7 @@ const SlideIndicator: FC<Props> = ({ classId, classActive }) => {
 	const indicatorAnimated = useAnimatedStyle(() => {
 		const isActive = classActive.value === classId;
 		return { opacity: withTiming(isActive ? 1 : 0) };
-	});
+	}, [classActive]);
 
 	return (
 		<View style={styles.container}>

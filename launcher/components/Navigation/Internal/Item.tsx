@@ -31,7 +31,7 @@ export const NavigationItem: FC<Props> = ({ item, onNavigate }) => {
 			opacity: withTiming(isActive || isHovered.value ? 1 : 0),
 			transform: [{ scale: withTiming(isActive || isHovered.value ? 1 : 0.5) }],
 		};
-	});
+	}, [isActive, isHovered]);
 
 	return (
 		<Hoverable

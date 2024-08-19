@@ -21,12 +21,12 @@ const ClassLogo: FC<Props> = ({ classActive, classInfo }) => {
 	const logoAnimatedStyle = useAnimatedStyle(() => {
 		const isActive = classActive.value === classInfo.id;
 		return { opacity: withTiming(isActive ? 0 : 1) };
-	});
+	}, [classActive]);
 
 	const logoActiveAnimatedStyle = useAnimatedStyle(() => {
 		const isActive = classActive.value === classInfo.id;
 		return { opacity: withTiming(isActive ? 1 : 0) };
-	});
+	}, [classActive]);
 
 	return (
 		<Fragment>

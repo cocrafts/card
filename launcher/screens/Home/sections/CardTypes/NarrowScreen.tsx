@@ -26,19 +26,19 @@ export const NarrowScreen: FC = () => {
 
 	const firstCardTypeTitleAnimatedStyle = useAnimatedStyle(() => {
 		return { opacity: currentSelectCardType.value !== 0 ? 0.5 : 1 };
-	});
+	}, [currentSelectCardType]);
 
 	const secondCardTypeTitleAnimatedStyle = useAnimatedStyle(() => {
 		return {
 			opacity: currentSelectCardType.value !== 1 ? 0.5 : 1,
 		};
-	});
+	}, [currentSelectCardType]);
 
 	const thirdCardTypeTitleAnimatedStyle = useAnimatedStyle(() => {
 		return {
 			opacity: currentSelectCardType.value !== 2 ? 0.5 : 1,
 		};
-	});
+	}, [currentSelectCardType]);
 
 	const cardTypeTitleAnimatedStyleList = [
 		firstCardTypeTitleAnimatedStyle,
@@ -48,15 +48,15 @@ export const NarrowScreen: FC = () => {
 
 	const firstCardTypeVisualAnimatedStyle = useAnimatedStyle(() => {
 		return { opacity: withTiming(currentSelectCardType.value !== 0 ? 0 : 1) };
-	});
+	}, [currentSelectCardType]);
 
 	const secondCardTypeVisualAnimatedStyle = useAnimatedStyle(() => {
 		return { opacity: withTiming(currentSelectCardType.value !== 1 ? 0 : 1) };
-	});
+	}, [currentSelectCardType]);
 
 	const thirdCardTypeVisualAnimatedStyle = useAnimatedStyle(() => {
 		return { opacity: withTiming(currentSelectCardType.value !== 2 ? 0 : 1) };
-	});
+	}, [currentSelectCardType]);
 
 	const cardTypeVisualAnimatedStyleList = [
 		firstCardTypeVisualAnimatedStyle,
@@ -68,19 +68,19 @@ export const NarrowScreen: FC = () => {
 		return {
 			opacity: currentSelectCardType.value !== 0 ? 0 : 1,
 		};
-	});
+	}, [currentSelectCardType]);
 
 	const secondCardTypeContentAnimatedStyle = useAnimatedStyle(() => {
 		return {
 			opacity: currentSelectCardType.value !== 1 ? 0 : 1,
 		};
-	});
+	}, [currentSelectCardType]);
 
 	const thirdCardTypeContentAnimatedStyle = useAnimatedStyle(() => {
 		return {
 			opacity: currentSelectCardType.value !== 2 ? 0 : 1,
 		};
-	});
+	}, [currentSelectCardType]);
 
 	const cardTypeContentAnimatedStyleList = [
 		firstCardTypeContentAnimatedStyle,

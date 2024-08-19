@@ -19,7 +19,7 @@ const ClassDescription: FC<Props> = ({ style, classActive, classInfo }) => {
 	const contentAnimatedStyle = useAnimatedStyle(() => {
 		const isActive = classActive.value === classInfo.id;
 		return { opacity: withTiming(isActive ? 1 : 0) };
-	});
+	}, [classActive]);
 
 	return (
 		<Animated.View style={[style, contentAnimatedStyle]}>

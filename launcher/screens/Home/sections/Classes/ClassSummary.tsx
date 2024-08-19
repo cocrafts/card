@@ -48,7 +48,7 @@ export const ClassSummary: FC<Props> = ({
 
 	const carouselAnimated = useAnimatedStyle(() => {
 		return { transform: [{ translateX: -transformHorizontal.value }] };
-	});
+	}, [transformHorizontal]);
 
 	const onIndicatorPress = (index: number) => {
 		transformHorizontal.value = withTiming(index * screenWidth.value);

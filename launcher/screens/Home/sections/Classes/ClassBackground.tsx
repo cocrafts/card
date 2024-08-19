@@ -22,7 +22,7 @@ export const ClassBackground: FC<Props> = ({
 	const backgroundAnimated = useAnimatedStyle(() => {
 		const isActive = classActive.value === id;
 		return { opacity: withTiming(isActive ? 1 : 0) };
-	});
+	}, [classActive]);
 
 	return (
 		<Fragment>

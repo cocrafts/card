@@ -36,21 +36,21 @@ const WideScreen: FC = () => {
 			opacity: currentSelectCardType.value !== 0 ? 0 : 1,
 			transform: [{ translateY: 50 }],
 		};
-	});
+	}, [currentSelectCardType]);
 
 	const secondCardTypeContentAnimatedStyle = useAnimatedStyle(() => {
 		return {
 			opacity: currentSelectCardType.value !== 1 ? 0 : 1,
 			transform: [{ translateY: 100 }],
 		};
-	});
+	}, [currentSelectCardType]);
 
 	const thirdCardTypeContentAnimatedStyle = useAnimatedStyle(() => {
 		return {
 			opacity: currentSelectCardType.value !== 2 ? 0 : 1,
 			transform: [{ translateY: 150 }],
 		};
-	});
+	}, [currentSelectCardType]);
 
 	const cardTypeContentAnimatedStyleList = [
 		firstCardTypeContentAnimatedStyle,
@@ -60,7 +60,7 @@ const WideScreen: FC = () => {
 
 	const firstCardTypeTitleAnimatedStyle = useAnimatedStyle(() => {
 		return { opacity: currentSelectCardType.value !== 0 ? 0.5 : 1 };
-	});
+	}, [currentSelectCardType]);
 
 	const secondCardTypeTitleAnimatedStyle = useAnimatedStyle(() => {
 		const contentSpace =
@@ -69,7 +69,7 @@ const WideScreen: FC = () => {
 			opacity: currentSelectCardType.value !== 1 ? 0.5 : 1,
 			transform: [{ translateY: 50 + contentSpace }],
 		};
-	});
+	}, [currentSelectCardType]);
 
 	const thirdCardTypeTitleAnimatedStyle = useAnimatedStyle(() => {
 		const contentSpace =
@@ -80,7 +80,7 @@ const WideScreen: FC = () => {
 			opacity: currentSelectCardType.value !== 2 ? 0.5 : 1,
 			transform: [{ translateY: 100 + contentSpace }],
 		};
-	});
+	}, [currentSelectCardType]);
 
 	const cardTypeTitleAnimatedStyleList = [
 		firstCardTypeTitleAnimatedStyle,
@@ -90,15 +90,15 @@ const WideScreen: FC = () => {
 
 	const firstCardTypeVisualAnimatedStyle = useAnimatedStyle(() => {
 		return { opacity: withTiming(currentSelectCardType.value !== 0 ? 0 : 1) };
-	});
+	}, [currentSelectCardType]);
 
 	const secondCardTypeVisualAnimatedStyle = useAnimatedStyle(() => {
 		return { opacity: withTiming(currentSelectCardType.value !== 1 ? 0 : 1) };
-	});
+	}, [currentSelectCardType]);
 
 	const thirdCardTypeVisualAnimatedStyle = useAnimatedStyle(() => {
 		return { opacity: withTiming(currentSelectCardType.value !== 2 ? 0 : 1) };
-	});
+	}, [currentSelectCardType]);
 
 	const cardTypeVisualAnimatedStyleList = [
 		firstCardTypeVisualAnimatedStyle,
