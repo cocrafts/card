@@ -58,12 +58,34 @@ const splitBundle = (configs) => {
 	return configs;
 };
 
+const babelLoaderAsFallback = (configs) => {
+	configs.module.rules.push({
+		test: /\.js$/,
+		include: /node_modules\/react-native-inappbrowser-reborn/,
+		use: {
+			loader: 'babel-loader',
+			options: {
+				presets: ['@babel/preset-env'],
+			},
+		},
+	});
+
+	return configs;
+};
+
 module.exports = {
-	useBabel: true,
+	// this flag is not valid by latest metacraft cli
+	// useBabel: true,
 	publicPath: () => process.env.PUBLIC_URL || '/',
 	keepPreviousBuild: () => true,
 	buildId: () => 'app',
-	webpackMiddlewares: [web3Polyfills, setEnvironments, copyAssets, splitBundle],
+	webpackMiddlewares: [
+		web3Polyfills,
+		setEnvironments,
+		copyAssets,
+		splitBundle,
+		babelLoaderAsFallback,
+	],
 	moduleAlias: {
 		global: {
 			'react-native': 'react-native-web',
