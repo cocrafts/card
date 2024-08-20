@@ -4,13 +4,9 @@ const {
 	swcOptions,
 	copyAssets,
 	injectEnvironments,
+	extraPolyfills,
+	babelLoaderAsFallback,
 } = require('./tool/webpack');
-
-const extraPolyfills = (configs) => {
-	configs.resolve.fallback['vm'] = require.resolve('vm-browserify');
-
-	return configs;
-};
 
 module.exports = {
 	publicPath: () => process.env.PUBLIC_URL || '/',
@@ -22,6 +18,7 @@ module.exports = {
 		extraPolyfills,
 		injectEnvironments,
 		copyAssets,
+		babelLoaderAsFallback,
 	],
 	htmlPluginOptions: {
 		chunks: ['app'],

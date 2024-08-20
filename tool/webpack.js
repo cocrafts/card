@@ -69,12 +69,12 @@ const swcOptions = () => ({
 		},
 		minify: isProd
 			? {
-				compress: true,
-				mangle: true,
-				format: {
-					comments: false,
-				},
-			}
+					compress: true,
+					mangle: true,
+					format: {
+						comments: false,
+					},
+				}
 			: {},
 	},
 	env: {
@@ -88,9 +88,32 @@ const swcOptions = () => ({
 	},
 });
 
+const extraPolyfills = (configs) => {
+	configs.resolve.fallback['vm'] = require.resolve('vm-browserify');
+
+	return configs;
+};
+
+const babelLoaderAsFallback = (configs) => {
+	configs.module.rules.push({
+		test: /\.js$/,
+		include: /node_modules\/react-native-inappbrowser-reborn/,
+		use: {
+			loader: 'babel-loader',
+			options: {
+				presets: ['@babel/preset-env'],
+			},
+		},
+	});
+
+	return configs;
+};
+
 module.exports = {
 	copyAssets,
 	injectEnvironments,
 	splitBundle,
 	swcOptions,
+	extraPolyfills,
+	babelLoaderAsFallback,
 };

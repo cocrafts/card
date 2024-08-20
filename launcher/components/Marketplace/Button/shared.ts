@@ -3,7 +3,7 @@ import type { AnimatedStyle, SharedValue } from 'react-native-reanimated';
 import { useAnimatedStyle, withTiming } from 'react-native-reanimated';
 
 export type HoveredStyleFunc = (
-	isHoverd: SharedValue<boolean>,
+	isHovered: SharedValue<boolean>,
 ) => AnimatedStyle<ViewStyle>;
 
 export const useDefaultHoveredStyle: HoveredStyleFunc = (isHovered) =>
