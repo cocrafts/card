@@ -88,6 +88,12 @@ const swcOptions = () => ({
 	},
 });
 
+const extraPolyfills = (configs) => {
+	configs.resolve.fallback['vm'] = require.resolve('vm-browserify');
+
+	return configs;
+};
+
 const babelLoaderAsFallback = (configs) => {
 	configs.module.rules.push({
 		test: /\.js$/,
@@ -108,5 +114,6 @@ module.exports = {
 	injectEnvironments,
 	splitBundle,
 	swcOptions,
+	extraPolyfills,
 	babelLoaderAsFallback,
 };

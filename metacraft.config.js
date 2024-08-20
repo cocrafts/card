@@ -4,7 +4,8 @@ const {
 	swcOptions,
 	copyAssets,
 	injectEnvironments,
-	babelLoaderAsFallback
+	extraPolyfills,
+	babelLoaderAsFallback,
 } = require('./tool/webpack');
 
 module.exports = {
@@ -17,7 +18,7 @@ module.exports = {
 		extraPolyfills,
 		injectEnvironments,
 		copyAssets,
-		babelLoaderAsFallback
+		babelLoaderAsFallback,
 	],
 	htmlPluginOptions: {
 		chunks: ['app'],
