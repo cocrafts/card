@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import Animated, {
 	useAnimatedStyle,
@@ -6,7 +6,7 @@ import Animated, {
 	withTiming,
 } from 'react-native-reanimated';
 import { Hoverable, Text } from '@metacraft/ui';
-import { CardTypeProps } from 'screens/CardLibrary/Library/shared';
+import type { CardTypeProps } from 'screens/CardLibrary/Library/shared';
 import resources from 'utils/resources';
 
 interface Props {
@@ -20,7 +20,7 @@ const CardTypeButton: React.FC<Props> = ({ isSelected, onPress, type }) => {
 		return {
 			opacity: withTiming(isSelected ? 1 : animatedOpacity.value),
 		};
-	});
+	}, [isSelected, animatedOpacity]);
 
 	const onHoverIn = () => (animatedOpacity.value = 1);
 

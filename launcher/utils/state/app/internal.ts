@@ -1,6 +1,6 @@
-import { proxy } from 'valtio';
-import { WalletAdapterNetwork as Network } from '@solana/wallet-adapter-base';
+import type { WalletAdapterNetwork as Network } from '@solana/wallet-adapter-base';
 import config from 'utils/config';
+import { proxy } from 'valtio';
 
 interface AppState {
 	counter: number;

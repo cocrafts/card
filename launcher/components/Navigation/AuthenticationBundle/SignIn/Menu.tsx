@@ -1,4 +1,5 @@
-import { FC, useCallback } from 'react';
+import type { FC } from 'react';
+import { useCallback } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button, modalActions, Text } from '@metacraft/ui';
 import { googleSignIn } from 'utils/lib/auth';

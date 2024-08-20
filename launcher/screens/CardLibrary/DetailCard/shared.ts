@@ -1,4 +1,4 @@
-export const getRarity = (level: number) => {
+export const getRarity = (level: number): string => {
 	if (level > 12) {
 		return 'Immortal';
 	} else if (level > 9) {

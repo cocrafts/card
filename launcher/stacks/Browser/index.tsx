@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { themeState } from '@metacraft/ui';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -12,12 +12,8 @@ import GameStack from './Game';
 import GuideScreen from './Guide';
 import MarketplaceStack from './Marketplace';
 import MintStack from './Mint';
-import {
-	linking,
-	navigationRef,
-	RootParamList,
-	stackScreenOptions,
-} from './shared';
+import type { RootParamList } from './shared';
+import { linking, navigationRef, stackScreenOptions } from './shared';
 
 const Stack = createStackNavigator<RootParamList>();
 

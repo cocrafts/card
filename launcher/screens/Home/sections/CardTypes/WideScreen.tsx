@@ -1,4 +1,5 @@
-import React, { FC, Fragment } from 'react';
+import type { FC } from 'react';
+import { Fragment } from 'react';
 import {
 	Image,
 	ImageBackground,
@@ -63,13 +64,13 @@ const WideScreen: FC = () => {
 	}, [currentSelectCardType]);
 
 	const secondCardTypeTitleAnimatedStyle = useAnimatedStyle(() => {
-		const contentSpace =
-			currentSelectCardType.value === 0 ? contentHeights[0].value : 0;
+		const firstHeight = contentHeights[0].value || 0;
+		const contentSpace = currentSelectCardType.value === 0 ? firstHeight : 0;
 		return {
 			opacity: currentSelectCardType.value !== 1 ? 0.5 : 1,
 			transform: [{ translateY: 50 + contentSpace }],
 		};
-	}, [currentSelectCardType]);
+	}, [contentHeights, currentSelectCardType]);
 
 	const thirdCardTypeTitleAnimatedStyle = useAnimatedStyle(() => {
 		const contentSpace =
@@ -80,7 +81,7 @@ const WideScreen: FC = () => {
 			opacity: currentSelectCardType.value !== 2 ? 0.5 : 1,
 			transform: [{ translateY: 100 + contentSpace }],
 		};
-	}, [currentSelectCardType]);
+	}, [currentSelectCardType, contentHeights]);
 
 	const cardTypeTitleAnimatedStyleList = [
 		firstCardTypeTitleAnimatedStyle,

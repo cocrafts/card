@@ -1,12 +1,12 @@
-import { DrawerNavigationOptions } from '@react-navigation/drawer';
-import { DrawerNavigationHelpers } from '@react-navigation/drawer/src/types';
-import {
-	createNavigationContainerRef,
+import type { DrawerNavigationOptions } from '@react-navigation/drawer';
+import type { DrawerNavigationHelpers } from '@react-navigation/drawer/src/types';
+import type {
 	LinkingOptions,
 	NavigatorScreenParams,
 	ParamListBase,
 } from '@react-navigation/native';
-import { StackNavigationOptions } from '@react-navigation/stack';
+import { createNavigationContainerRef } from '@react-navigation/native';
+import type { StackNavigationOptions } from '@react-navigation/stack';
 
 export const stackScreenOptions: StackNavigationOptions = {
 	headerShown: false,

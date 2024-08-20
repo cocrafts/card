@@ -1,10 +1,11 @@
-import { FC, RefObject } from 'react';
+import type { FC, RefObject } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { AnimateDirections, BindDirections, modalActions } from '@metacraft/ui';
 import { useBuddies } from 'utils/hook';
-import { Profile } from 'utils/types/graphql';
+import type { Profile } from 'utils/types/graphql';
 
-import BuddyItem, { BuddyProps } from './BuddyItem';
+import type { BuddyProps } from './BuddyItem';
+import BuddyItem from './BuddyItem';
 import BuddyMenu from './Menu';
 
 interface Props {

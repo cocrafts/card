@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Animated, {
 	useAnimatedStyle,
@@ -9,7 +9,8 @@ import { Hoverable, Text } from '@metacraft/ui';
 import { useNavigation } from '@react-navigation/native';
 import resources from 'utils/resources';
 
-import { NavigationConfig, navigationHeight } from '../shared';
+import type { NavigationConfig } from '../shared';
+import { navigationHeight } from '../shared';
 
 interface Props {
 	item: NavigationConfig;

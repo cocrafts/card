@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { ViewStyle } from 'react-native';
+import type { FC } from 'react';
+import type { ViewStyle } from 'react-native';
 import { Line, Path, Svg } from 'react-native-svg';
 
 interface Props {

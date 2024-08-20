@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import type { ScaledSize } from 'react-native';
 import {
 	ImageBackground,
-	ScaledSize,
 	StyleSheet,
 	TouchableOpacity,
 	View,
@@ -21,7 +21,7 @@ interface Props {
 	dimension: ScaledSize;
 }
 
-const ClassessSection: FC<Props> = ({ responsiveLevel, dimension }) => {
+const ClassesSection: FC<Props> = ({ responsiveLevel, dimension }) => {
 	const classActive = useSharedValue('summoner');
 	const classIdList = classList.map((item) => item.id);
 
@@ -70,7 +70,7 @@ const ClassessSection: FC<Props> = ({ responsiveLevel, dimension }) => {
 	);
 };
 
-export default ClassessSection;
+export default ClassesSection;
 
 const styles = StyleSheet.create({
 	container: {

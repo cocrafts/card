@@ -1,7 +1,8 @@
 import { Auth, CognitoHostedUIIdentityProvider } from '@aws-amplify/auth';
-import { ICredentials } from '@aws-amplify/core';
+import type { ICredentials } from '@aws-amplify/core';
 
-import { AuthError, ChallengedUser, simpleId } from './internal';
+import type { AuthError, ChallengedUser } from './internal';
+import { simpleId } from './internal';
 
 export const extractJwt = async (): Promise<string | null> => {
 	try {

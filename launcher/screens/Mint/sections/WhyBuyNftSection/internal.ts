@@ -1,4 +1,5 @@
-import { ImageStyle, StyleSheet } from 'react-native';
+import type { ImageStyle } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const borderHorizontalStyle = {
 	position: 'absolute',

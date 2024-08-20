@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { StyleSheet } from 'react-native';
 import { Text } from '@metacraft/ui';
 import ScrollLayout from 'components/layouts/Scroll';

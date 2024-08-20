@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { dimensionState, modalActions, Text } from '@metacraft/ui';
 import UnderRealmButton from 'components/Marketplace/Button';

@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Text } from '@metacraft/ui';
 import { navigationHeight } from 'components/Navigation/shared';
 
-import { NavigationConfig } from '../shared';
+import type { NavigationConfig } from '../shared';
 
 interface Props {
 	item: NavigationConfig;

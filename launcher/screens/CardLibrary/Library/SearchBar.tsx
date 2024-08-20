@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import {
 	Image,
 	ImageBackground,
@@ -12,7 +12,7 @@ interface Props {
 	onChangeText: (text: string) => void;
 	value: string;
 }
-const SearchBar: React.FC<Props> = ({ onChangeText, value }) => {
+const SearchBar: FC<Props> = ({ onChangeText, value }) => {
 	return (
 		<View style={styles.wrapper}>
 			<ImageBackground

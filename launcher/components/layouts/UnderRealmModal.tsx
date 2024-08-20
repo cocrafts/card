@@ -1,11 +1,6 @@
-import React, { FC, ReactNode } from 'react';
-import {
-	Image,
-	ImageBackground,
-	ImageStyle,
-	StyleSheet,
-	ViewStyle,
-} from 'react-native';
+import type { FC, ReactNode } from 'react';
+import type { ImageStyle, ViewStyle } from 'react-native';
+import { Image, ImageBackground, StyleSheet } from 'react-native';
 import resources from 'utils/resources';
 
 interface Props {

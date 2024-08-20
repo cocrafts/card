@@ -1,6 +1,7 @@
-import React from 'react';
+import type { FC } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { DimensionState, dimensionState, Text } from '@metacraft/ui';
+import type { DimensionState } from '@metacraft/ui';
+import { dimensionState, Text } from '@metacraft/ui';
 import FooterSection from 'components/layouts/Footer';
 import ScrollLayout from 'components/layouts/Scroll';
 import Banner from 'screens/Story/Banner';
@@ -11,7 +12,7 @@ import resources from 'utils/resources';
 import { iStyles } from 'utils/styles';
 
 const backgroundRatio = 1728 / 3516;
-const Story: React.FC = () => {
+const Story: FC = () => {
 	const { responsiveLevel, windowSize } =
 		useSnapshot<DimensionState>(dimensionState);
 
