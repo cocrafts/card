@@ -1,8 +1,10 @@
-import React, { FC } from 'react';
-import { StyleSheet, View, ViewStyle } from 'react-native';
+import type { FC } from 'react';
+import type { ViewStyle } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Text } from '@metacraft/ui';
 import Separator from 'components/icons/underRealm/Separator';
-import Card, { CardProps } from 'components/Marketplace/Card';
+import type { CardProps } from 'components/Marketplace/Card';
+import Card from 'components/Marketplace/Card';
 import { marketplaceSizes, marketplaceStyle } from 'screens/Marketplace/shared';
 import { navigate } from 'stacks/Browser/shared';
 

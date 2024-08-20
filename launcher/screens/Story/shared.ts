@@ -1,15 +1,16 @@
 import { StyleSheet } from 'react-native';
 import { useAnimatedStyle, withTiming } from 'react-native-reanimated';
-import { ScaledSizes } from '@metacraft/ui';
-import { HoveredStyleFunc } from 'components/Marketplace/Button/shared';
-import { iStyles } from 'utils/styles';
+import type { ScaledSizes } from '@metacraft/ui';
+import type { HoveredStyleFunc } from 'components/Marketplace/Button/shared';
 
 export const headingSize = [35] as ScaledSizes;
 
 export const useHoveredStyle: HoveredStyleFunc = (isHovered) =>
-	useAnimatedStyle(() => ({
-		opacity: withTiming(isHovered.value ? 0.5 : 1, { duration: 250 }),
-	}));
+	useAnimatedStyle(() => {
+		return {
+			opacity: withTiming(isHovered.value ? 0.5 : 1, { duration: 250 }),
+		};
+	}, [isHovered]);
 
 export const sharedStyle = StyleSheet.create({
 	heading: {

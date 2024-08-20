@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { ViewStyle } from 'react-native';
+import type { FC } from 'react';
+import type { ViewStyle } from 'react-native';
 import DiscordIcon from 'components/icons/Discord';
 import FacebookIcon from 'components/icons/Facebook';
 import GithubIcon from 'components/icons/GithubSolid';
@@ -57,27 +57,27 @@ export const socialLinkList: SocialLink[] = [
 			size: 40,
 		},
 	},
-	{
-		href: 'https://www.facebook.com/playunderrealm/',
-		Component: FacebookIcon,
-		props: {
-			size: 21,
-		},
-	},
-	{
-		href: 'https://www.instagram.com/playunderrealm/',
-		Component: InstagramIcon,
-		props: {
-			size: 32,
-		},
-	},
-	{
-		href: 'https://underrealm.substack.com/',
-		Component: SubstackIcon,
-		props: {
-			size: 28,
-		},
-	},
+	// {
+	// 	href: 'https://www.facebook.com/playunderrealm/',
+	// 	Component: FacebookIcon,
+	// 	props: {
+	// 		size: 21,
+	// 	},
+	// },
+	// {
+	// 	href: 'https://www.instagram.com/playunderrealm/',
+	// 	Component: InstagramIcon,
+	// 	props: {
+	// 		size: 32,
+	// 	},
+	// },
+	// {
+	// 	href: 'https://underrealm.substack.com/',
+	// 	Component: SubstackIcon,
+	// 	props: {
+	// 		size: 28,
+	// 	},
+	// },
 	{
 		href: 'https://github.com/cocrafts',
 		Component: GithubIcon,

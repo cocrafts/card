@@ -1,5 +1,6 @@
-import React, { FC, ReactNode, RefObject } from 'react';
-import { NativeScrollEvent, StyleSheet, View, ViewStyle } from 'react-native';
+import type { FC, ReactNode, RefObject } from 'react';
+import type { NativeScrollEvent, ViewStyle } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Animated, {
 	useAnimatedScrollHandler,
 	useAnimatedStyle,
@@ -48,14 +49,16 @@ export const ScrollLayout: FC<Props> = ({
 		paddingTop: dualHeight,
 	};
 
-	const navigationStyle = useAnimatedStyle(() => ({
-		zIndex: 1,
-		position: 'absolute',
-		top: 0,
-		left: 0,
-		right: 0,
-		transform: [{ translateY: -translate.value }],
-	}));
+	const navigationStyle = useAnimatedStyle(() => {
+		return {
+			zIndex: 1,
+			position: 'absolute',
+			top: 0,
+			left: 0,
+			right: 0,
+			transform: [{ translateY: -translate.value }],
+		};
+	}, [translate]);
 
 	return (
 		<View style={[styles.container, style]}>

@@ -1,6 +1,8 @@
-import { FC, useEffect, useState } from 'react';
+import type { FC } from 'react';
+import { useEffect, useState } from 'react';
 import { Linking, StyleSheet, View } from 'react-native';
-import { Hyperlink, modalActions, ModalConfigs, Text } from '@metacraft/ui';
+import type { ModalConfigs } from '@metacraft/ui';
+import { Hyperlink, modalActions, Text } from '@metacraft/ui';
 import { useWallet } from '@solana/wallet-adapter-react';
 import {
 	checkInstalledLayout,
@@ -9,7 +11,8 @@ import {
 } from '@walless/adapter-solana-base';
 import { useSnapshot } from 'utils/hook';
 import { signOut } from 'utils/lib/auth';
-import { AccountState, accountState } from 'utils/state/account';
+import type { AccountState } from 'utils/state/account';
+import { accountState } from 'utils/state/account';
 import { noSelect } from 'utils/styles';
 
 interface Props {

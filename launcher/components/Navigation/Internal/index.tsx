@@ -1,21 +1,20 @@
-import React, { FC, Fragment } from 'react';
+import type { FC } from 'react';
+import { Fragment } from 'react';
+import type { ImageStyle, ViewStyle } from 'react-native';
 import {
 	Image,
 	ImageBackground,
-	ImageStyle,
 	StyleSheet,
 	TouchableOpacity,
 	View,
-	ViewStyle,
 } from 'react-native';
 import { Text } from '@metacraft/ui';
 import BurgerIcon from 'components/icons/Burger';
-import UserSolidIcon from 'components/icons/UserSolid';
 import UnderRealmButton from 'components/Marketplace/Button';
+import type { NavigationConfig } from 'components/Navigation/shared';
 import {
 	homeNav,
 	localNavigations,
-	NavigationConfig,
 	navigationHeight,
 } from 'components/Navigation/shared';
 import { drawerHelper, navigate } from 'stacks/Browser/shared';
@@ -35,21 +34,25 @@ export const InternalNavigation: FC<Props> = ({
 }) => {
 	const backgroundResizeMode = isMobile ? 'cover' : 'repeat';
 	const onNavigate = (item: NavigationConfig) => {
-		navigate(item.route as never, item.params);
+		const { route, params } = item;
+
+		if (!route) return;
+
+		navigate(route as never, params);
 	};
 
 	const mobileContentContainerStyle = isMobile
 		? ({
 				paddingLeft: 15,
 				justifyContent: 'space-between',
-		  } as ViewStyle)
+			} as ViewStyle)
 		: {};
 
 	const mobileLogo = isMobile
 		? ({
 				marginRight: 0,
 				marginLeft: 0,
-		  } as ImageStyle)
+			} as ImageStyle)
 		: {};
 
 	const rightContent = isMobile ? (
@@ -108,15 +111,13 @@ export const InternalNavigation: FC<Props> = ({
 					</TouchableOpacity>
 					{!isMobile && (
 						<View style={styles.navigationContainer}>
-							{localNavigations.map((item) => {
-								return (
-									<NavigationItem
-										key={item.title}
-										item={item}
-										onNavigate={onNavigate}
-									/>
-								);
-							})}
+							{localNavigations.map((item) => (
+								<NavigationItem
+									key={item.title}
+									item={item}
+									onNavigate={onNavigate}
+								/>
+							))}
 						</View>
 					)}
 				</Fragment>

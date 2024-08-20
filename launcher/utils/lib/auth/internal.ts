@@ -1,6 +1,6 @@
 import { Linking, Platform } from 'react-native';
 import InAppBrowser from 'react-native-inappbrowser-reborn';
-import { CognitoUser } from 'amazon-cognito-identity-js';
+import type { CognitoUser } from 'amazon-cognito-identity-js';
 import { isDevBranch } from 'utils/config';
 
 export type AuthError = {
@@ -38,8 +38,8 @@ export const redirectOrigin = Platform.select({
 	web: __DEV__
 		? 'http://localhost:3000'
 		: isDevBranch
-		? 'https://underrealm-dev.stormgate.io'
-		: 'https://underrealm.stormgate.io',
+			? 'https://underrealm-dev.stormgate.io'
+			: 'https://underrealm.stormgate.io',
 });
 
 export const simpleId = (length: number): string => {

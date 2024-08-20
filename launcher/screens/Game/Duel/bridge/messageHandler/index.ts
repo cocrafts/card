@@ -1,4 +1,5 @@
-import { MessageData, MessageType } from '../internal';
+import type { MessageData } from '../internal';
+import { MessageType } from '../internal';
 
 import setReadyHandler from './setReady';
 

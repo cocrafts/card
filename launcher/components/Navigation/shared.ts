@@ -1,4 +1,4 @@
-import { RootParamList } from 'stacks/Browser/shared';
+import type { RootParamList } from 'stacks/Browser/shared';
 
 export interface NavigationConfig {
 	title: string;
@@ -19,26 +19,26 @@ export const stormNavigations: NavigationConfig[] = [
 		url: 'https://underrealm.stormgate.io',
 		active: true,
 	},
+	// {
+	// 	title: 'Bench',
+	// 	url: 'https://bench.stormgate.io',
+	// },
 	{
-		title: 'Bench',
-		url: 'https://bench.stormgate.io',
-	},
-	{
-		title: 'Tokenomic',
-		url: 'https://docs.stormgate.io/whitepaper/tokenomic',
+		title: 'Tokenomic (coming soon)',
+		// url: 'https://docs.stormgate.io/whitepaper/tokenomic',
 	},
 	{
 		title: 'Lore',
 		url: 'https://stormgate.substack.com/p/welcome-to-atem-world-adventurers',
 	},
-	{
-		title: 'News',
-		url: 'https://stormgate.substack.com/',
-	},
-	{
-		title: 'Docs',
-		url: 'https://docs.stormgate.io/',
-	},
+	// {
+	// 	title: 'News',
+	// 	url: 'https://stormgate.substack.com/',
+	// },
+	// {
+	// 	title: 'Docs',
+	// 	url: 'https://docs.stormgate.io/',
+	// },
 ];
 
 export const homeNav: NavigationConfig = {
@@ -56,17 +56,18 @@ const storyNav: NavigationConfig = {
 	route: 'Story',
 };
 
-export const mintNav: NavigationConfig = {
-	title: 'Mint',
-	route: 'Mint',
-	params: { screen: 'Dashboard' },
-};
+// Temporarily disable Mint route
+// export const mintNav: NavigationConfig = {
+// 	title: 'NFT Mint (coming in Jun)',
+// 	route: 'Mint',
+// 	params: { screen: 'Dashboard' },
+// };
 
 export const localNavigations: NavigationConfig[] = [
 	homeNav,
 	howToPlayNav,
 	storyNav,
-	mintNav,
+	// mintNav,
 ];
 
 export const navigationHeight = {

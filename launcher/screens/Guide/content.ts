@@ -1,4 +1,4 @@
-import { ContentType } from 'screens/Guide/shared';
+import type { ContentType } from 'screens/Guide/shared';
 import resources from 'utils/resources';
 
 export const battlefield: ContentType = {

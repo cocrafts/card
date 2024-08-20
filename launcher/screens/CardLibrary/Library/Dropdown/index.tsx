@@ -1,14 +1,13 @@
-import React from 'react';
+import type { FC } from 'react';
+import { useRef, useState } from 'react';
+import type { ImageStyle, StyleProp, ViewStyle } from 'react-native';
 import {
 	Image,
 	ImageBackground,
-	ImageStyle,
 	Modal,
-	StyleProp,
 	StyleSheet,
 	TouchableOpacity,
 	View,
-	ViewStyle,
 } from 'react-native';
 import { Text } from '@metacraft/ui';
 import { idleLayout } from 'utils/helper';
@@ -24,21 +23,21 @@ interface Props {
 	containerStyle?: StyleProp<ViewStyle>;
 }
 
-const Dropdown: React.FC<Props> = ({
+const Dropdown: FC<Props> = ({
 	data,
 	onSelect,
 	selectedIndex,
 	placeholder,
 	containerStyle,
 }) => {
-	const [layout, setLayout] = React.useState(idleLayout);
-	const [dropdownPosition, setDropdownPosition] = React.useState<{
+	const [layout, setLayout] = useState(idleLayout);
+	const [dropdownPosition, setDropdownPosition] = useState<{
 		top: number;
 		left: number;
 	}>({ top: 0, left: 0 });
-	const [visible, setVisible] = React.useState<boolean>(false);
-	const [dropdownHeight, setDropdownHeight] = React.useState<number>(0);
-	const ref = React.useRef<View>(null);
+	const [visible, setVisible] = useState<boolean>(false);
+	const [dropdownHeight, setDropdownHeight] = useState<number>(0);
+	const ref = useRef<View>(null);
 
 	const leftSide = {
 		width: 3,

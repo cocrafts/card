@@ -1,4 +1,5 @@
-import React, { FC, Fragment } from 'react';
+import type { FC } from 'react';
+import { Fragment } from 'react';
 
 import NarrowScreen from './NarrowScreen';
 import WideScreen from './WideScreen';

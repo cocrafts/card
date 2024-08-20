@@ -1,4 +1,5 @@
-import React from 'react';
+import type { FC } from 'react';
+import { useEffect, useState } from 'react';
 import {
 	Image,
 	ImageBackground,
@@ -6,13 +7,14 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native';
+import type { Card as ICard } from '@metacraft/murg-engine';
 import {
-	Card as ICard,
 	CardType,
 	CardType as ICardType,
 	getCardList,
 } from '@metacraft/murg-engine';
-import { DimensionState, dimensionState, Text } from '@metacraft/ui';
+import type { DimensionState } from '@metacraft/ui';
+import { dimensionState, Text } from '@metacraft/ui';
 import Card, { CARD_WIDTH } from 'components/Card';
 import ScrollLayout from 'components/layouts/Scroll';
 import { navigationHeight } from 'components/Navigation/shared';
@@ -42,19 +44,19 @@ enum AllCardType {
 
 type ExtendedCardType = ICardType | AllCardType;
 
-const Library: React.FC = () => {
-	const [selectedType, setSelectedType] = React.useState<ExtendedCardType>(
+const Library: FC = () => {
+	const [selectedType, setSelectedType] = useState<ExtendedCardType>(
 		AllCardType.All,
 	);
-	const [search, setSearch] = React.useState<string>('');
-	const [showSubFilter, setShowSubFilter] = React.useState<boolean>(false);
-	const [classType, setClassType] = React.useState<number>(-1);
-	const [elemental, setElemental] = React.useState<number>(-1);
-	const [attack, setAttack] = React.useState<number>(-1);
-	const [hp, setHp] = React.useState<number>(-1);
-	const [def, setDef] = React.useState<number>(-1);
+	const [search, setSearch] = useState<string>('');
+	const [showSubFilter, setShowSubFilter] = useState<boolean>(false);
+	const [classType, setClassType] = useState<number>(-1);
+	const [elemental, setElemental] = useState<number>(-1);
+	const [attack, setAttack] = useState<number>(-1);
+	const [hp, setHp] = useState<number>(-1);
+	const [def, setDef] = useState<number>(-1);
 	const initialCardList = getCardList();
-	const [cardList, setCardList] = React.useState<ICard[]>(initialCardList);
+	const [cardList, setCardList] = useState<ICard[]>(initialCardList);
 	const isVisibleSubFilter = showSubFilter && selectedType === CardType.Hero;
 	const { windowSize } = useSnapshot<DimensionState>(dimensionState);
 
@@ -76,7 +78,7 @@ const Library: React.FC = () => {
 		setSearch(text);
 	};
 
-	React.useEffect(() => {
+	useEffect(() => {
 		let filteredByType = [];
 		if (selectedType === AllCardType.All) {
 			filteredByType = initialCardList;

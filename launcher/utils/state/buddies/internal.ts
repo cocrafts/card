@@ -1,5 +1,5 @@
+import type { Profile } from 'utils/types/graphql';
 import { proxy } from 'valtio';
-import { Profile } from 'utils/types/graphql';
 
 export interface BuddyState {
 	list: Profile[];

@@ -1,6 +1,7 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { StyleSheet } from 'react-native';
-import { AppState, appState } from '@metacraft/ui';
+import type { AppState } from '@metacraft/ui';
+import { appState } from '@metacraft/ui';
 import ScrollLayout from 'components/layouts/Scroll';
 import { useSnapshot } from 'utils/hook';
 

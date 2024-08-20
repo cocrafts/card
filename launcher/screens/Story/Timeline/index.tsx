@@ -1,14 +1,15 @@
-import React from 'react';
+import type { FC } from 'react';
+import { useLayoutEffect, useRef } from 'react';
+import type { StyleProp, ViewStyle } from 'react-native';
 import {
 	Image,
 	ImageBackground,
 	ScrollView,
-	StyleProp,
 	StyleSheet,
 	View,
-	ViewStyle,
 } from 'react-native';
-import { DimensionState, dimensionState } from '@metacraft/ui';
+import type { DimensionState } from '@metacraft/ui';
+import { dimensionState } from '@metacraft/ui';
 import { useSnapshot } from 'utils/hook';
 import resources from 'utils/resources';
 
@@ -19,15 +20,12 @@ interface TimelineProps {
 	isNarrow?: boolean;
 }
 
-const Timeline: React.FC<TimelineProps> = ({
-	containerStyle,
-	isNarrow = false,
-}) => {
+const Timeline: FC<TimelineProps> = ({ containerStyle, isNarrow = false }) => {
 	const { windowSize } = useSnapshot<DimensionState>(dimensionState);
 
-	const scrollRef = React.useRef<ScrollView>(null);
+	const scrollRef = useRef<ScrollView>(null);
 
-	React.useLayoutEffect(() => {
+	useLayoutEffect(() => {
 		if (isNarrow)
 			scrollRef?.current?.scrollTo({
 				x: windowSize.width + 60,

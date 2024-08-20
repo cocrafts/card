@@ -1,13 +1,15 @@
-import React from 'react';
+import type { FC } from 'react';
+import { Fragment } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { DimensionState, dimensionState, Markdown, Text } from '@metacraft/ui';
+import type { DimensionState } from '@metacraft/ui';
+import { dimensionState, Markdown, Text } from '@metacraft/ui';
 import { card } from 'screens/Guide/content';
 import Concept from 'screens/Guide/Dashboard/Concept';
 import { headingSize, sharedStyle } from 'screens/Guide/shared';
 import { useSnapshot } from 'utils/hook';
 import resources from 'utils/resources';
 
-const Cards: React.FC<Record<string, unknown>> = () => {
+const Cards: FC<Record<string, unknown>> = () => {
 	const { responsiveLevel } = useSnapshot<DimensionState>(dimensionState);
 	const imageWidth = responsiveLevel > 1 ? 1060 * (1 / responsiveLevel) : 803;
 	const imageStyle = {
@@ -25,10 +27,10 @@ const Cards: React.FC<Record<string, unknown>> = () => {
 				<Text>{des}</Text>
 				{additional?.map((item) => {
 					return (
-						<React.Fragment key={item.title}>
+						<Fragment key={item.title}>
 							<Text style={styles.propertyTitle}>{item.title}</Text>
 							<Markdown content={item.text} />
-						</React.Fragment>
+						</Fragment>
 					);
 				})}
 			</>

@@ -1,4 +1,5 @@
-import { MessagePayload, MessageType, parseData } from './internal';
+import type { MessagePayload, MessageType } from './internal';
+import { parseData } from './internal';
 import { handleMessage } from './messageHandler';
 
 interface MessengerGlobal {

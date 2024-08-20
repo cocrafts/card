@@ -1,21 +1,14 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
-import {
-	ActivityIndicator,
-	Image,
-	StyleSheet,
-	View,
-	ViewStyle,
-} from 'react-native';
+import type { FC } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import type { ViewStyle } from 'react-native';
+import { ActivityIndicator, Image, StyleSheet, View } from 'react-native';
 import { Text } from '@metacraft/ui';
-import {
-	CandyMachineV2,
-	Metaplex,
-	walletAdapterIdentity,
-} from '@metaplex-foundation/js';
+import type { CandyMachineV2 } from '@metaplex-foundation/js';
+import { Metaplex, walletAdapterIdentity } from '@metaplex-foundation/js';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { PublicKey } from '@solana/web3.js';
 import Card from 'components/Marketplace/Card';
-import { PackStats } from 'screens/Mint/shared';
+import type { PackStats } from 'screens/Mint/shared';
 import resources from 'utils/resources';
 
 interface Props {

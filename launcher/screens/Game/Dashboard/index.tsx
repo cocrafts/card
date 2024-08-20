@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { ImageBackground, StyleSheet, View } from 'react-native';
 import { dimensionState } from '@metacraft/ui';
 import InternalNavigation from 'components/Navigation/Internal';

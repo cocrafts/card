@@ -1,11 +1,12 @@
-import React from 'react';
+import type { FC } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { DimensionState, dimensionState, Text } from '@metacraft/ui';
+import type { DimensionState } from '@metacraft/ui';
+import { dimensionState, Text } from '@metacraft/ui';
 import { headingSize, sharedStyle } from 'screens/Guide/shared';
 import { useSnapshot } from 'utils/hook';
 import resources from 'utils/resources';
 
-const Elemental: React.FC = () => {
+const Elemental: FC = () => {
 	const { responsiveLevel } = useSnapshot<DimensionState>(dimensionState);
 
 	const renderNarrowContent = () => {

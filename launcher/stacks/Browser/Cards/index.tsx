@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import CardDashboard from 'screens/Cards/Dashboard';
 
-import { GameParamList, stackScreenOptions } from '../shared';
+import type { GameParamList } from '../shared';
+import { stackScreenOptions } from '../shared';
 
 const Stack = createStackNavigator<GameParamList>();
 
