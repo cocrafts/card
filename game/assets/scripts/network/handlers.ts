@@ -1,10 +1,11 @@
-import Engine, { DuelCommandBundle } from '@metacraft/murg-engine';
+import type { DuelCommandBundle } from '@metacraft/murg-engine';
+import Engine from '@metacraft/murg-engine';
 
 import { replay } from '../replay';
 import { raiseHandCard, showEndGameRibbon } from '../tween';
 import { extractPlayerIds } from '../util/helper';
 import { system } from '../util/system';
-import { CardDuel, JwtPayload } from '../util/types';
+import type { CardDuel, JwtPayload } from '../util/types';
 
 import { mergeRemoteHistory } from './util';
 

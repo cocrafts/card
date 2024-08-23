@@ -1,4 +1,5 @@
-import Engine, { DuelCommandBundle } from '@metacraft/murg-engine';
+import type { DuelCommandBundle } from '@metacraft/murg-engine';
+import Engine from '@metacraft/murg-engine';
 import { instantiate } from 'cc';
 
 import {

@@ -1,12 +1,6 @@
 import Engine from '@metacraft/murg-engine';
-import {
-	_decorator,
-	AudioSource,
-	Component,
-	EventMouse,
-	Node,
-	UIOpacity,
-} from 'cc';
+import type { EventMouse } from 'cc';
+import { _decorator, AudioSource, Component, Node, UIOpacity } from 'cc';
 
 import { cardIdFromNode, getMyGround } from './util/helper';
 import { getGroundExpos, getHandExpos } from './util/layout';

@@ -24,6 +24,7 @@ const HeadingSection: FC = () => {
 		useSnapshot<DimensionState>(dimensionState);
 	const logoSize = [720, 600, 500, 350][responsiveLevel];
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const showGameSubscribeModal = () => {
 		modalActions.show({
 			id: 'gameSubscribe',

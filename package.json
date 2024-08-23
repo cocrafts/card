@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.web.js",
   "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "dev": "metacraft",
     "build": "metacraft bundle",
     "deploy": "sst deploy",
@@ -78,7 +80,7 @@
     "mustache": "^4.2.0",
     "prettier": "^3.0.3",
     "sst": "^2.41.2",
-    "typescript": "^5.2.2",
+    "typescript": "5.3.3",
     "vm-browserify": "^1.1.2",
     "webpack": "^5.89.0"
   },

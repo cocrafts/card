@@ -1,14 +1,16 @@
-import Engine, {
+import type {
 	DuelConfig,
 	DuelState,
 	TemplateFragment,
 } from '@metacraft/murg-engine';
-import { Color, Node, Vec2, Vec3 } from 'cc';
+import Engine from '@metacraft/murg-engine';
+import type { Node } from 'cc';
+import { Color, Vec2, Vec3 } from 'cc';
 
 import { CardManager } from '../CardManager';
 
 import { system } from './system';
-import { PlayerIds } from './types';
+import type { PlayerIds } from './types';
 
 const { ElementalType, ClassType, selectHand, selectGround } = Engine;
 

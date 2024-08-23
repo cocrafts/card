@@ -1,13 +1,7 @@
-import Engine, { CardState } from '@metacraft/murg-engine';
-import {
-	_decorator,
-	Component,
-	Node,
-	resources,
-	Sprite,
-	SpriteFrame,
-	UIOpacity,
-} from 'cc';
+import type { CardState } from '@metacraft/murg-engine';
+import Engine from '@metacraft/murg-engine';
+import type { SpriteFrame } from 'cc';
+import { _decorator, Component, Node, resources, Sprite, UIOpacity } from 'cc';
 
 import { updateUnit } from './util/attribute';
 import { getFoilUri, getVisualUri, setCursor } from './util/helper';

@@ -1,5 +1,7 @@
-import Engine, { PlayerState } from '@metacraft/murg-engine';
-import { _decorator, Animation, Component, Label } from 'cc';
+import type { PlayerState } from '@metacraft/murg-engine';
+import Engine from '@metacraft/murg-engine';
+import type { Animation } from 'cc';
+import { _decorator, Component, Label } from 'cc';
 
 import { getPositionExpos } from './util/layout';
 import { switchBackgroundSound } from './util/resources';

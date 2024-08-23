@@ -1,12 +1,5 @@
-import {
-	Asset,
-	AudioClip,
-	instantiate,
-	Node,
-	Prefab,
-	resources,
-	sys,
-} from 'cc';
+import type { Asset, AudioClip, Node, Prefab } from 'cc';
+import { instantiate, resources, sys } from 'cc';
 
 import { delay } from './helper';
 import { system } from './system';
@@ -34,8 +27,8 @@ const effectSounds = [
 ] as const;
 
 export type GameSounds =
-	| typeof backgroundSounds[number]
-	| typeof effectSounds[number];
+	| (typeof backgroundSounds)[number]
+	| (typeof effectSounds)[number];
 
 const audioCache: Partial<Record<GameSounds, AudioSource>> = {};
 

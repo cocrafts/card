@@ -1,4 +1,4 @@
-import { DuelCommandBundle, DuelConfig } from '@metacraft/murg-engine';
+import type { DuelCommandBundle, DuelConfig } from '@metacraft/murg-engine';
 
 export enum DuelCommands {
 	ConnectMatch = 'ConnectMatch',
@@ -18,6 +18,7 @@ export interface CommandPayload {
 	command: DuelCommands;
 	context?: JwtPayload;
 	send?: (payload: Record<string, never>) => Promise<void>;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	payload?: any;
 }
 

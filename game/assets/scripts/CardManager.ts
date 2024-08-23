@@ -1,14 +1,14 @@
-import Engine, { CardState } from '@metacraft/murg-engine';
+import type { CardState } from '@metacraft/murg-engine';
+import Engine from '@metacraft/murg-engine';
+import type { Node, SpriteFrame } from 'cc';
 import {
 	_decorator,
 	Animation,
 	Component,
 	Label,
-	Node,
 	resources,
 	RichText,
 	Sprite,
-	SpriteFrame,
 	UIOpacity,
 } from 'cc';
 

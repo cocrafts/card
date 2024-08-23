@@ -1,10 +1,7 @@
 import type { FC } from 'react';
 import type { ViewStyle } from 'react-native';
 import DiscordIcon from 'components/icons/Discord';
-import FacebookIcon from 'components/icons/Facebook';
 import GithubIcon from 'components/icons/GithubSolid';
-import InstagramIcon from 'components/icons/Instagram';
-import SubstackIcon from 'components/icons/Substack';
 import TwitterIcon from 'components/icons/Twitter';
 import { navigate } from 'stacks/Browser/shared';
 

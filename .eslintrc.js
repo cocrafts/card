@@ -15,4 +15,7 @@ module.exports = {
 		document: true,
 		ethereum: true,
 	},
+	rules: {
+		'@typescript-eslint/explicit-module-boundary-types': 'off',
+	},
 };

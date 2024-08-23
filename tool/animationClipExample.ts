@@ -1,4 +1,5 @@
-import { animation, AnimationClip, easing, Quat, Vec3 } from 'cc';
+import type { easing } from 'cc';
+import { animation, AnimationClip, Quat, Vec3 } from 'cc';
 
 const { HierarchyPath } = animation;
 

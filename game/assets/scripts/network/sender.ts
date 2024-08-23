@@ -1,14 +1,17 @@
-import Engine, { DuelCommandBundle } from '@metacraft/murg-engine';
+import type { DuelCommandBundle } from '@metacraft/murg-engine';
+import Engine from '@metacraft/murg-engine';
 import lodash from 'lodash';
 
 import { replay } from '../replay';
 import { system } from '../util/system';
-import { CommandPayload, DuelCommands } from '../util/types';
+import type { CommandPayload } from '../util/types';
+import { DuelCommands } from '../util/types';
 
 import { connectionInstance } from './util';
 
 const { getCardState, selectHand, move, DuelPlace } = Engine;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const sendCommand = (command: DuelCommands, payload?: any): void => {
 	const data: CommandPayload = {
 		jwt: system.jwt,
