@@ -1,11 +1,6 @@
-import React, { FC } from 'react';
-import {
-	ImageBackground,
-	ScaledSize,
-	StyleSheet,
-	View,
-	ViewStyle,
-} from 'react-native';
+import type { FC } from 'react';
+import type { ScaledSize, ViewStyle } from 'react-native';
+import { ImageBackground, StyleSheet, View } from 'react-native';
 import { Text } from '@metacraft/ui';
 import UnderRealmButton from 'components/Marketplace/Button';
 import { headingSize, sharedStyle } from 'screens/Home/shared';
@@ -84,7 +79,7 @@ const styles = StyleSheet.create({
 	},
 	textShadow: {
 		textShadow: '0 0 10px black',
-	},
+	} as never,
 	buttonText: {
 		textAlign: 'center',
 		color: '#fff',

@@ -1,18 +1,18 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { ImageBackground, StyleSheet, View } from 'react-native';
+import type { DimensionState, ScaledSizes } from '@metacraft/ui';
 import {
 	AnimateDirections,
-	DimensionState,
 	dimensionState,
 	modalActions,
-	ScaledSizes,
 	Text,
 } from '@metacraft/ui';
-import { NavigationProp, useNavigation } from '@react-navigation/native';
+import type { NavigationProp } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import UnderRealmLogo from 'components/Home/visuals/UnderRealmLogo';
 import UnderRealmButton from 'components/Marketplace/Button';
 import GameSubscribe from 'components/modals/GameSubscribe';
-import { RootParamList } from 'stacks/Browser/shared';
+import type { RootParamList } from 'stacks/Browser/shared';
 import { useSnapshot } from 'utils/hook';
 import resources from 'utils/resources';
 

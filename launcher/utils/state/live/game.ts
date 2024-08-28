@@ -1,10 +1,11 @@
-import { ObservableSubscription } from '@apollo/client';
+import type { ObservableSubscription } from '@apollo/client';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { navigate } from 'stacks/Browser/shared';
 import { graphQlClient } from 'utils/graphql';
 import * as mutations from 'utils/graphql/mutation';
 import * as subscriptions from 'utils/graphql/subscription';
-import { CardDuelHistory, MetacraftGames } from 'utils/types/graphql';
+import type { CardDuelHistory } from 'utils/types/graphql';
+import { MetacraftGames } from 'utils/types/graphql';
 
 import { liveState } from './internal';
 

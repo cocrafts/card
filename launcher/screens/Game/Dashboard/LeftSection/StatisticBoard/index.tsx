@@ -1,4 +1,5 @@
-import React, { FC, Fragment } from 'react';
+import type { FC } from 'react';
+import { Fragment } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { modalActions, Text } from '@metacraft/ui';
 import UnderRealmBoard from 'components/Board';

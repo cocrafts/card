@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import { Image, ImageBackground, ScaledSize, StyleSheet } from 'react-native';
+import type { FC } from 'react';
+import type { ScaledSize } from 'react-native';
+import { Image, ImageBackground, StyleSheet } from 'react-native';
 import { Text } from '@metacraft/ui';
-import UnderRealmButton from 'components/Marketplace/Button';
 import { headingSize, sharedStyle } from 'screens/Home/shared';
 import resources from 'utils/resources';
 

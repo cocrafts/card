@@ -1,20 +1,15 @@
-import React, { FC, Fragment, ReactNode, useState } from 'react';
-import {
-	Image,
-	ImageStyle,
-	StyleSheet,
-	TextStyle,
-	TouchableOpacity,
-	View,
-	ViewStyle,
-} from 'react-native';
+import type { FC, ReactNode } from 'react';
+import { Fragment, useState } from 'react';
+import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { Hoverable, Text } from '@metacraft/ui';
 
 import { idleLayout } from '../../../utils/helper';
 import resources from '../../../utils/resources';
 
-import { HoveredStyleFunc, useDefaultHoveredStyle } from './shared';
+import type { HoveredStyleFunc } from './shared';
+import { useDefaultHoveredStyle } from './shared';
 
 interface Props {
 	style?: ViewStyle;

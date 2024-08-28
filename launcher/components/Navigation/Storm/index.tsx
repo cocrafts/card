@@ -1,11 +1,12 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { Linking, StyleSheet, TouchableOpacity, View } from 'react-native';
-import { stormIcons } from '@metacraft/icons';
+import { stormIcons } from 'components/icons';
 import { navigationHeight } from 'components/Navigation/shared';
 import { iStyles } from 'utils/styles';
 
 import AuthenticationBundle from '../AuthenticationBundle';
-import { NavigationConfig, stormGateNav, stormNavigations } from '../shared';
+import type { NavigationConfig } from '../shared';
+import { stormGateNav, stormNavigations } from '../shared';
 
 import NavigationItem from './Item';
 
@@ -13,7 +14,9 @@ const { Dragon } = stormIcons;
 
 export const StormNavigation: FC = () => {
 	const onNavigate = async (item: NavigationConfig) => {
-		await Linking.openURL(item.url as string);
+		if (!item.url) return;
+
+		await Linking.openURL(item.url);
 	};
 
 	return (

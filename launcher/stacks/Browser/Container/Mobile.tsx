@@ -1,10 +1,9 @@
-import React, { FC } from 'react';
-import {
-	createDrawerNavigator,
-	DrawerContentComponentProps,
-} from '@react-navigation/drawer';
+import type { FC } from 'react';
+import type { DrawerContentComponentProps } from 'components/DrawerNavigation';
+import { createDrawerNavigator } from 'components/DrawerNavigation';
 import HomeScreen from 'screens/Home';
 import StoryScreen from 'screens/Story';
+import CardLibraryStack from 'stacks/Browser/CardLibrary';
 import CardsStack from 'stacks/Browser/Cards';
 import GameStack from 'stacks/Browser/Game';
 import GuideScreen from 'stacks/Browser/Guide';
@@ -13,7 +12,6 @@ import MintStack from 'stacks/Browser/Mint';
 import { drawerScreenOptions } from 'stacks/Browser/shared';
 
 import DrawerMenu from './DrawerMenu';
-import CardLibraryStack from "stacks/Browser/CardLibrary";
 
 const Drawer = createDrawerNavigator();
 
@@ -24,7 +22,6 @@ export const Mobile: FC = () => {
 
 	return (
 		<Drawer.Navigator
-			useLegacyImplementation
 			screenOptions={drawerScreenOptions}
 			drawerContent={renderDrawer}
 		>

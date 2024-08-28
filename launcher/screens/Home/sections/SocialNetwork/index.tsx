@@ -1,5 +1,6 @@
-import React, { FC } from 'react';
-import { Image, ImageBackground, ScaledSize, ViewStyle } from 'react-native';
+import type { FC } from 'react';
+import type { ScaledSize, ViewStyle } from 'react-native';
+import { Image, ImageBackground } from 'react-native';
 import resources from 'utils/resources';
 import { iStyles } from 'utils/styles';
 

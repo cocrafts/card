@@ -1,11 +1,5 @@
-import {
-	ApolloClient,
-	DefaultOptions,
-	HttpLink,
-	InMemoryCache,
-	Operation,
-	split,
-} from '@apollo/client';
+import type { DefaultOptions, Operation } from '@apollo/client';
+import { ApolloClient, HttpLink, InMemoryCache, split } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { WebSocketLink } from '@apollo/client/link/ws';
 import { getMainDefinition } from '@apollo/client/utilities';

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import Animated, {
 	useAnimatedStyle,
@@ -37,9 +37,11 @@ const ConceptButton: FC<Props> = ({
 	const animatedOpacity = useSharedValue(0.5);
 	const effectOpacity = useSharedValue(0);
 
-	const animatedContainer = useAnimatedStyle(() => ({
-		opacity: withTiming(isSelected ? 1 : animatedOpacity.value),
-	}));
+	const animatedContainer = useAnimatedStyle(() => {
+		return {
+			opacity: withTiming(isSelected ? 1 : animatedOpacity.value),
+		};
+	}, [isSelected, animatedOpacity]);
 
 	const animatedImage = useAnimatedStyle(() => {
 		return {
@@ -51,15 +53,19 @@ const ConceptButton: FC<Props> = ({
 				duration: 400,
 			}),
 		};
-	});
+	}, [isSelected, effectOpacity]);
 
-	const outlineStyle = useAnimatedStyle(() => ({
-		borderColor: withTiming(isSelected ? '#786442' : 'transparent'),
-	}));
+	const outlineStyle = useAnimatedStyle(() => {
+		return {
+			borderColor: withTiming(isSelected ? '#786442' : 'transparent'),
+		};
+	}, [isSelected]);
 
-	const indicatorStyle = useAnimatedStyle(() => ({
-		backgroundColor: withTiming(isSelected ? '#edede8' : '#423c36'),
-	}));
+	const indicatorStyle = useAnimatedStyle(() => {
+		return {
+			backgroundColor: withTiming(isSelected ? '#edede8' : '#423c36'),
+		};
+	}, [isSelected]);
 
 	const onHoverIn = () => {
 		animatedOpacity.value = 1;

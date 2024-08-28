@@ -1,7 +1,8 @@
-import { FC, useCallback, useMemo } from 'react';
+import type { FC } from 'react';
+import { useCallback, useMemo } from 'react';
 import { ApolloProvider } from '@apollo/client/react';
 import { Provider as MetacraftProvider } from '@metacraft/ui';
-import { WalletError } from '@solana/wallet-adapter-base';
+import type { WalletError } from '@solana/wallet-adapter-base';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
 import {
 	ConnectionProvider,
@@ -22,7 +23,6 @@ export const App: FC = () => {
 	const endpoint = useMemo(() => clusterUrl(network), [network]);
 	const { profile, loading, forceConnect } = useSnapshot(accountState);
 	const autoConnect = forceConnect || (!loading && !profile.id);
-
 	const wallets = useMemo(
 		() => [new PhantomWalletAdapter(), new SolflareWalletAdapter()],
 		[network],

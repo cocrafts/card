@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Hyperlink, Text } from '@metacraft/ui';
 import StormgateLogo from 'components/icons/StormgateLogo';

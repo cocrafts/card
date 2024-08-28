@@ -4,6 +4,7 @@
 
 .idea
 .vscode
+.yarn
 
 metacraft/
 wings/
@@ -14,6 +15,9 @@ assets/murg
 /*.tf
 .terraform
 .terraform.lock.hcl
+.sst
+
+cdk.context.json
 
 node_modules/
 npm-debug.log

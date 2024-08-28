@@ -1,18 +1,16 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import type { ScaledSize } from 'react-native';
 import {
 	Image,
 	ImageBackground,
-	ScaledSize,
 	StyleSheet,
 	TouchableOpacity,
 	View,
 } from 'react-native';
-import {
-	PanGestureHandler,
-	PanGestureHandlerGestureEvent,
-} from 'react-native-gesture-handler';
+import type { PanGestureHandlerGestureEvent } from 'react-native-gesture-handler';
+import { PanGestureHandler } from 'react-native-gesture-handler';
+import type { SharedValue } from 'react-native-reanimated';
 import Animated, {
-	SharedValue,
 	useAnimatedGestureHandler,
 	useAnimatedStyle,
 	useSharedValue,
@@ -48,7 +46,7 @@ export const ClassSummary: FC<Props> = ({
 
 	const carouselAnimated = useAnimatedStyle(() => {
 		return { transform: [{ translateX: -transformHorizontal.value }] };
-	});
+	}, [transformHorizontal]);
 
 	const onIndicatorPress = (index: number) => {
 		transformHorizontal.value = withTiming(index * screenWidth.value);

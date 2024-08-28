@@ -1,9 +1,10 @@
-import { LayoutRectangle } from 'react-native';
-import { Amount } from '@metaplex-foundation/js';
+import type { LayoutRectangle } from 'react-native';
+import type { Amount } from '@metaplex-foundation/js';
 import { WalletAdapterNetwork as Network } from '@solana/wallet-adapter-base';
 import { clusterApiUrl } from '@solana/web3.js';
 import BN from 'bn.js';
-import dayjs, { Dayjs } from 'dayjs';
+import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import numeral from 'numeral';
 

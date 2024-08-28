@@ -1,12 +1,7 @@
-import React, { FC, useState } from 'react';
-import {
-	ActivityIndicator,
-	ScaledSize,
-	StyleSheet,
-	TextInput,
-	View,
-	ViewStyle,
-} from 'react-native';
+import type { FC } from 'react';
+import { useState } from 'react';
+import type { ScaledSize, ViewStyle } from 'react-native';
+import { ActivityIndicator, StyleSheet, TextInput, View } from 'react-native';
 import { useMutation } from '@apollo/client';
 import { modalActions } from '@metacraft/ui';
 import { Text } from '@metacraft/ui';
@@ -48,7 +43,7 @@ export const GameSubscribe: FC<Props> = ({ dimensions }) => {
 				variables: {
 					input: {
 						email: emailInput.value,
-						game: MetacraftGames.Card,
+						game: MetacraftGames.Murg,
 					},
 				},
 				onCompleted: () => {

@@ -1,4 +1,4 @@
-import { ImageSourcePropType } from 'react-native';
+import type { ImageSourcePropType } from 'react-native';
 import resources from 'utils/resources';
 
 export interface CardTypeItem {

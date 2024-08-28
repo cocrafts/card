@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import MarketplaceScreen from 'screens/Marketplace';
 import DetailCardScreen from 'screens/Marketplace/DetailCard';
 
-import { MarketplaceParamList, stackScreenOptions } from '../shared';
+import type { MarketplaceParamList } from '../shared';
+import { stackScreenOptions } from '../shared';
 
 const Stack = createStackNavigator<MarketplaceParamList>();
 
