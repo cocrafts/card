@@ -3,7 +3,6 @@ import { ApolloClient, HttpLink, InMemoryCache, split } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { WebSocketLink } from '@apollo/client/link/ws';
 import { getMainDefinition } from '@apollo/client/utilities';
-import configs from 'utils/config';
 import { extractJwt } from 'utils/lib/auth';
 
 const defaultOptions: DefaultOptions = {
@@ -17,15 +16,12 @@ const defaultOptions: DefaultOptions = {
 	},
 };
 
-const uri = __DEV__
-	? 'http://localhost:3005/graphql'
-	: 'https://api.stormgate.io/graphql';
+const basicLink = new HttpLink({ uri: STORMGATE_API_ENDPOINT, fetch });
 
-const basicLink = new HttpLink({ uri, fetch });
 const authLink = setContext(async (_, { headers: originalHeaders }) => {
 	const token = await extractJwt();
 	const headers = {
-		'client-key': configs.clientKey,
+		'client-key': STORMGATE_CLIENT_KEY,
 		...originalHeaders,
 	};
 
@@ -37,8 +33,9 @@ const authLink = setContext(async (_, { headers: originalHeaders }) => {
 });
 
 const httpLink = authLink.concat(basicLink);
+
 const socketLink = new WebSocketLink({
-	uri: 'wss://94zbw8sdk9.execute-api.ap-northeast-1.amazonaws.com/prod',
+	uri: SOCKET_URI,
 	options: { reconnect: true },
 });
 

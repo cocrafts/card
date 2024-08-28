@@ -11,5 +11,5 @@ interface AppState {
 export const appState = proxy<AppState>({
 	counter: 0,
 	privacy: false,
-	network: config.defaultNetwork,
+	network: config.solanaCluster,
 });

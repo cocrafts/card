@@ -29,3 +29,6 @@ game/local/
 game/build/
 game/profiles/
 game/native
+
+.env*
+!.env.example

@@ -22,18 +22,30 @@ const copyAssets = (configs) => {
 	return configs;
 };
 
+const globalVariableNames = [
+	'SOCKET_URI',
+	'STORMGATE_API_ENDPOINT',
+	'STORMGATE_CLIENT_KEY',
+	'SOLANA_CLUSTER',
+	'AUTH_REDIRECT_ORIGIN',
+];
+
 const injectEnvironments = (configs, internal) => {
 	const { webpack } = internal.modules;
 	const { DefinePlugin } = webpack;
 	const { env } = internal.configs;
-	const gitBranch = process.env.gitBranch || 'dev';
 	const isProduction = internal.configs.isProduction;
+
+	const globalVariables = globalVariableNames.reduce(
+		(acc, cur) => ({ ...acc, [cur]: JSON.stringify(process.env[cur]) }),
+		{},
+	);
 
 	configs.plugins[0] = new DefinePlugin({
 		process: { env: {} },
-		gitBranch: JSON.stringify(gitBranch),
 		__DEV__: !isProduction,
 		ENV: JSON.stringify(env),
+		...globalVariables,
 	});
 
 	return configs;

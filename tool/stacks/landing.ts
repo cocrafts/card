@@ -3,9 +3,10 @@ import { HostedZone } from 'aws-cdk-lib/aws-route53';
 import type { StackContext } from 'sst/constructs';
 import { StaticSite } from 'sst/constructs';
 
-import { landingDomainFromStage, sslArn } from './shared';
+import { landingDomainFromStage, loadEnvsFromStage, sslArn } from './shared';
 
 export const Landing = ({ stack, app }: StackContext): void => {
+	loadEnvsFromStage(app.stage);
 	const domain = landingDomainFromStage(app.stage);
 	const certificate = Certificate.fromCertificateArn(stack, 'w-cert', sslArn);
 	const hostedZone = HostedZone.fromLookup(stack, 'HostedZone', {

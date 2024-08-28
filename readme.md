@@ -20,3 +20,8 @@
 - Install deps for Game by `yarn install` under `game` folder
 - Open `game` folder with Cocos creator
 - Configure network endpoint under `./game/assets/scripts/network/util.ts` (line 6), either use remove endpoint or local endpoint at [Card Engine](https://github.com/cocrafts/engines)
+
+## Deployment
+
+- Build game to `assets/murg`, we are currently using `web-mobile` build options
+- Prepare .env file for sst deployment with format `.env.{stage}`, used by bundling and runtime. See `.env.example`
