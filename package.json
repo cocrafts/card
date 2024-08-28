@@ -7,6 +7,9 @@
     "dev": "metacraft",
     "build": "metacraft bundle",
     "deploy": "sst deploy",
+    "deploy:dev": "sst deploy --stage development",
+    "deploy:staging": "sst deploy --stage staging",
+    "deploy:prod": "sst deploy --stage production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "gen": "node tool/gen",
     "invalidate": "node tool/invalidate"
