@@ -64,15 +64,17 @@ export const InternalNavigation: FC<Props> = ({
 	) : isHidingPlayButton ? (
 		<View />
 	) : (
-		<UnderRealmButton
-			style={styles.button}
-			onPress={
-				() => navigate('Game')
-				// Linking.openURL('https://underrealm.stormgate.io/game/duel/demo')
-			}
-		>
-			<Text style={styles.buttonText}>Play</Text>
-		</UnderRealmButton>
+		<View style={{ flexDirection: 'row', gap: 20 }}>
+			<UnderRealmButton
+				style={styles.button}
+				onPress={
+					() => navigate('Game')
+					// Linking.openURL('https://underrealm.stormgate.io/game/duel/demo')
+				}
+			>
+				<Text style={styles.buttonText}>Play</Text>
+			</UnderRealmButton>
+		</View>
 	);
 
 	return (

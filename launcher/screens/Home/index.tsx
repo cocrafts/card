@@ -2,7 +2,6 @@ import type { FC } from 'react';
 import { StyleSheet } from 'react-native';
 import type { DimensionState } from '@metacraft/ui';
 import { dimensionState } from '@metacraft/ui';
-import FooterSection from 'components/layouts/Footer';
 import ScrollLayout from 'components/layouts/Scroll';
 import { useSnapshot } from 'utils/hook';
 
@@ -47,7 +46,7 @@ export const HomeScreen: FC = () => {
 				dimension={windowSize}
 				responsiveLevel={responsiveLevel}
 			/>
-			<FooterSection />
+			{/* <FooterSection /> */}
 		</ScrollLayout>
 	);
 };

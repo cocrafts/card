@@ -12,6 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import UnderRealmLogo from 'components/Home/visuals/UnderRealmLogo';
 import UnderRealmButton from 'components/Marketplace/Button';
 import GameSubscribe from 'components/modals/GameSubscribe';
+import { showSignInOptions } from 'components/Navigation/AuthenticationBundle/SignIn';
 import type { RootParamList } from 'stacks/Browser/shared';
 import { useSnapshot } from 'utils/hook';
 import resources from 'utils/resources';
@@ -64,6 +65,13 @@ const HeadingSection: FC = () => {
 				</UnderRealmButton> */}
 				<UnderRealmButton style={styles.actionButton} onPress={onPlayNowPress}>
 					<Text style={styles.actionButtonText}>Play now</Text>
+				</UnderRealmButton>
+
+				<UnderRealmButton
+					style={styles.actionButton}
+					onPress={showSignInOptions}
+				>
+					<Text style={styles.actionButtonText}>Sign In</Text>
 				</UnderRealmButton>
 			</View>
 		</ImageBackground>

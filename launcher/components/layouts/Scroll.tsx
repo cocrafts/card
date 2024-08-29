@@ -10,7 +10,6 @@ import Animated, {
 import { dimensionState } from '@metacraft/ui';
 import InternalNavigation from 'components/Navigation/Internal';
 import { navigationHeight } from 'components/Navigation/shared';
-import StormNavigation from 'components/Navigation/Storm';
 import { useSnapshot } from 'utils/hook';
 
 interface Props {
@@ -46,7 +45,7 @@ export const ScrollLayout: FC<Props> = ({
 	const dualHeight =
 		(isMobile ? 0 : navigationHeight.storm) + navigationHeight.local;
 	const contentContainer = {
-		paddingTop: dualHeight,
+		// paddingTop: dualHeight,
 	};
 
 	const navigationStyle = useAnimatedStyle(() => {
@@ -63,7 +62,7 @@ export const ScrollLayout: FC<Props> = ({
 	return (
 		<View style={[styles.container, style]}>
 			<Animated.View style={navigationStyle}>
-				{!isMobile && <StormNavigation />}
+				{/* {!isMobile && <StormNavigation />} */}
 				<InternalNavigation isMobile={isMobile} />
 			</Animated.View>
 			<Animated.ScrollView
