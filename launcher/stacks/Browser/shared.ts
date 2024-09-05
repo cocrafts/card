@@ -58,6 +58,7 @@ export type RootParamList = {
 	Mint: NavigatorScreenParams<MintParamList>;
 	Guide: NavigatorScreenParams<GuideParamList>;
 	Story: NavigatorScreenParams<ParamListBase>;
+	Quest: undefined;
 	CardLibrary: NavigatorScreenParams<ParamListBase>;
 	AuthResponse: undefined;
 };
@@ -107,6 +108,9 @@ export const linking: LinkingOptions<RootParamList> = {
 			},
 			Story: {
 				path: '/story',
+			},
+			Quest: {
+				path: '/quest',
 			},
 			CardLibrary: {
 				path: '/card-library',
