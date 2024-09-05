@@ -21,6 +21,8 @@ import { drawerHelper, navigate } from 'stacks/Browser/shared';
 import resources from 'utils/resources';
 import { iStyles } from 'utils/styles';
 
+import { showSignInOptions } from '../AuthenticationBundle/SignIn';
+
 import NavigationItem from './Item';
 
 interface Props {
@@ -64,7 +66,11 @@ export const InternalNavigation: FC<Props> = ({
 	) : isHidingPlayButton ? (
 		<View />
 	) : (
-		<View style={{ flexDirection: 'row', gap: 20 }}>
+		<View style={styles.buttonsContainer}>
+			<TouchableOpacity style={styles.signInButton} onPress={showSignInOptions}>
+				<Text style={styles.signInButtonText}>Sign In</Text>
+			</TouchableOpacity>
+
 			<UnderRealmButton
 				style={styles.button}
 				onPress={
@@ -167,5 +173,16 @@ const styles = StyleSheet.create({
 	buttonText: {
 		textAlign: 'center',
 		color: '#fff',
+	},
+	signInButtonText: {
+		fontSize: 16,
+	},
+	signInButton: {
+		paddingHorizontal: 20,
+	},
+	buttonsContainer: {
+		flexDirection: 'row',
+		gap: 20,
+		alignItems: 'center',
 	},
 });
