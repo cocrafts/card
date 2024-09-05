@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
 		color: '#fff',
 	},
 	signInButtonText: {
-		fontSize: 16,
+		fontSize: 14,
 	},
 	signInButton: {
 		paddingHorizontal: 20,

@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 	},
 });
 
-export const showSignInOptions = () => {
+export const showSignInOptions = (): void => {
 	modalActions.show({
 		id: 'signInOptions',
 		component: SignInOptions,
