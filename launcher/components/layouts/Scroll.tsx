@@ -12,6 +12,7 @@ import InternalNavigation from 'components/Navigation/Internal';
 import { navigationHeight } from 'components/Navigation/shared';
 import { useSnapshot } from 'utils/hook';
 
+const FIXED_HEADER_HEIGHT = 68;
 interface Props {
 	children?: ReactNode;
 	style?: ViewStyle | ViewStyle[];
@@ -48,6 +49,10 @@ export const ScrollLayout: FC<Props> = ({
 		// paddingTop: dualHeight,
 	};
 
+	const containerStyle = {
+		paddingTop: isMobile ? 0 : FIXED_HEADER_HEIGHT,
+	};
+
 	const navigationStyle = useAnimatedStyle(() => {
 		return {
 			zIndex: 1,
@@ -60,7 +65,7 @@ export const ScrollLayout: FC<Props> = ({
 	}, [translate]);
 
 	return (
-		<View style={[styles.container, style]}>
+		<View style={[styles.container, containerStyle, style]}>
 			<Animated.View style={navigationStyle}>
 				{/* {!isMobile && <StormNavigation />} */}
 				<InternalNavigation isMobile={isMobile} />
@@ -82,12 +87,5 @@ export default ScrollLayout;
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-	},
-	navContainer: {
-		position: 'absolute',
-		top: 0,
-		left: 0,
-		right: 0,
-		bottom: 0,
 	},
 });
