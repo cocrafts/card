@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Text } from '@metacraft/ui';
 import resources from 'utils/resources';
 
