@@ -3,7 +3,6 @@ import { ImageBackground, StyleSheet, View } from 'react-native';
 import { dimensionState } from '@metacraft/ui';
 import InternalNavigation from 'components/Navigation/Internal';
 import { navigationHeight } from 'components/Navigation/shared';
-import StormNavigation from 'components/Navigation/Storm';
 import { useSnapshot } from 'utils/hook';
 import resources from 'utils/resources';
 
@@ -19,7 +18,6 @@ export const LobbyScreen: FC = () => {
 			source={resources.lobby.lobbyBackground}
 			style={styles.container}
 		>
-			<StormNavigation />
 			<InternalNavigation isHidingPlayButton />
 			<View style={styles.contentContainer}>
 				<View style={[styles.leftContainer, { height }]}>

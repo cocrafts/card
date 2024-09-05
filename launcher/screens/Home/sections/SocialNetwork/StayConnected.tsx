@@ -1,9 +1,8 @@
 import type { FC } from 'react';
 import { useState } from 'react';
-import { ActivityIndicator, StyleSheet, TextInput, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { useMutation } from '@apollo/client';
 import { Hyperlink, modalActions, Text } from '@metacraft/ui';
-import UnderRealmButton from 'components/Marketplace/Button';
 import Subscribed from 'components/modals/GameSubscribe/Subscribed';
 import { headingSize, sharedStyle } from 'screens/Home/shared';
 import * as mutations from 'utils/graphql/mutation';
@@ -73,25 +72,25 @@ export const StayConnected: FC = () => {
 			</View>
 			<View style={styles.inputContainer}>
 				<View style={styles.inputBackgroundOverlay} />
-				<View>
+				{/* <View>
 					<TextInput
 						placeholder="Enter your email"
 						placeholderTextColor={'#93867c'}
 						style={styles.input}
 						{...emailInput}
 					/>
-				</View>
+				</View> */}
 			</View>
 			{subscribePressed && hasError && (
 				<Text style={styles.warning}>{errorMess}</Text>
 			)}
-			<UnderRealmButton style={styles.button} onPress={onSubscribe}>
+			{/* <UnderRealmButton style={styles.button} onPress={onSubscribe}>
 				{buttonContent}
-			</UnderRealmButton>
-			<Text style={styles.subText}>
+			</UnderRealmButton> */}
+			{/* <Text style={styles.subText}>
 				By signing up, you consent to receive latest updates and special offers
 				about Under Realm.
-			</Text>
+			</Text> */}
 		</View>
 	);
 };
