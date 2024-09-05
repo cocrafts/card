@@ -63,23 +63,23 @@ export const InternalNavigation: FC<Props> = ({
 		// 	<UserSolidIcon size={28} />
 		// </TouchableOpacity>
 		<View style={{ width: 30 }} />
-	) : isHidingPlayButton ? (
-		<View />
 	) : (
 		<View style={styles.buttonsContainer}>
 			<TouchableOpacity style={styles.signInButton} onPress={showSignInOptions}>
 				<Text style={styles.signInButtonText}>Sign In</Text>
 			</TouchableOpacity>
 
-			<UnderRealmButton
-				style={styles.button}
-				onPress={
-					() => navigate('Game')
-					// Linking.openURL('https://underrealm.stormgate.io/game/duel/demo')
-				}
-			>
-				<Text style={styles.buttonText}>Play</Text>
-			</UnderRealmButton>
+			{!isHidingPlayButton && (
+				<UnderRealmButton
+					style={styles.button}
+					onPress={
+						() => navigate('Game')
+						// Linking.openURL('https://underrealm.stormgate.io/game/duel/demo')
+					}
+				>
+					<Text style={styles.buttonText}>Play</Text>
+				</UnderRealmButton>
+			)}
 		</View>
 	);
 
