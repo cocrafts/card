@@ -1,9 +1,9 @@
 import dotenv from 'dotenv';
 
 const landingAlias = {
-	production: 'underrealm.',
-	staging: 'staging.underrealm.',
-	development: 'dev.underrealm.',
+	production: ' ',
+	staging: 'staging.',
+	development: 'dev.',
 };
 
 export const sslArn =
@@ -11,7 +11,7 @@ export const sslArn =
 
 export const landingDomainFromStage = (stage: string): string => {
 	const prefix = landingAlias[stage] || `${stage}.`;
-	return `${prefix.trim()}stormgate.io`;
+	return `${prefix.trim()}underrealm.io`;
 };
 
 export const loadEnvsFromStage = (stage: string): void => {
