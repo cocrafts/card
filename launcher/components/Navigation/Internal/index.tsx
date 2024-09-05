@@ -74,7 +74,7 @@ export const InternalNavigation: FC<Props> = ({
 					style={styles.button}
 					onPress={
 						() => navigate('Game')
-						// Linking.openURL('https://underrealm.stormgate.io/game/duel/demo')
+						// Linking.openURL('https://underrealm.io/game/duel/demo')
 					}
 				>
 					<Text style={styles.buttonText}>Play</Text>

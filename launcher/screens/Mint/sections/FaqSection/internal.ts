@@ -6,7 +6,7 @@ export interface FaqItemConfig {
 export const faqList: FaqItemConfig[] = [
 	{
 		title: 'How to buy?',
-		content: `Step 1: Access [Under Realm Minting page](https://underrealm.stormgate.io/mint)
+		content: `Step 1: Access [Under Realm Minting page](https://underrealm.io/mint)
 Step 2: Select which Pack among 5 Packs you want to purchase
 Step 3: Connect your Phantom/Solflare wallet
 Step 4: Click on Buy button to complete purchasing`,

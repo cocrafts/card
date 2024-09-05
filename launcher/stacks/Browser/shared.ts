@@ -63,7 +63,7 @@ export type RootParamList = {
 };
 
 export const linking: LinkingOptions<RootParamList> = {
-	prefixes: ['https://underrealm.stormgate.io'],
+	prefixes: ['https://underrealm.io'],
 	config: {
 		screens: {
 			Home: {
