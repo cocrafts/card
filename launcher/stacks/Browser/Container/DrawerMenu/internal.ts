@@ -20,9 +20,9 @@ export const naviItemList: NaviItem[] = [
 		title: 'Story',
 		screen: 'Story',
 	},
-	{
-		id: 'mint',
-		title: 'Mint',
-		screen: 'Mint',
-	},
+	// {
+	// 	id: 'mint',
+	// 	title: 'Mint',
+	// 	screen: 'Mint',
+	// },
 ];

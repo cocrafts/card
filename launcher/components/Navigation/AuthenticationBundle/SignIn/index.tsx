@@ -7,6 +7,14 @@ import SignInOptions from 'components/modals/SignInOptions';
 export const SignIn: FC = () => {
 	const containerRef = useRef<View>(null);
 
+	const showSignInOptions = (): void => {
+		modalActions.show({
+			id: 'signInOptions',
+			component: SignInOptions,
+			animateDirection: AnimateDirections.BottomLeft,
+		});
+	};
+
 	return (
 		<View ref={containerRef} style={styles.container}>
 			<TouchableOpacity onPress={showSignInOptions}>
@@ -24,11 +32,3 @@ const styles = StyleSheet.create({
 		color: '#FFFFFF',
 	},
 });
-
-export const showSignInOptions = () => {
-	modalActions.show({
-		id: 'signInOptions',
-		component: SignInOptions,
-		animateDirection: AnimateDirections.BottomLeft,
-	});
-};

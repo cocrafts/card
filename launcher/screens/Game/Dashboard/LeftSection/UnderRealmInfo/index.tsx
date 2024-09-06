@@ -12,7 +12,7 @@ import resources from 'utils/resources';
 export const UnderRealmInfo: FC = () => {
 	return (
 		<View style={styles.container}>
-			<TouchableOpacity
+			{/* <TouchableOpacity
 				activeOpacity={0.7}
 				style={styles.bannerContainer}
 				onPress={() =>
@@ -30,13 +30,12 @@ export const UnderRealmInfo: FC = () => {
 						</View>
 					</View>
 				</ImageBackground>
-			</TouchableOpacity>
+			</TouchableOpacity> */}
+
 			<TouchableOpacity
 				activeOpacity={0.7}
 				style={styles.bannerContainer}
-				onPress={() =>
-					Linking.openURL('https://underrealm.stormgate.io/how-to-play')
-				}
+				onPress={() => Linking.openURL('https://underrealm.io/how-to-play')}
 			>
 				<ImageBackground
 					source={resources.lobby.playBannerBackground}

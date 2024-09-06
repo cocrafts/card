@@ -55,7 +55,7 @@ export const DrawerMenu: FC<DrawerContentComponentProps> = (props) => {
 						isSubButton
 						disabled
 						onPress={() =>
-							Linking.openURL('https://underrealm.stormgate.io/game/duel/demo')
+							Linking.openURL('https://underrealm.io/game/duel/demo')
 						}
 					>
 						<Text style={[sharedStyle.buttonText, { fontSize: 13 }]}>Play</Text>
