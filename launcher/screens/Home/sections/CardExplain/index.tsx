@@ -1,14 +1,7 @@
 import type { FC } from 'react';
 import type { ScaledSize } from 'react-native';
-import {
-	Image,
-	ImageBackground,
-	Linking,
-	StyleSheet,
-	View,
-} from 'react-native';
+import { Image, ImageBackground, StyleSheet, View } from 'react-native';
 import { Text } from '@metacraft/ui';
-import UnderRealmButton from 'components/Marketplace/Button';
 import { headingSize, sharedStyle } from 'screens/Home/shared';
 import resources from 'utils/resources';
 
@@ -27,7 +20,6 @@ export const CardExplainSection: FC<Props> = ({
 		height: imageWidth * 0.7268,
 	};
 	const heightRatio = [1.2, 1.4, 1.5, 2][responsiveLevel];
-	const onMintPress = () => Linking.openURL('');
 
 	return (
 		<View style={styles.container}>
@@ -48,7 +40,7 @@ export const CardExplainSection: FC<Props> = ({
 				</View>
 				<Image source={resources.home.cardExplain} style={imageStyle} />
 				<View style={styles.buttonContainer}>
-					<UnderRealmButton
+					{/* <UnderRealmButton
 						disabled
 						isSubButton
 						style={styles.button}
@@ -56,7 +48,7 @@ export const CardExplainSection: FC<Props> = ({
 					>
 						<Text style={sharedStyle.buttonText}>Mint NFT</Text>
 						<Text style={styles.buttonSubText}>Coming soon</Text>
-					</UnderRealmButton>
+					</UnderRealmButton> */}
 					{/* <UnderRealmButton
 						isSubButton
 						style={styles.button}

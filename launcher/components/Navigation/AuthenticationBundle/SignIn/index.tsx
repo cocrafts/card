@@ -7,7 +7,7 @@ import SignInOptions from 'components/modals/SignInOptions';
 export const SignIn: FC = () => {
 	const containerRef = useRef<View>(null);
 
-	const showSignInOptions = () => {
+	const showSignInOptions = (): void => {
 		modalActions.show({
 			id: 'signInOptions',
 			component: SignInOptions,

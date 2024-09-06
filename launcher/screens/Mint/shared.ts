@@ -1,5 +1,3 @@
-import config from 'utils/config';
-
 export type Rarity = 'Rare' | 'Epic' | 'Mythical' | 'Legendary' | 'Immortal';
 
 type RarityRate = Record<Rarity, number>;
@@ -14,7 +12,7 @@ export interface PackStats {
 	rarity: RarityRate;
 }
 
-const isDev = config.defaultNetwork === 'devnet';
+const isDevnet = SOLANA_CLUSTER === 'devnet';
 
 export const packList: PackStats[] = [
 	{
@@ -23,7 +21,7 @@ export const packList: PackStats[] = [
 		total: 951,
 		remaining: 951,
 		unitPrice: 15,
-		sugarId: isDev
+		sugarId: isDevnet
 			? 'GcyRX3s882L79irZAG7QuSCf7bQEptj16gLjC62mkyrx'
 			: 'GDP3MV8h8ofSGsdQZLe4N4uyZ8FsBV9j3BgLYK1t5JS5',
 		rarity: {
@@ -40,7 +38,7 @@ export const packList: PackStats[] = [
 		total: 694,
 		remaining: 694,
 		unitPrice: 30,
-		sugarId: isDev
+		sugarId: isDevnet
 			? 'GcyRX3s882L79irZAG7QuSCf7bQEptj16gLjC62mkyrx'
 			: '9wFjawBHaiYwEiqryMkeEWABprFs1ZsX6ssy1ebxXCzY',
 		rarity: {
@@ -57,7 +55,7 @@ export const packList: PackStats[] = [
 		total: 488,
 		remaining: 488,
 		unitPrice: 45,
-		sugarId: isDev
+		sugarId: isDevnet
 			? 'GcyRX3s882L79irZAG7QuSCf7bQEptj16gLjC62mkyrx'
 			: 'CRJCZYfZ7yDkCqrQdNxv1DDoZFJLjQRdpE6CuRN5nSbc',
 		rarity: {
@@ -74,7 +72,7 @@ export const packList: PackStats[] = [
 		total: 210,
 		remaining: 210,
 		unitPrice: 120,
-		sugarId: isDev
+		sugarId: isDevnet
 			? 'GcyRX3s882L79irZAG7QuSCf7bQEptj16gLjC62mkyrx'
 			: 'EN9FRH9Hu36mZybz6gNbhkXPc8RwWWRyuVDUTxZTjPkb',
 		rarity: {
@@ -91,7 +89,7 @@ export const packList: PackStats[] = [
 		total: 30,
 		remaining: 30,
 		unitPrice: 300,
-		sugarId: isDev
+		sugarId: isDevnet
 			? 'GcyRX3s882L79irZAG7QuSCf7bQEptj16gLjC62mkyrx'
 			: 'GMS4hJjLxqxg2WPZM8i4tYyHwBpH6CH2hNJdD8YkUiPe',
 		rarity: {

@@ -12,7 +12,7 @@ interface Props {
 	dimensions: ScaledSize;
 }
 
-export const WhyBuyNftSection: FC<Props> = ({ dimensions }) => {
+export const WhyBuyNftSection: FC<Props> = () => {
 	return (
 		<View style={[iStyles.contentContainer, styles.container]}>
 			<Image

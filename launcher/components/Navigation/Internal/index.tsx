@@ -21,6 +21,8 @@ import { drawerHelper, navigate } from 'stacks/Browser/shared';
 import resources from 'utils/resources';
 import { iStyles } from 'utils/styles';
 
+import AuthenticationBundle from '../AuthenticationBundle';
+
 import NavigationItem from './Item';
 
 interface Props {
@@ -61,18 +63,19 @@ export const InternalNavigation: FC<Props> = ({
 		// 	<UserSolidIcon size={28} />
 		// </TouchableOpacity>
 		<View style={{ width: 30 }} />
-	) : isHidingPlayButton ? (
-		<View />
 	) : (
-		<UnderRealmButton
-			style={styles.button}
-			onPress={
-				() => navigate('Game')
-				// Linking.openURL('https://underrealm.stormgate.io/game/duel/demo')
-			}
-		>
-			<Text style={styles.buttonText}>Play</Text>
-		</UnderRealmButton>
+		<View style={styles.buttonsContainer}>
+			<AuthenticationBundle />
+
+			{!isHidingPlayButton && (
+				<UnderRealmButton
+					style={styles.button}
+					onPress={() => navigate('Game')}
+				>
+					<Text style={styles.buttonText}>Play</Text>
+				</UnderRealmButton>
+			)}
+		</View>
 	);
 
 	return (
@@ -165,5 +168,16 @@ const styles = StyleSheet.create({
 	buttonText: {
 		textAlign: 'center',
 		color: '#fff',
+	},
+	signInButtonText: {
+		fontSize: 14,
+	},
+	signInButton: {
+		paddingHorizontal: 20,
+	},
+	buttonsContainer: {
+		flexDirection: 'row',
+		gap: 20,
+		alignItems: 'center',
 	},
 });

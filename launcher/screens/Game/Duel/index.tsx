@@ -27,7 +27,7 @@ export const GameDuel: FC = () => {
 
 	const onContainerLayout = ({ nativeEvent }: LayoutChangeEvent) => {
 		setLayout(nativeEvent.layout);
-		console.log(params.id, '<-- id of the game');
+		console.log('Game Id:', params.id);
 	};
 
 	return (

@@ -50,6 +50,13 @@ export type GuideParamList = {
 	Dashboard: undefined;
 };
 
+export type CardLibraryParamList = {
+	Library: undefined;
+	DetailCard: {
+		id: string;
+	};
+};
+
 export type RootParamList = {
 	Home: NavigatorScreenParams<HomeParamList>;
 	Game: NavigatorScreenParams<GameParamList>;
@@ -58,12 +65,12 @@ export type RootParamList = {
 	Mint: NavigatorScreenParams<MintParamList>;
 	Guide: NavigatorScreenParams<GuideParamList>;
 	Story: NavigatorScreenParams<ParamListBase>;
-	CardLibrary: NavigatorScreenParams<ParamListBase>;
+	CardLibrary: NavigatorScreenParams<CardLibraryParamList>;
 	AuthResponse: undefined;
 };
 
 export const linking: LinkingOptions<RootParamList> = {
-	prefixes: ['https://underrealm.stormgate.io'],
+	prefixes: ['https://underrealm.io'],
 	config: {
 		screens: {
 			Home: {
@@ -127,7 +134,7 @@ export const navigate = (
 	params?: RootParamList[keyof RootParamList],
 ): void => {
 	if (navigationRef.isReady()) {
-		navigationRef.navigate(name as never, params as never);
+		navigationRef.navigate(name, params as never);
 	}
 };
 

@@ -1,15 +1,27 @@
 ### Required tools
+
 - Node.js (for sure)
 - Yarn installed globally (`npm i -g yarn`)
 - Metacraft CLI installed globally (`npm i -g @metacraft/cli`)
 
 ### Run Landing Page
+
 - Development: run `metacraft` under project root
 - Build: `metacraft bundle` (CI will run/deploy using this script, normally we don't use this command)
 
+## Development
+
+- For simulator connect (`engine` repo): change game/assets/scripts/network/util.ts, line 5 websocket url point to localhost
+
 ### Run Game:
+
 - Install [Cocos Dashboard](https://www.cocos.com/en/creator)
 - Install Cocos Creator version `3.8.3` or newer
 - Install deps for Game by `yarn install` under `game` folder
 - Open `game` folder with Cocos creator
 - Configure network endpoint under `./game/assets/scripts/network/util.ts` (line 6), either use remove endpoint or local endpoint at [Card Engine](https://github.com/cocrafts/engines)
+
+## Deployment
+
+- Build game to `assets/murg`, we are currently using `web-mobile` build options
+- Prepare .env file for sst deployment with format `.env.{stage}`, used by bundling and runtime. See `.env.example`
