@@ -141,7 +141,6 @@ export const NarrowScreen: FC = () => {
 						]}
 						onLayout={({ nativeEvent: { layout } }) => {
 							getContentHeight(layout.height);
-							console.log(contentHeight, index);
 						}}
 					>
 						{item.content.map((content, index) => (

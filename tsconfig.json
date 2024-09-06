@@ -1,5 +1,6 @@
 {
   "extends": "@walless/tsconfig/application.json",
+  "include": ["index.web.js", "launcher", "**/*.d.ts"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -9,6 +10,5 @@
       "utils/*": ["./launcher/utils/*"],
       "icons/*": ["./launcher/icons/*"]
     }
-  },
-  "include": ["index.web.js", "launcher", "**/*.d.ts"]
+  }
 }

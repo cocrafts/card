@@ -1,5 +1,6 @@
 import type { FC } from 'react';
-import type { DrawerContentComponentProps } from 'components/DrawerNavigation';
+import type { DrawerContentComponentProps } from '@react-navigation/drawer';
+// clone patch @react-navigation/drawer as it does not work on web
 import { createDrawerNavigator } from 'components/DrawerNavigation';
 import HomeScreen from 'screens/Home';
 import StoryScreen from 'screens/Story';

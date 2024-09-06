@@ -43,11 +43,7 @@ export const ScrollLayout: FC<Props> = ({
 		},
 	});
 
-	const dualHeight =
-		(isMobile ? 0 : navigationHeight.storm) + navigationHeight.local;
-	const contentContainer = {
-		// paddingTop: dualHeight,
-	};
+	const contentContainer = {};
 
 	const containerStyle = {
 		paddingTop: isMobile ? 0 : FIXED_HEADER_HEIGHT,

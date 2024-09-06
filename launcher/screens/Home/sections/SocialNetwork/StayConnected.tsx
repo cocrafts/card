@@ -19,6 +19,7 @@ export const StayConnected: FC = () => {
 	const { hasError, errorMess } = validateEmail(emailInput.value);
 	const [subscribeGame] = useMutation(mutations.subscribeGame);
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const onSubscribe = () => {
 		setSubscribePressed(true);
 
@@ -47,6 +48,7 @@ export const StayConnected: FC = () => {
 		}
 	};
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const buttonContent = loading ? (
 		<ActivityIndicator color="white" />
 	) : (

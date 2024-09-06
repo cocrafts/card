@@ -17,7 +17,7 @@ interface Props {
 }
 
 export const PackBundle: FC<Props> = ({ item, onPress }) => {
-	const { title, total, remaining, unitPrice, sugarId } = item;
+	const { title, unitPrice, sugarId } = item;
 	const { publicKey, signMessage, signTransaction } = useWallet();
 	const { connection } = useConnection();
 	const mplRef = useRef<Metaplex>();
