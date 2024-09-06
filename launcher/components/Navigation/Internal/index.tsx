@@ -21,7 +21,7 @@ import { drawerHelper, navigate } from 'stacks/Browser/shared';
 import resources from 'utils/resources';
 import { iStyles } from 'utils/styles';
 
-import { showSignInOptions } from '../AuthenticationBundle/SignIn';
+import AuthenticationBundle from '../AuthenticationBundle';
 
 import NavigationItem from './Item';
 
@@ -65,17 +65,12 @@ export const InternalNavigation: FC<Props> = ({
 		<View style={{ width: 30 }} />
 	) : (
 		<View style={styles.buttonsContainer}>
-			<TouchableOpacity style={styles.signInButton} onPress={showSignInOptions}>
-				<Text style={styles.signInButtonText}>Sign In</Text>
-			</TouchableOpacity>
+			<AuthenticationBundle />
 
 			{!isHidingPlayButton && (
 				<UnderRealmButton
 					style={styles.button}
-					onPress={
-						() => navigate('Game')
-						// Linking.openURL('https://underrealm.io/game/duel/demo')
-					}
+					onPress={() => navigate('Game')}
 				>
 					<Text style={styles.buttonText}>Play</Text>
 				</UnderRealmButton>

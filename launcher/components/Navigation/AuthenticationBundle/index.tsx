@@ -34,16 +34,15 @@ export const AuthenticationBundle: FC<Props> = ({ style }) => {
 export default AuthenticationBundle;
 
 const commandSize = 24;
+
 const styles = StyleSheet.create({
 	container: {
 		justifyContent: 'center',
-		paddingLeft: 6,
-		paddingRight: 38,
+		padding: 6,
 	},
 	loadingContainer: {
 		width: commandSize,
 		height: commandSize,
-		marginRight: 4,
 		borderRadius: commandSize / 2,
 		backgroundColor: 'rgba(255, 255, 255, 0.05)',
 		alignItems: 'center',
