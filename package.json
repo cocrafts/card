@@ -68,6 +68,7 @@
     "@babel/preset-env": "^7.20.0",
     "@metacraft/cli-web3-polyfills": "^0.0.8",
     "@types/bn.js": "^5",
+    "@types/color": "^3.0.6",
     "@types/fbjs": "^3.0.2",
     "@types/numeral": "^2.0.2",
     "@types/react": "^18.0.28",
