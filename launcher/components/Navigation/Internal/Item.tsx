@@ -26,6 +26,7 @@ export const NavigationItem: FC<Props> = ({ item, onNavigate }) => {
 		return name;
 	};
 	const isActive = item.route === getRouteName();
+
 	const isHovered = useSharedValue(false);
 	const imageAnimated = useAnimatedStyle(() => {
 		return {
