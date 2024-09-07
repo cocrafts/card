@@ -24,7 +24,7 @@ const Action: FC<Props> = ({ points, onGo, onVerify }) => {
 	}, [windowSize.width]);
 
 	return (
-		<View style={isMobile ? styles.contentPartOnMobile : styles.contentPart}>
+		<View style={isMobile ? styles.containerOnMobile : styles.contentPart}>
 			<View
 				style={[styles.buttonsContainer, buttonStyle, isMobile && { gap: 0 }]}
 			>
@@ -39,6 +39,7 @@ const Action: FC<Props> = ({ points, onGo, onVerify }) => {
 						}}
 						style={[
 							styles.refreshButton,
+							isMobile && styles.refreshButtonOnMobile,
 							isRefreshHovered ? styles.hovered : {},
 						]}
 					>
@@ -64,7 +65,7 @@ const Action: FC<Props> = ({ points, onGo, onVerify }) => {
 				)}
 			</View>
 
-			<View>
+			<View style={styles.pointContainer}>
 				<Text style={isMobile ? styles.pointTextOnMobile : styles.pointText}>
 					+{points} pts
 				</Text>
@@ -90,6 +91,10 @@ const styles = StyleSheet.create({
 		overflow: 'visible',
 		alignItems: 'center',
 		justifyContent: 'center',
+	},
+	refreshButtonOnMobile: {
+		width: 20,
+		height: 20,
 	},
 	refreshButtonImage: {
 		width: 39,
@@ -117,9 +122,9 @@ const styles = StyleSheet.create({
 		gap: 20,
 		alignItems: 'center',
 	},
-	contentPartOnMobile: {
+	containerOnMobile: {
 		flexDirection: 'row',
-		gap: 12,
+		gap: 8,
 		alignItems: 'center',
 	},
 	goButton: {
@@ -127,9 +132,9 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	goButtonOnMobile: {
-		width: 62,
+		width: 64,
 		alignItems: 'center',
-		height: 28,
+		height: 24,
 	},
 	buttonText: {
 		color: '#ffffff',
@@ -147,7 +152,7 @@ const styles = StyleSheet.create({
 		color: '#F2E0C3',
 		fontFamily: 'Volkhov',
 		fontWeight: '500',
-		fontSize: 14,
+		fontSize: 12,
 		marginBottom: 4,
 	},
 	hovered: {
@@ -161,5 +166,8 @@ const styles = StyleSheet.create({
 	},
 	buttonTextOnMobile: {
 		fontSize: 12,
+	},
+	pointContainer: {
+		alignItems: 'center',
 	},
 });

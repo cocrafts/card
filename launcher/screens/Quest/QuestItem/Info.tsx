@@ -42,8 +42,8 @@ const Info: FC<Props> = ({ platform, title, description }) => {
 				<Text
 					style={[
 						styles.title,
-						isMobile ? styles.titleOnMobile : {},
 						{ maxWidth: textMaxWidthOnWeb },
+						isMobile ? styles.titleOnMobile : {},
 					]}
 					numberOfLines={1}
 					ellipsizeMode="tail"
@@ -53,8 +53,8 @@ const Info: FC<Props> = ({ platform, title, description }) => {
 				<Text
 					style={[
 						styles.description,
-						isMobile ? styles.desOnMobile : {},
 						{ maxWidth: textMaxWidthOnWeb },
+						isMobile ? styles.desOnMobile : {},
 					]}
 					numberOfLines={1}
 					ellipsizeMode="tail"
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
 	desOnMobile: {
 		fontSize: 10,
 		lineHeight: 12,
-		maxWidth: 100,
+		maxWidth: 140,
 	},
 	buttonTextOnMobile: {
 		fontSize: 12,

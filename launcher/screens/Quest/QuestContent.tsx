@@ -24,7 +24,7 @@ const QuestContent: FC = () => {
 	const containerStyle = useMemo(() => {
 		if (isMobile)
 			return {
-				width: windowSize.width - (windowSize.width * 40) / 430,
+				width: windowSize.width - (windowSize.width * 24) / 430,
 				marginTop: (windowSize.height * 80) / 960,
 			};
 		return {
