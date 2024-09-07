@@ -7,14 +7,24 @@ import UnderRealmLogo from 'components/Home/visuals/UnderRealmLogo';
 import { useSnapshot } from 'valtio';
 
 const HeadingSection: FC = () => {
-	const { windowSize } = useSnapshot<DimensionState>(dimensionState);
-	const logoSize = (785 * windowSize.width) / 1440;
+	const { windowSize, isMobile } = useSnapshot<DimensionState>(dimensionState);
+	const logoSize = useMemo(() => {
+		if (isMobile) return (360 * windowSize.width) / 430;
+
+		return (785 * windowSize.width) / 1440;
+	}, [windowSize.width, isMobile]);
+
 	const subtitleStyle = useMemo(() => {
+		if (isMobile)
+			return {
+				fontSize: 14,
+			};
+
 		return {
 			maxWidth: (windowSize.width * 580) / 1440,
 			marginTop: (-22 * windowSize.height) / 1024,
 		};
-	}, [windowSize]);
+	}, [windowSize, isMobile]);
 
 	return (
 		<View style={styles.container}>
@@ -38,5 +48,7 @@ const styles = StyleSheet.create({
 		fontWeight: '500',
 		fontSize: 18,
 		textAlign: 'center',
+		maxWidth: 280,
+		marginTop: 20,
 	},
 });

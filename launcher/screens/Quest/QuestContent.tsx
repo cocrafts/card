@@ -11,7 +11,7 @@ import QuestItem from './QuestItem';
 import TabSelection from './TabSelection';
 
 const QuestContent: FC = () => {
-	const { windowSize } = useSnapshot<DimensionState>(dimensionState);
+	const { windowSize, isMobile } = useSnapshot<DimensionState>(dimensionState);
 
 	const frameCharmStyle = useMemo(() => {
 		return {
@@ -21,12 +21,17 @@ const QuestContent: FC = () => {
 		};
 	}, [windowSize]);
 
-	const questContainerStyle = useMemo(() => {
+	const containerStyle = useMemo(() => {
+		if (isMobile)
+			return {
+				width: windowSize.width - (windowSize.width * 40) / 430,
+				marginTop: (windowSize.height * 80) / 960,
+			};
 		return {
 			marginTop: (windowSize.height * 360) / 1362,
 			width: windowSize.width - (windowSize.width * 120) / 720,
 		};
-	}, [windowSize]);
+	}, [windowSize, isMobile]);
 
 	const titleCharmStyle = useMemo(() => {
 		return {
@@ -37,7 +42,7 @@ const QuestContent: FC = () => {
 	}, [windowSize]);
 
 	return (
-		<View style={[styles.container, questContainerStyle]}>
+		<View style={[styles.container, containerStyle]}>
 			<Image
 				style={[styles.frameCharm, frameCharmStyle]}
 				source={resources.quest.charm}
@@ -56,7 +61,7 @@ const QuestContent: FC = () => {
 				<TabSelection title="Referral" />
 			</View>
 
-			<View style={styles.quests}>
+			<View style={[styles.quests, isMobile ? styles.questsOnMobile : {}]}>
 				{mockQuests.map((quest) => (
 					<QuestItem key={quest.title} {...quest} />
 				))}
@@ -82,6 +87,7 @@ const styles = StyleSheet.create({
 		alignItems: 'stretch',
 		paddingBottom: 80,
 		marginBottom: 40,
+		marginTop: 80,
 	},
 	title: {
 		fontFamily: 'Volkhov',
@@ -100,6 +106,9 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 40,
 		marginTop: 40,
 		gap: 16,
+	},
+	questsOnMobile: {
+		paddingHorizontal: 12,
 	},
 	titleContainer: {
 		paddingVertical: 20,

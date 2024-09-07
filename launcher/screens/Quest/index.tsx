@@ -11,28 +11,32 @@ import HeadingSection from './HeadingSection';
 import QuestContent from './QuestContent';
 
 const QuestScreen: FC = () => {
-	const { windowSize } = useSnapshot<DimensionState>(dimensionState);
+	const { windowSize, isMobile } = useSnapshot<DimensionState>(dimensionState);
 
 	const imageHeight = useMemo(
 		() => (windowSize.width * 1362) / 1440,
 		[windowSize],
 	);
 
+	const imageBackgroundStyle = useMemo(() => {
+		if (isMobile)
+			return {
+				height: imageHeight,
+			};
+
+		return {
+			height: imageHeight,
+			paddingTop: (imageHeight * 140) / 1024,
+		};
+	}, [windowSize, isMobile]);
+
 	return (
 		<ScrollLayout style={styles.container}>
 			<ImageBackground
 				source={resources.quest.headingBackground}
-				style={[
-					styles.imageBackground,
-					{
-						height: imageHeight,
-						paddingTop: (imageHeight * 140) / 1024,
-						paddingHorizontal: (windowSize.width * 120) / 1440,
-					},
-				]}
+				style={[styles.imageBackground, imageBackgroundStyle]}
 			>
 				<HeadingSection />
-
 				<QuestContent />
 			</ImageBackground>
 		</ScrollLayout>
@@ -52,5 +56,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
+		paddingTop: 80,
 	},
 });

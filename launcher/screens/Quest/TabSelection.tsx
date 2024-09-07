@@ -1,8 +1,11 @@
 import type { FC } from 'react';
+import { useMemo } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 import { StyleSheet } from 'react-native';
-import { Text } from '@metacraft/ui';
+import type { DimensionState } from '@metacraft/ui';
+import { dimensionState, Text } from '@metacraft/ui';
 import resources from 'utils/resources';
+import { useSnapshot } from 'valtio';
 
 interface Props {
 	onChangeTab?: () => void;
@@ -11,8 +14,16 @@ interface Props {
 }
 
 const TabSelection: FC<Props> = ({ onChangeTab, title, isActive = false }) => {
+	const { windowSize, isMobile } = useSnapshot<DimensionState>(dimensionState);
+	const containerStyle = useMemo(() => {
+		if (isMobile) return { width: (180 * windowSize.width) / 430 };
+	}, [windowSize.width, isMobile]);
+
 	return (
-		<TouchableOpacity style={styles.container} onPress={onChangeTab}>
+		<TouchableOpacity
+			style={[styles.container, containerStyle]}
+			onPress={onChangeTab}
+		>
 			<Text
 				style={[
 					styles.title,
